@@ -169,7 +169,7 @@
 }
 
 /*footer starts here*/
-.container {
+.cntainer {
     max-width: 1170px; 
     margin: auto;
     padding-top: 40px;
@@ -293,6 +293,8 @@
   width: 90%;
   margin: 0 auto;
   margin-top: -95px;
+  justify-content: center;
+  text-align: center;
 }
 
 :root {
