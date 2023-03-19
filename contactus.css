@@ -292,6 +292,7 @@
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
+  margin-top: -95px;
 }
 
 :root {
@@ -310,15 +311,15 @@
 .form {
   display: flex;
   justify-content: space-between;
-  margin: -90px 0;
-  margin-bottom: 10px;
+  margin: auto 0;
+  margin-top: 10px;
 }
 
-.form .form-txt {
+.form {
   flex-basis: 48%;
 }
 
-.form .form-txt h1 {
+.form {
   font-weight: 600;
   color: var(--black);
   font-size: 40px;
@@ -327,19 +328,19 @@
   color: var(--light-black);
 }
 
-.form .form-txt span {
+.form  {
   color: var(--light-black);
   font-size: 14px;
 }
 
-.form .form-txt h3 {
+.form {
   font-size: 22px;
   font-weight: 600;
   margin: 15px 0;
   color: var(--light-black);
 }
 
-.form .form-txt p {
+.form {
   color: var(--light-black);
   font-size: 14px;
 }
@@ -441,6 +442,10 @@ button:hover {
   color: black;
   border: none;
 
+}
+
+.form h1 {
+  color: #000;
 }
 
  
