@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #2196F3; /* Blue background */
+            font-family: Arial, sans-serif;
+            margin-top: 50px; /* Margin at the top of the page */
+            margin-bottom: 50px; /* Margin at the bottom of the page */
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Background blur effect */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            border-radius: 10px; /* Rounded corners */
+            margin-left: 20px; /* Left margin */
+            overflow: auto; /* Enable scrolling */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Label color */
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            background-color: transparent; /* Transparent background */
+            border: none; /* Remove input border */
+            border-bottom: 1px solid #333; /* Add line below input */
+            outline: none; /* Remove outline when input is focused */
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #4CAF50; /* Green submit button */
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .modal {
+            background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Background blur effect */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 10px; /* Rounded corners */
+            height: 700px; /* Set the height */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            margin-top: 50px; /* Margin at the top of the popup container */
+        }
+
+        .modal h2 {
+            color: #333; /* Heading color */
+        }
+
+        .modal p {
+            color: #555; /* Paragraph color */
+        }
+
+        .modal-close {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .modal-close button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #888;
+            cursor: pointer;
+        }
+
+      .form-group input[type="button"] {
+            background-color: #2196F3; /* Blue button */
+            color: white;
+            cursor: pointer;
+            border-radius: 20px; /* Rounded corners */
+            transition: 0.2s ;
+        }
+
+        .form-group input[type="submit"] {
+            border-radius: 20px;
+        }
+
+        .form-group input[type="button"]:hover {
+            background-color: #0D47A1; /* Darker blue on hover */
+        }
+
+    /* Adjust the width, border, padding, and border-radius of the selection boxes */
+    select {
+        width: 300px;
+        border: 2px solid #ccc;
+        padding: 30px;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.2s;
+      background-color: DodgerBlue;
+    }
+
+    /* Add hover effect to the selection boxes */
+    select:hover {
+        border-color: #888;
+    }
+
+    /* Style the options within the selection boxes */
+    option {
+        font-size: 16px;
+    }
+
+     /* Add this CSS to style the custom checkbox */
+     .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #333; /* Label color */
+            font-size: 16px;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .proof-section textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+@media screen and (max-width: 600px) {
+            .container {
+                max-width: 100%;
+                margin: 0 20px; /* Adjust margin for smaller screens */
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Membership Form</h1>
+        <form>
+           <div class="form-group">
+    <label for="companyFullName">Company Full Name:</label>
+    <input type="text" id="companyFullName" name="companyFullName" placeholder="Enter company full name" required>
+</div>
+<div class="form-group">
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" placeholder="Enter address" required>
+</div>
+<div class="form-group">
+    <label for="nip">NIP:</label>
+    <input type="text" id="nip" name="nip" placeholder="Enter NIP" required>
+</div>
+<div class="form-group">
+    <label for="companyOfficeAddress">Address of a company's office:</label>
+    <input type="text" id="companyOfficeAddress" name="companyOfficeAddress" placeholder="Enter company's office address">
+</div>
+<div class="form-group">
+    <label for="correspondenceAddress">Address for correspondence:</label>
+    <input type="text" id="correspondenceAddress" name="correspondenceAddress" placeholder="Enter correspondence address">
+</div>
+<div class="form-group">
+    <label for="taxNumber">Tax Number:</label>
+    <input type="text" id="taxNumber" name="taxNumber" placeholder="Enter tax number">
+</div>
+<div class="form-group">
+    <label for="region">Region:</label>
+    <input type="text" id="region" name="region" placeholder="Enter region">
+</div>
+<div class="form-group">
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number">
+</div>
+<div class="form-group">
+    <label for="krs">KRS:</label>
+    <input type="text" id="krs" name="krs" placeholder="Enter KRS">
+</div>
+<div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter email" required>
+</div>
+<div class="form-group">
+    <label for="website">Website:</label>
+    <input type="text" id="website" name="website" placeholder="Enter website">
+</div>
+<div class="form-group">
+    <label for="numEmployees">Number of Employees:</label>
+    <input type="number" id="numEmployees" name="numEmployees" placeholder="Enter number of employees">
+</div>
+<div class="form-group">
+    <label for="fax">Fax:</label>
+    <input type="text" id="fax" name="fax" placeholder="Enter fax number">
+</div>
+
+          <div class="form-group">
+    <h3>Tardes (please select three trades with the criterion of validity 1, 2, 3 where 1 stands for the most important industry.)</h3>
+    <div class="trade-section">
+        <label for="trade1">Trade 1:</label>
+        <select id="trade1" name="trade1">
+            <option value="bankingInsuranceFinancial">Banking, Insurance, Financial Services</option>
+            <option value="construction">Construction</option>
+            <option value="chemistryPharmaceutical">Chemistry, Pharmaceutical</option>
+            <option value="woodAndWoodProducts">Wood and Wood Products</option>
+            <option value="scienceResearchDevelopment">Science, Research and Development Units</option>
+            <option value="educationAdvisoryServices">Education, Advisory Services, Training, Consulting</option>
+            <option value="electronics">Electronics</option>
+            <option value="powerIndustry">Power Industry</option>
+            <option value="miningMetallurgy">Mining, Metallurgy, Metallurgy</option>
+            <option value="others">Others</option>
+            <option value="machinesDevicesMotorization">Machines, Devices, Motorization</option>
+            <option value="clothesShoesConfection">Clothes, Shoes, Confection</option>
+            <option value="poligraphyAdvertisingPRMedia">Poligraphy, Advertising, PR, Media</option>
+            <option value="agricultureFoodProducts">Agriculture, Food Products</option>
+            <option value="transportLogistics">Transport, Logistics</option>
+            <option value="tourismGastronomyHotel">Tourism, Gastronomy, Hotel</option>
+            <option value="sportRecreation">Sport and Recreation</option>
+            <option value="legalServices">Legal Services</option>
+            <option value="health">Health</option>
+        </select>
+        <label for="trade1Validity">Validity:</label>
+        <select id="trade1Validity" name="trade1Validity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="trade-section">
+        <label for="trade2">Trade 2:</label>
+        <select id="trade2" name="trade2">
+            <option value="bankingInsuranceFinancial">Banking, Insurance, Financial Services</option>
+            <option value="construction">Construction</option>
+            <option value="chemistryPharmaceutical">Chemistry, Pharmaceutical</option>
+            <option value="woodAndWoodProducts">Wood and Wood Products</option>
+            <option value="scienceResearchDevelopment">Science, Research and Development Units</option>
+            <option value="educationAdvisoryServices">Education, Advisory Services, Training, Consulting</option>
+            <option value="electronics">Electronics</option>
+            <option value="powerIndustry">Power Industry</option>
+            <option value="miningMetallurgy">Mining, Metallurgy, Metallurgy</option>
+            <option value="others">Others</option>
+            <option value="machinesDevicesMotorization">Machines, Devices, Motorization</option>
+            <option value="clothesShoesConfection">Clothes, Shoes, Confection</option>
+            <option value="poligraphyAdvertisingPRMedia">Poligraphy, Advertising, PR, Media</option>
+            <option value="agricultureFoodProducts">Agriculture, Food Products</option>
+            <option value="transportLogistics">Transport, Logistics</option>
+            <option value="tourismGastronomyHotel">Tourism, Gastronomy, Hotel</option>
+            <option value="sportRecreation">Sport and Recreation</option>
+            <option value="legalServices">Legal Services</option>
+            <option value="health">Health</option>
+        </select>
+        <label for="trade2Validity">Validity:</label>
+        <select id="trade2Validity" name="trade2Validity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="trade-section">
+        <label for="trade3">Trade 3:</label>
+        <select id="trade3" name="trade3">
+            <option value="bankingInsuranceFinancial">Banking, Insurance, Financial Services</option>
+            <option value="construction">Construction</option>
+            <option value="chemistryPharmaceutical">Chemistry, Pharmaceutical</option>
+            <option value="woodAndWoodProducts">Wood and Wood Products</option>
+            <option value="scienceResearchDevelopment">Science, Research and Development Units</option>
+            <option value="educationAdvisoryServices">Education, Advisory Services, Training, Consulting</option>
+            <option value="electronics">Electronics</option>
+            <option value="powerIndustry">Power Industry</option>
+            <option value="miningMetallurgy">Mining, Metallurgy, Metallurgy</option>
+            <option value="others">Others</option>
+            <option value="machinesDevicesMotorization">Machines, Devices, Motorization</option>
+            <option value="clothesShoesConfection">Clothes, Shoes, Confection</option>
+            <option value="poligraphyAdvertisingPRMedia">Poligraphy, Advertising, PR, Media</option>
+            <option value="agricultureFoodProducts">Agriculture, Food Products</option>
+            <option value="transportLogistics">Transport, Logistics</option>
+            <option value="tourismGastronomyHotel">Tourism, Gastronomy, Hotel</option>
+            <option value="sportRecreation">Sport and Recreation</option>
+            <option value="legalServices">Legal Services</option>
+            <option value="health">Health</option>
+        </select>
+        <label for="trade3Validity">Validity:</label>
+        <select id="trade3Validity" name="trade3Validity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <h3>Proof of Activity According to PKD (from the REGON registered)</h3>
+                 <div class="proof-section">
+                <label for="proof1">Proof 1:</label>
+                <textarea id="proof1" name="proof1" rows="10" cols="50"></textarea>
+            </div>
+            <div class="proof-section">
+                <label for="proof2">Proof 2:</label>
+                <textarea id="proof2" name="proof2" rows="10" cols="50"></textarea>
+            </div>
+
+        <input type="checkbox" id="membershipConsent" name="membershipConsent">
+<label for="membershipConsent" style="font-style: italic; font-size: small;">
+    <i>I consent to receiving the newsletter and commercial information electronically from the regional chamber of commerce and industry in Katowice. The chamber, located at ul. opolska 1, (40-084), acts as the data controller, in compliance with the act dated July 18th, 2002 on services via electronic means. This consent is unsolicited, and I have the right to revoke it at any time (data processed until consent is revoked). I also have the rights to access, correct, erase, or limit data processing, to object, file a complaint with the supervisory body, or transmit the data. The data controller processes the data according to the privacy policy.</i>
+</label>
+
+    </div>
+    <input type="button" value="Submit" onclick="submitForm()">
+</div>
+
+
+            </div>
+        </form>
+    </div>
+
+    <div class="modal" id="modal" style="display: none;">
+        <div class="modal-close">
+            <button onclick="closeModal()">Close</button>
+        </div>
+        <h2>Modal Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum ex quis est lacinia, sit amet maximus quam fringilla. Quisque viverra finibus pulvinar. Donec hendrerit eleifend purus nec lacinia. Integer id felis in massa elementum ultrices et eget tortor. Pellentesque gravida, mi ut efficitur varius, nisi lectus dapibus dolor, sit amet venenatis est augue nec urna. Vestibulum tincidunt venenatis justo, sed interdum sapien efficitur nec.</p>
+        <!-- Add more content here -->
+        <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit... -->
+    </div>
+
+
+    
+
+
+    <script>
+       function openModal() {
+    document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function printForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    console.log("Name: " + name);
+    console.log("Email: " + email);
+}
+
+function downloadAsPDF() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+
+    var doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text("Membership Form", 20, 20);
+    doc.setFontSize(12);
+    doc.text("Name: " + name, 20, 30);
+    doc.text("Email: " + email, 20, 40);
+    // Add more fields if needed
+
+    doc.save("membership_form.pdf");
+}
+
+function sendEmailRedirect() {
+    // Redirect to "sivahandlowy.com" after sending the Gmail
+    window.location.href = "https://sivahandlowy.com";
+}
+
+function submitForm() {
+    var companyFullName = document.getElementById("companyFullName").value;
+    var address = document.getElementById("address").value;
+    var nip = document.getElementById("nip").value;
+    var companyOfficeAddress = document.getElementById("companyOfficeAddress").value;
+    var correspondenceAddress = document.getElementById("correspondenceAddress").value;
+    var taxNumber = document.getElementById("taxNumber").value;
+    var region = document.getElementById("region").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
+    var krs = document.getElementById("krs").value;
+    var email = document.getElementById("email").value;
+    var website = document.getElementById("website").value;
+    var numEmployees = document.getElementById("numEmployees").value;
+    var fax = document.getElementById("fax").value;
+    var trade1 = document.getElementById("trade1").value;
+    var trade1Validity = document.getElementById("trade1Validity").value;
+    var trade2 = document.getElementById("trade2").value;
+    var trade2Validity = document.getElementById("trade2Validity").value;
+    var trade3 = document.getElementById("trade3").value;
+    var trade3Validity = document.getElementById("trade3Validity").value;
+    var membershipConsent = document.getElementById("membershipConsent").checked;
+    var proof1 = document.getElementById("proof1").value;
+    var proof2 = document.getElementById("proof2").value;
+
+    // Check if all required fields are filled
+    if (
+        companyFullName === "" ||
+        address === "" ||
+        nip === "" ||
+        companyOfficeAddress === "" ||
+        correspondenceAddress === "" ||
+        taxNumber === "" ||
+        region === "" ||
+        phoneNumber === "" ||
+        krs === "" ||
+        email === "" ||
+        website === "" ||
+        numEmployees === "" ||
+        fax === "" ||
+        trade1 === "" ||
+        trade1Validity === "" ||
+        trade2 === "" ||
+        trade2Validity === "" ||
+        trade3 === "" ||
+        trade3Validity === "" ||
+        proof1 === "" ||
+        proof2 === ""
+    ) {
+        alert("Please fill in all the required fields.");
+        return;
+    }
+
+    // Compose email body
+    var subject = "Membership Form Submission";
+    var body = "Company Full Name: " + companyFullName + "\n" +
+        "Address: " + address + "\n" +
+        "NIP: " + nip + "\n" +
+        "Address of a company's office: " + companyOfficeAddress + "\n" +
+        "Address for correspondence: " + correspondenceAddress + "\n" +
+        "Tax Number: " + taxNumber + "\n" +
+        "Region: " + region + "\n" +
+        "Phone Number: " + phoneNumber + "\n" +
+        "KRS: " + krs + "\n" +
+        "Email: " + email + "\n" +
+        "Website: " + website + "\n" +
+        "Number of Employees: " + numEmployees + "\n" +
+        "Fax: " + fax + "\n" +
+        "Trade 1: " + trade1 + " (Validity: " + trade1Validity + ")" + "\n" +
+        "Trade 2: " + trade2 + " (Validity: " + trade2Validity + ")" + "\n" +
+        "Trade 3: " + trade3 + " (Validity: " + trade3Validity + ")" + "\n\n" +
+        "Proof 1: " + proof1 + "\n" +
+        "Proof 2: " + proof2;
+
+    if (membershipConsent) {
+        body += "\n\n☑️ Membership Consent: I consent to receiving the newsletter and commercial information electronically from the regional chamber of commerce and industry in Katowice. The chamber, located at ul. opolska 1, (40-084), acts as the data controller, in compliance with the act dated July 18th, 2002 on services via electronic means. This consent is unsolicited, and I have the right to revoke it at any time (data processed until consent is revoked). I also have the rights to access, correct, erase, or limit data processing, to object, file a complaint with the supervisory body, or transmit the data. The data controller processes the data according to the privacy policy.";
+    }
+
+    // Compose Gmail URL
+    var gmailURL = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(email) + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+    // Check if the user is on a mobile device
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Redirect to Gmail compose on mobile or open in new window
+    if (isMobileDevice()) {
+        window.location.href = gmailURL;
+    } else {
+        window.open(gmailURL);
+    }
+
+    // Clear form inputs
+    document.getElementById("membershipForm").reset();
+}
+
+// Add event listeners
+document.getElementById("membershipForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    submitForm();
+});
+
+document.getElementById("membershipForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get the inputted text from the proof fields
+    var proof1Text = document.getElementById("proof1").value;
+    var proof2Text = document.getElementById("proof2").value;
+
+    // Compose the email with the proof heading and the inputted text
+    var composedEmail = "Proof:\n" + proof1Text + "\n\n" + proof2Text;
+
+    // Display the composed email in an alert (you can modify this part to send the email)
+    alert(composedEmail);
+});
+
+
+    </script>
+</body>
+</html>
