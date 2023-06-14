@@ -8,44 +8,123 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+    <style>
+      .header {
+          position: relative;
+          z-index: 1;
+      }
+
+      .openbtn {
+          font-size: 20px;
+          cursor: pointer;
+          background-color: dodgerblue;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+      }
+
+      .openbtn:hover {
+          background-color: #4CAF50;
+      }
+
+      .sidebar {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 2;
+          top: 0;
+          left: 0;
+          background-color: #111;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+      }
+
+      .sidebar a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+      }
+
+      .sidebar a:hover {
+          color: #f1f1f1;
+      }
+
+      .sidebar .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+      }
+
+      #main {
+          margin-left: 0;
+          transition: margin-left .5s;
+          padding: 16px;
+      }
+
+      .overlay {
+          position: fixed;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.6);
+          z-index: 3;
+          display: none;
+      }
+
+      #mySidebar.open {
+          width: 250px;
+      }
+  </style>
 </head>
 <body>
-    <div class="nav">
-        <input type="checkbox" id="nav-check">
-        <div class="nav-header">
-          <div class="nav-title">
-            Siva
-          </div>
-        </div>
-        <div class="nav-btn">
-          <label for="nav-check">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
-        </div>
-        
-        <div class="nav-links" id="navbar
-        ">
-          <a href="index.html" href="javascript:void(0)" >Home</a>
-          <a href="aboutus.html" href="javascript:void(0)">About us</a>
-          <a href="#" href="javascript:void(0)" >Euar</a>
-          <a href="services.html" href="javascript:void(0)">Services</a>
-          <a href="products.html" href="javascript:void(0)">Products</a>
-          <a href="certificates.html" href="javascript:void(0)">Certificates</a>
-          <a href="contactus.html"><button>Work With Us</button></a>
-        </div>
-      </div>
+  <div class="header">
+    <button class="openbtn" onclick="openNav()">☰</button>  
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="index.html">Home</a>
+  <a href="aboutus.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="#">AR EU</a>
+  
+  <a href="products.html">Products</a>
+  <a href="prgrams.html">Programs</a>
+  <a href="events.html">News & Events</a>
+  <a href="certificates.html">certification</a>
+  <a href="career.html">career</a>
+  <a href="exhi.html">Exhibitions</a>
+  <a href="contactus.html">Contact</a>
+  <link rel="stylesheet" href="nav.css">
+  <script src="scriptbar.js"></script>
+</div>
+
+
 
         <div id="slidy-container">
   <figure id="slidy">
-    <img src="https://media.istockphoto.com/id/498744556/photo/healthcare-and-medical-concept-close-up-of-surgeons-hands-hold.jpg?s=612x612&w=0&k=20&c=HcokeqU9YKcgibS-eNZIo0N9coMZgSkkyliLk-qZFTA=" alt="eyes" >
-    <img src="https://media.istockphoto.com/id/913784822/photo/surgeon-picking-up-surgical-tool-from-tray.jpg?s=170667a&w=0&k=20&c=f5D3fTeJByjZShDT232zw18A_oR9aqdJGIO03pS5gcE=" alt="lou" >
-    <img src="https://media.istockphoto.com/id/895319786/photo/close-up-of-scrub-nurse-taking-medical-instruments-surgery-and-emergency-concept.jpg?s=170667a&w=0&k=20&c=T51Fpo8O2XXniLY_7-KJqBe130u02SLcur_rNUOJ-Ac=" alt="lucie-2" >
+    <img src="https://d1d8vslyhr7rdg.cloudfront.net/Pictures/480x270/9/6/5/103965_istock869285818_817293_crop.jpg" alt="eyes" >
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNMtAgIdRGl1r6fcOAJhWC-Ti7wCHeQ9YH18kV-yvgtg-MsE8_pUR8Nv11Z5OHsp9lshY&usqp=CAU" alt="lou" >
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVEmdSqwwW3E44QQK0En_zCmIIVSoJroEHNaEqshEjr9Vu41eUGWNTyZxMHLqoyfDWBnU&usqp=CAU" alt="lucie-2" >
     
-    <img src="https://st2.depositphotos.com/1616496/6624/i/600/depositphotos_66242513-stock-photo-surgical-clamps-collection.jpg" alt="lucie" >
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPdNXvNC90IPuRksVcDeupPX5HfwWFSKqytWSoWYmur2E2qmpSG3jtwJsqAQzRiSkuSfM&usqp=CAU" alt="lucie" >
     
   </figure>
+
+  <div class="video">
+
+  <iframe class="videosplayer" width="560" height="315" src="https://www.youtube.com/embed/vXZe9w1Pv2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </iframe>
+</div>
+  
 </div><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
     </section>
     <section class="features">
@@ -101,6 +180,7 @@
     </div>
   </footer>
   <!--footer close-->
+
 
 </body>
 </html>
