@@ -162,7 +162,7 @@
     background-color: white;
     height: 2px;
     box-sizing: border-box;
-    width: 50px;
+    width: 100px;
   }
 
   .footer-col ul li:not(last-child){
