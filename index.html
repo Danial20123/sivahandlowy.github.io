@@ -11,88 +11,174 @@
 
     <style>
       .header {
-          position: relative;
-          z-index: 1;
-      }
+      position: relative;
+      z-index: 2;
+    }
 
-      .openbtn {
-          font-size: 20px;
-          cursor: pointer;
-          background-color: dodgerblue;
-          color: white;
-          padding: 10px 15px;
-          border: none;
-      }
+    #slider {
+      position: relative;
+      z-index: 1;
+    }
 
-      .openbtn:hover {
-          background-color: #4CAF50;
-      }
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: dodgerblue;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
 
-      .sidebar {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 2;
-          top: 0;
-          left: 0;
-          background-color: #111;
-          overflow-x: hidden;
-          transition: 0.5s;
-          padding-top: 60px;
-      }
+    .openbtn:hover {
+      background-color: #4CAF50;
+    }
 
-      .sidebar a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 25px;
-          color: #818181;
-          display: block;
-          transition: 0.3s;
-      }
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
 
-      .sidebar a:hover {
-          color: #f1f1f1;
-      }
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
 
-      .sidebar .closebtn {
-          position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
-      }
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
 
-      #main {
-          margin-left: 0;
-          transition: margin-left .5s;
-          padding: 16px;
-      }
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
 
-      .overlay {
-          position: fixed;
-          height: 100%;
-          width: 100%;
-          top: 0;
-          left: 0;
-          background-color: rgba(0, 0, 0, 0.6);
-          z-index: 3;
-          display: none;
-      }
+    #main {
+      margin-left: 0;
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+
+    .overlay {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 3;
+      display: none;
+    }
+
+    #mySidebar.open {
+      width: 250px;
+    }
+
 
       #mySidebar.open {
           width: 250px;
       }
+
+    #slider {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #slider::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    #slider figure {
+      position: relative;
+      width: 500%;
+      margin: 0;
+      padding: 0;
+      left: 0;
+      animation: 20s slider infinite;
+      z-index: 2;
+      display: flex; /* Added this line */
+      align-items: center; /* Added this line */
+    }
+
+    #slider figure img {
+      width: 20%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #slider h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2rem;
+      text-align: center;
+      z-index: 3;
+    }
+    @keyframes slider {
+      0% {
+        left: 0;
+      }
+      20% {
+        left: 0;
+      }
+      25% {
+        left: -100%;
+      }
+      45% {
+        left: -100%;
+      }
+      50% {
+        left: -200%;
+      }
+      70% {
+        left: -200%;
+      }
+      75% {
+        left: -300%;
+      }
+      95% {
+        left: -300%;
+      }
+      100% {
+        left: -400%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="header">
-    <button class="openbtn" onclick="openNav()">☰</button>  
+    <button class="openbtn" onclick="openNav()">☰</button>
+    <p class="siva">Siva Handlowy</p>
 </div>
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.html">Home</a>
-  <a href="aboutus.html">About</a>
+  <a href="aboutus.html">About us</a>
   <a href="services.html">Services</a>
   <a href="#">AR EU</a>
   
@@ -102,23 +188,23 @@
   <a href="certificates.html">certification</a>
   <a href="career.html">career</a>
   <a href="exhi.html">Exhibitions</a>
-  <a href="contactus.html">Contact</a>
+  <a href="contactus.html">Contact us</a>
   <link rel="stylesheet" href="nav.css">
   <script src="scriptbar.js"></script>
 </div>
 
 
 
-        <div id="slidy-container">
-  <figure id="slidy">
-    <img src="https://d1d8vslyhr7rdg.cloudfront.net/Pictures/480x270/9/6/5/103965_istock869285818_817293_crop.jpg" alt="eyes" >
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNMtAgIdRGl1r6fcOAJhWC-Ti7wCHeQ9YH18kV-yvgtg-MsE8_pUR8Nv11Z5OHsp9lshY&usqp=CAU" alt="lou" >
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVEmdSqwwW3E44QQK0En_zCmIIVSoJroEHNaEqshEjr9Vu41eUGWNTyZxMHLqoyfDWBnU&usqp=CAU" alt="lucie-2" >
-    
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPdNXvNC90IPuRksVcDeupPX5HfwWFSKqytWSoWYmur2E2qmpSG3jtwJsqAQzRiSkuSfM&usqp=CAU" alt="lucie" >
-    
-  </figure>
 
+<div id="slider">
+  <figure>
+    <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?cs=srgb&dl=pexels-fauxels-3183197.jpg&fm=jpg" alt>
+    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt>
+    <img src="https://images.pexels.com/photos/8134018/pexels-photo-8134018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt>
+    <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt>
+  </figure>
+</div>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <div class="video">
 
   <iframe class="videosplayer" width="560" height="315" src="https://www.youtube.com/embed/vXZe9w1Pv2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -155,17 +241,9 @@
 
     <!--footer starts-->
 <footer class="footer">
-    <div class="container">
+    <div class="container"> 
         <div class="row">
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">about us</a></li>
-                    <li><a href="#">our services</a></li>
-                    <li><a href="#">privacy policy</a></li>
-                    <li><a href="#">programs</a></li>
-                </ul>
-              </div>
+            
             <div class="footer-col">
                 <h4>Contact us</h4>
                 <ul>
