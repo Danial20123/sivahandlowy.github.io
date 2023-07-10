@@ -9,211 +9,171 @@
     <link rel="stylesheet" href="sp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="cssfile.css">
+    <link rel="stylesheet" href="nav.css">
+    <script src="scriptbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-<!--
     <style>
-      .header {
-      position: relative;
-      z-index: 2;
-    }
-
-    .openbtn {
-      font-size: 20px;
-      cursor: pointer;
-      background-color: dodgerblue;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-    }
-
-    .openbtn:hover {
-      background-color: #4CAF50;
-    }
-
-    
-
-    .sidebar a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      color: #f1f1f1;
-    }
-
-    .sidebar .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-
-    #main {
-      margin-left: 0;
-      transition: margin-left .5s;
-      padding: 16px;
-    }
-
-    .overlay {
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 3;
-      display: none;
-    }
-
-    #mySidebar.open {
-      width: 250px;
-    }
-
-
-      #mySidebar.open {
-          width: 250px;
+      /* Add the additional CSS code here */
+      .sidebar-open #slider,
+      .sidebar-open .video {
+        display: none;
       }
-
-        .sp {
-            text-transform: lowercase;  !important
-        }
-  </style>
-	-->
+    </style>
 </head>
 <body>
   <div class="header">
-		<button class="openbtn" onclick="openNav()">☰</button>
-		<p class="siva">Siva Handlowy</p>
-	  </div>
-	
-	  <div id="mySidebar" class="sidebar">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-		<a href="index.html">Home</a>
-		<a href="aboutus.html">About us</a>
-		<a href="services.html">Services</a>
-		<a href="euar.html">Authorised Representative EU</a>
-		<a href="products.html">Products</a>
-		<a href="programs.html">Programs</a>
-		<a href="events.html">News & Events</a>
-		<a href="certificates.html">Certification</a>
-		<a href="career.html">Career</a>
-		<a href="exhi.html">Exhibitions</a>
-		<a href="https://formsubmit.co/el/yuboni">Contact us</a>
-	  </div>
-	
-    <div class="slider">
-		<!-- fade css -->
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <p> We Provide Services For our Customers Worldwide</p>
-			</div>
-			<img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?cs=srgb&dl=pexels-fauxels-3183197.jpg&fm=jpg" style="width: 100%; height: 100%;">
-		</div>
-		
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <p> We Provide Services For our Customers Worldwide</p>
-			</div>
-			<img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
-		</div>
-		
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <p> We Provide Services For our Customers Worldwide</p>
-			</div>
-			<img src="https://images.pexels.com/photos/8134018/pexels-photo-8134018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
-		</div>
-		
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <p> We Provide Services For our Customers Worldwide</p>
-			</div>
-			<img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
-		</div>
-		
-		<!-- /fade css -->
-		
-		<!-- onclick js -->
-		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  		<a class="next" onclick="plusSlides(1)">&#10095;</a>
-		
-		<div class="dotsbox" style="text-align:center">
-			<span class="dot" onclick="currentSlide(1)"></span>
-			<span class="dot" onclick="currentSlide(2)"></span>
-			<span class="dot" onclick="currentSlide(3)"></span>
-			<span class="dot" onclick="currentSlide(4)"></span>
-			<span class="dot" onclick="currentSlide(5)"></span>
-		</div>
-		<!-- /onclick js -->
-	</div>
+    <button class="openbtn" onclick="openNav()">☰</button>
+    <p class="siva">Siva Handlowy</p>
+  </div>
 
-	
-	
-<script src="jsfile.js"></script>
-  <div class="video">
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About us</a>
+    <a href="services.html">Services</a>
+    <a href="euar.html">Authorised Representative EU</a>
+    <a href="products.html">Products</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">News & Events</a>
+    <a href="certificates.html">Certification</a>
+    <a href="career.html">Career</a>
+    <a href="exhi.html">Exhibitions</a>
+    <a href="https://formsubmit.co/el/yuboni">Contact us</a>
+  </div>
 
-  <iframe class="videosplayer" width="360" height="215" src="https://www.youtube.com/embed/vXZe9w1Pv2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </iframe>
-</div>
-  
-</div><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
-    </section>
-    <section class="features">
-      <div class="feature-container">
-        <img src="https://cdn.wpml.org/wp-content/uploads/2018/07/accounting-alone-application-938965-1024x590.jpg" alt="Flexbox Feature">
-        <h2>Our areas of expertise for your success</h2>
-        <p>With our audits, we create more security and higher process quality across all industries. Our work ranges from the certification of management systems to audits relating to medical devices, information security or sustainability.</p>
+  <div class="slider">
+    <!-- fade css -->
+    <div class="myslide fade">
+      <div class="txt">
+        <h1>Siva Handlowy</h1>
+        <p>We Provide Services For Our Customers Worldwide</p>
       </div>
-      <div class="feature-container">
-        <img src="https://www.dqsglobal.com/var/site/storage/images/_aliases/cw_large_1x/1/6/9/7/747961-1-ger-DE/Karriere-home-dqs-shutterstock_1606120399.jpg" alt="Flexbox Feature">
-        <h2>Career</h2>
-        <p></p>Our employees are competent, innovative and reliable, bringing our core competencies to life. </p>
-  <br>
-        Would you also like to be part of a highly motivated team of well-trained employees who use all their experience and expertise to sustainably improve processes for customers? If you are ready to set new benchmarks and reach new horizons, we look forward to receiving your application.
-         </p>
-      </div>
-    </section>
-
-
-    <div class="memeberbutton">
-      <a href="membership.html" class="members"">Membership</a>
+      <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?cs=srgb&dl=pexels-fauxels-3183197.jpg&fm=jpg" style="width: 100%; height: 100%;">
     </div>
 
-    <br><br><br>
+    <div class="myslide fade">
+      <div class="txt">
+        <h1>Siva Handlowy</h1>
+        <p>We Provide Services For Our Customers Worldwide</p>
+      </div>
+      <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
+    </div>
 
-    <!--Sticky nav bar script starts here-->
-    <!--Sticky nav bar script ends here-!>
+    <div class="myslide fade">
+      <div class="txt">
+        <h1>Siva Handlowy</h1>
+        <p>We Provide Services For Our Customers Worldwide</p>
+      </div>
+      <img src="https://images.pexels.com/photos/8134018/pexels-photo-8134018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
+    </div>
 
-    <!--footer starts-->
-<footer class="footer">
+    <div class="myslide fade">
+      <div class="txt">
+        <h1>Siva Handlowy</h1>
+        <p>We Provide Services For Our Customers Worldwide</p>
+      </div>
+      <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
+    </div>
+    <!-- /fade css -->
+
+    <!-- onclick js -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="dotsbox" style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+    <!-- /onclick js -->
+  </div>
+
+  <div class="video">
+    <iframe class="videosplayer" width="360" height="215" src="https://www.youtube.com/embed/vXZe9w1Pv2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  <section class="features">
+    <div class="feature-container">
+      <img src="https://cdn.wpml.org/wp-content/uploads/2018/07/accounting-alone-application-938965-1024x590.jpg" alt="Flexbox Feature">
+      <h2>Our Areasof Expertise for Your Success</h2>
+      <p>With our audits, we create more security and higher process quality across all industries. Our work ranges from the certification of management systems to audits relating to medical devices, information security, or sustainability.</p>
+    </div>
+    <div class="feature-container">
+      <img src="https://www.dqsglobal.com/var/site/storage/images/_aliases/cw_large_1x/1/6/9/7/747961-1-ger-DE/Karriere-home-dqs-shutterstock_1606120399.jpg" alt="Flexbox Feature">
+      <h2>Career</h2>
+      <p>Our employees are competent, innovative, and reliable, bringing our core competencies to life.</p>
+      <br>
+      <p>Would you also like to be part of a highly motivated team of well-trained employees who use all their experience and expertise to sustainably improve processes for customers? If you are ready to set new benchmarks and reach new horizons, we look forward to receiving your application.</p>
+    </div>
+  </section>
+
+  <div class="memberbutton">
+    <a href="membership.html" class="members">Membership</a>
+  </div>
+
+  <br><br><br>
+
+  <footer class="footer">
     <div class="container"> 
-        <div class="row">
-            
-            <div class="footer-col">
-                <h4>Contact us</h4>
-                 <ul>
-                    <li><a href="#" class="sp">Siva Hnadlowy sp.z.o.o
-                      <br>
-                      <br>Ul.Piotra Skargi 8/217 40-091</a></li>
-                    <li><a href="#"> Ściegiennego 41A 40-114 Katowice, Poland</a></li>
-                    <li><a href="#">NIP:  634 296 11 19</a></li>
-                    <li><a href="#" class="sp">info@sivahandlowy.com</a></li>
-                </ul>
-              </div>
+      <div class="row">
+        <div class="footer-col">
+          <h4>Contact us</h4>
+          <ul>
+            <li><a href="#" class="sp">Siva Handlowy sp.z.o.o<br><br>Ul.Piotra Skargi 8/217 40-091</a></li>
+            <li><a href="#">Ściegiennego 41A 40-114 Katowice, Poland</a></li>
+            <li><a href="#">NIP: 634 296 11 19</a></li>
+            <li><a href="#" class="sp">info@sivahandlowy.com</a></li>
+          </ul>
         </div>
+      </div>
     </div>
   </footer>
-  <!--footer close-->
 
+  <script src="jsfile.js"></script>
+  <script>
+    const myslide = document.querySelectorAll('.myslide');
+    const dot = document.querySelectorAll('.dot');
+    let counter = 1;
+    slidefun(counter);
 
+    let timer = setInterval(autoSlide, 8000);
+    function autoSlide() {
+      counter += 1;
+      slidefun(counter);
+    }
+    function plusSlides(n) {
+      counter += n;
+      slidefun(counter);
+      resetTimer();
+    }
+    function currentSlide(n) {
+      counter = n;
+      slidefun(counter);
+      resetTimer();
+    }
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(autoSlide, 8000);
+    }
+
+    function slidefun(n) {
+      let i;
+      for(i = 0;i<myslide.length;i++){
+        myslide[i].style.display = "none";
+      }
+      for(i = 0;i<dot.length;i++) {
+        dot[i].className = dot[i].className.replace(' active', '');
+      }
+      if(n > myslide.length){
+         counter = 1;
+      }
+      if(n < 1){
+         counter = myslide.length;
+      }
+      myslide[counter - 1].style.display = "block";
+      dot[counter - 1].className += " active";
+    }
+  </script>
 </body>
 </html>
