@@ -25,7 +25,12 @@ function redirectPage() {
       else if (input === "SHS/CE/PK-23002 ce") {
         window.location.href = "certificates/sivaahndlowy certificate CE-1.pdf";
       }
+
+           else if (input === "SHS/CE/PK-23003 ce") {
+        window.location.href = "certificates/BMB certificate CE.pdf";
+      }
+          
     else {
-      alert("Incorrect certificate: " + input);
+      alert("This Certificate Doesnt Exist: " + input);
     }
   }
