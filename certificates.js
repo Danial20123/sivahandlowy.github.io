@@ -27,7 +27,7 @@ function redirectPage() {
       }
 
            else if (input === "SHS/CE/PK-23003 CE") {
-        window.location.href = "certificates/BMB certificate CE.pdf";
+        window.location.href = "certificates/BMB certificate CE-1.pdf";
       }
           
     else {
