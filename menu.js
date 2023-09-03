@@ -1,25 +1,18 @@
-const quantityInputs = document.querySelectorAll('input[type="number"]');
-  
-  // Calculate and update the total price
-  function updateTotalPrice() {
-    let totalPrice = 0;
-    
-    quantityInputs.forEach(input => {
-      const dishPrice = parseFloat(input.getAttribute('data-price'));
-      const quantity = parseInt(input.value) || 0; // Use 0 if value is not a number
-      totalPrice += dishPrice * quantity;
-    });
-    
-    document.getElementById('total-price').textContent = `Total Price: ${totalPrice} zl`;
-  }
-  
-  // Attach event listeners to quantity inputs
-  quantityInputs.forEach(input => {
-    input.addEventListener('input', () => {
-      updateTotalPrice();
-    });
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  const inputs = document.querySelectorAll("input[data-price]");
 
-  document.querySelector('.menu-icon').addEventListener('click', function() {
-    document.querySelector('.navbar').classList.toggle('active');
+  function updateTotal() {
+    let total = 0;
+    inputs.forEach(function (input) {
+      const quantity = parseInt(input.value) || 0;
+      const price = parseFloat(input.getAttribute("data-price")) || 0;
+      total += quantity * price;
+    });
+
+    document.getElementById("total").value = total.toFixed(2) + " zł";
+  }
+
+  inputs.forEach(function (input) {
+    input.addEventListener("input", updateTotal);
+  });
 });
