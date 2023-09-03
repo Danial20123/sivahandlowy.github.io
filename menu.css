@@ -242,6 +242,14 @@ body {
     margin-right: 10px;
 }
 
+.dish-image1 {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
 label {
     font-size: 18px;
     color: #333;
