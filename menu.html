@@ -233,7 +233,7 @@
 	  </div>
     <header class="banner">
         <div class="banner-overlay">
-            <h1 class="white">Welcome to Our Restaurant</h1>
+            <h1 class="white">For Friends, Family, and Unforgettable Parties!"</h1>
             <p>Discover the finest flavors crafted with love.</p>
         </div>
     </header>
@@ -669,6 +669,27 @@
     <input type="number" id="dish70" name="Dodatkowy feta ser" min="0" value="0" data-price="3">
   </div>
   </section>
+
+  <div class="instructions">
+    <h2>Order Instructions</h2>
+
+    <h3>Ordering Process:</h3>
+    <ol class="order-list">
+        <li>Place your order here.</li>
+        <li>A minimum order value of 89 PLN is required.</li>
+        <li>For customer support, please call 792-702-887.</li>
+        <li>We will promptly confirm your order via email, along with the applicable delivery fee based on your address.</li>
+        <li>Our delivery service operates from 9 AM to 8 PM, and you can expect your delivery within a minimum of 6 hours from the time of confirmation.</li>
+        <li>Receive your order conveniently at your specified address and time from our delivery vehicle.</li>
+    </ol>
+
+    <h3>Payment Options:</h3>
+    <ol class="payment-list">
+        <li>To confirm your order, kindly make an initial payment of 50%, with the remaining 50% due upon delivery.</li>
+        <li>We accept payments upon delivery by cash, card, BLIK, or telephone transfer to 5360-775-24.</li>
+        <li>You will receive an invoice by email as confirmation of your order.</li>
+    </ol>
+</div>
   
         <div id="delivery-address">
           <h2>Delivery Address</h2>
@@ -699,6 +720,15 @@
           <div>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
+          </div>
+          <div class="date-time-section">
+            <label class="date-time-label" for="delivery-date">Delivery Date:</label>
+            <input class="date-time-input date-picker" type="date" id="delivery-date" name="delivery-date" required>
+          </div>
+          
+          <div class="date-time-section">
+            <label class="date-time-label" for="delivery-time">Delivery Time:</label>
+            <input class="date-time-input time-picker" type="time" id="delivery-time" name="delivery-time" required>
           </div>
         </div><br><br>
         <div class="total">
