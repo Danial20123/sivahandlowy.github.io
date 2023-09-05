@@ -5,207 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="stylesheet" href="menu.css">
     <title>Menu - Your Restaurant</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pstyle.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="nav.css">
     <script src="scriptbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <style>
         
-      /* Menu page styles */
-      .menu-header {
-          text-align: center;
-          padding: 50px;
-      }
-      
-      .menu {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 20px;
-          padding: 20px;
-      }
-      
-      .product-card {
-          max-width: 300px;
-          background-color: white;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          border-radius: 5px;
-          overflow: hidden;
-          text-align: center;
-          transition: transform 0.3s;
-      }
-      
-      .product-card:hover {
-          transform: translateY(-5px);
-      }
-      
-      .product-card img {
-          width: 100%;
-          height: auto;
-      }
-      
-      .product-card h2 {
-          font-size: 1.2rem;
-          margin: 10px 0;
-      }
-      
-      .product-card p {
-          font-size: 0.9rem;
-          color: #666;
-      }
-      
-      .price {
-          display: inline-block;
-          background-color: #ff8420;
-          color: white;
-          padding: 5px 10px;
-          border-radius: 5px;
-          margin-top: 10px;
-      }
-      
-      
-      /* Menu item styles */
-      .product-card {
-          /* ... Existing styles ... */
-          margin-bottom: 40px; /* Add some space between each dish */
-      }
-      
-      .dish-info {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: 10px;
-      }
-      
-      .price {
-          font-size: 1.2rem;
-          font-weight: bold;
-      }
-      
-      .quantity {
-          display: flex;
-          align-items: center;
-      }
-      
-      .quantity label {
-          margin-right: 10px;
-      }
-      
-      .quantity input {
-          width: 40px;
-          padding: 5px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-      }
-      
-      .order-form {
-          margin-bottom: 30px;
-        }
-        .dish {
-          display: flex;
-          align-items: center;
-          margin-bottom: 15px;
-        }
-        .dish-image {
-          width: 100px;
-          height: 100px;
-          object-fit: cover;
-          border-radius: 10px;
-          margin-right: 10px;
-        }
-        label {
-          font-size: 18px;
-          color: #333;
-        }
-        input[type="number"] {
-          width: 60px;
-          padding: 5px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 14px;
-        }
-        h2 {
-          font-size: 20px;
-          font-weight: bold;
-          margin-top: 20px;
-          color: #333;
-        }
-        label, input[type="text"], input[type="tel"], input[type="email"] {
-          display: block;
-          margin-bottom: 10px;
-        }
-        input[type="text"], input[type="tel"], input[type="email"] {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 14px;
-        }
-        #order-button {
-          display: block;
-          width: 100%;
-          padding: 10px;
-          background-color: #ff9800;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          font-size: 16px;
-          cursor: pointer;
-        }
-        #order-button:hover {
-          background-color: #f57c00;
-        }
-        #total-price {
-          font-size: 18px;
-          font-weight: bold;
-          color: #333;
-        }
-        .center-content {
-          text-align: center;
-        }
-      
-        .hamburger {
-      max-width: 600px; /* Set a maximum width for the hamburger section */
-      margin: 0 auto; /* Center-align the section horizontally */
-      padding: 20px 0; /* Add some padding for better spacing */
-      text-align: center;
-      }
-      
-      /* ... (previous CSS rules) ... */
-      
-      /* Mobile menu icon */
-      .menu-icon {
-          display: inline-block;
-          width: 30px;
-          height: 3px;
-          background-color: white;
-          margin-right: 10px;
-          position: relative;
-          cursor: pointer;
-      }
-      
-      .menu-icon::before,
-      .menu-icon::after {
-          content: "";
-          position: absolute;
-          width: 30px;
-          height: 3px;
-          background-color: white;
-      }
-      
-      .menu-icon::before {
-          top: -10px;
-      }
-      
-      .menu-icon::after {
-          top: 10px;
-      }
-      
-      /* Mobile navigation */
-      .mobile-menu {
-          display: none;
-      }
+     /* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background color and font styles */
+body {
+    background-color: #f8f8f8;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Center the container and add spacing */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the company name */
+.company-name {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    color: #ff5733; /* A food-themed color */
+    margin-bottom: 20px;
+}
+
+/* Style the form sections */
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the section titles */
+.section-title {
+    font-size: 24px;
+    color: #ff5733;
+    margin-bottom: 10px;
+}
+
+/* Style the dish image */
+.dish-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Style the labels for dishes */
+label {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Style the input fields */
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style the order instructions and delivery address sections */
+.instructions,
+#delivery-address {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the special instructions textarea */
+#special-instructions {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style the submit button */
+#order-button {
+    background-color: #ff5733;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+#order-button:hover {
+    background-color: #e5482e;
+}
+
+/* Style the footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+}
+
           </style>
 </head>
 <body>
@@ -737,21 +659,62 @@
           <label for="total">Komentarz do Zamówienia:</label>
           <input type="text" id="total" name="total" readonly>
         </div>
+        
     </div>
   
           <input type="hidden" name="_subject" value="New Order">
           <input type="hidden" name="_autoresponse" value="Thanks for your order! We will contact you shortly.">
-          <button id="order-button" type="submit">Zamów</button>
+          <button type="button" onclick="sendOrder()">Submit Order</button>
+
         </form>
       </div>
     </div>
 <script src="menu.js">
+  
 </script>    <br><br><br><br><br><br><br>
     
 
 <!-- ... Rest of the code ... -->
 
-    
+<script>
+  function sendOrder() {
+  // Get all the dish inputs
+  const dishInputs = document.querySelectorAll('input[type="number"]');
+  const selectedDishes = [];
+
+  // Filter out dishes with quantity 0 or less
+  dishInputs.forEach((input) => {
+    const quantity = parseInt(input.value);
+    if (quantity > 0) {
+      selectedDishes.push({
+        name: input.name,
+        quantity: quantity,
+      });
+    }
+  });
+
+  // If no dishes with quantity greater than 0, don't submit the form
+  if (selectedDishes.length === 0) {
+    alert("Please select at least one dish.");
+    return;
+  }
+
+  // Create a hidden input field with the selected dishes JSON
+  const dishesInput = document.createElement("input");
+  dishesInput.type = "hidden";
+  dishesInput.name = "selected_dishes";
+  dishesInput.value = JSON.stringify(selectedDishes);
+
+  // Append the hidden input to the form
+  const form = document.querySelector('form');
+  form.appendChild(dishesInput);
+
+  // Submit the form
+  form.submit();
+}
+
+  </script>
+  
 
     <!-- Footer -->
     <footer>
