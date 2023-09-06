@@ -9,13 +9,14 @@
 body {
     font-family: Arial, sans-serif;
     overflow-x: hidden; /* Allow horizontal scrolling */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
 }
 
 .white {
     color: white;
 }
 
-/* Menu section styles */
 /* Navbar styles */
 .navbar {
     display: flex;
@@ -23,7 +24,6 @@ body {
     align-items: center;
     background-color: #ff8420;
     color: white;
-    padding: 10px 50px;
     font-size: 15px;
 }
 
@@ -54,6 +54,7 @@ body {
     color: #f8f8f8;
 }
 
+/* Menu section styles */
 .menu {
     padding: 50px;
     text-align: center;
@@ -99,6 +100,7 @@ body {
     height: 100vh;
     background: url('https://e0.pxfuel.com/wallpapers/271/397/desktop-wallpaper-slider3-restaurant-food-pic.jpg') center/cover no-repeat;
     color: white !important;
+    overflow: hidden; /* Add overflow: hidden to prevent content overflow */
 }
 
 .banner-overlay {
@@ -108,6 +110,7 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
+    max-width: 80%; /* Set a maximum width for the text container */
 }
 
 .banner h1 {
@@ -200,13 +203,7 @@ body {
     border-radius: 5px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-}
-
+/* Container styles */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -224,17 +221,20 @@ body {
     text-align: center; /* Center align company name */
 }
 
+/* Order form styles */
 .order-form {
     margin-bottom: 30px;
 }
 
+/* Dish styles */
 .dish {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
 }
 
-.dish-image {
+.dish-image,
+.dish-image1 {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -242,14 +242,7 @@ body {
     margin-right: 10px;
 }
 
-.dish-image1 {
-    width: 200px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-right: 10px;
-}
-
+/* Label and input styles */
 label {
     font-size: 18px;
     color: #333;
@@ -263,6 +256,7 @@ input[type="number"] {
     font-size: 14px;
 }
 
+/* Heading styles */
 h2 {
     font-size: 20px;
     font-weight: bold;
@@ -288,6 +282,7 @@ input[type="email"] {
     font-size: 14px;
 }
 
+/* Order button styles */
 #order-button {
     display: block;
     width: 100%;
@@ -304,6 +299,7 @@ input[type="email"] {
     background-color: #f57c00;
 }
 
+/* Total price styles */
 #total-price {
     font-size: 18px;
     font-weight: bold;
@@ -314,14 +310,13 @@ input[type="email"] {
     text-align: center;
 }
 
+/* Hamburger menu styles */
 .hamburger {
     max-width: 600px; /* Set a maximum width for the hamburger section */
     margin: 0 auto; /* Center-align the section horizontally */
     padding: 20px 0; /* Add some padding for better spacing */
     text-align: center;
 }
-
-/* ... (previous CSS rules) ... */
 
 /* Mobile menu icon */
 .menu-icon {
@@ -387,6 +382,7 @@ input[type="email"] {
     }
 }
 
+/* Instructions styles */
 .instructions {
     background-color: #ffffff;
     max-width: 600px;
@@ -396,15 +392,11 @@ input[type="email"] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-h2 {
+.instructions h2 {
     color: #333;
 }
 
-.order-list {
-    list-style: decimal;
-    padding-left: 20px;
-}
-
+.order-list,
 .payment-list {
     list-style: decimal;
     padding-left: 20px;
@@ -416,30 +408,66 @@ h2 {
     }
 }
 
+/* Date and Time Picker styles */
 .date-time-section {
     margin-top: 20px;
-  }
-  
-  .date-time-label {
+}
+
+.date-time-label {
     font-size: 1rem;
     margin-bottom: 5px;
     color: #333;
-  }
-  
-  .date-time-input {
+}
+
+.date-time-input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-  }
-  
-  /* Style for Date and Time Picker */
-  .date-picker {
+}
+
+/* Style for Date and Time Picker */
+.date-picker {
     width: 50%;
     margin-right: 10px;
-  }
-  
-  .time-picker {
+}
+
+.time-picker {
     width: 45%;
-  }
+}
+
+.food-order-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff8420; /* Background color */
+    color: white; /* Text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.food-order-button:hover {
+    background-color: #f57c00; /* Hover background color */
+    transform: scale(1.05); /* Hover scaling effect */
+}
+
+/* Optional: Add a box-shadow for depth */
+.food-order-button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Add a border to the button */
+.food-order-button {
+    border: 2px solid #ff8420; /* Border color */
+}
+
+/* Optional: Change text color on hover */
+.food-order-button:hover {
+    color: #fff; /* Text color on hover */
+}
