@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Form</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <h1>Food Order Form</h1>
+    <form id="order-form" method="post" action="process_order.php">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="order">Order:</label>
+        <textarea id="order" name="order" rows="4" required></textarea>
+
+        <input type="submit" value="Submit Order">
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
