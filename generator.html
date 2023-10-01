@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Generator</title>
+</head>
+<body>
+    <h1>Invoice Generator</h1>
+    <form id="invoice-form">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" required><br><br>
+        
+        <label for="items">Ordered Items:</label>
+        <textarea id="items" required></textarea><br><br>
+        
+        <button type="button" id="addItem">Add Item</button><br><br>
+        
+        <div id="itemList"></div><br><br>
+        
+        <button type="button" id="generateInvoice">Generate Invoice</button>
+    </form>
+
+    <script >
+        // script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const addItemButton = document.getElementById('addItem');
+    const itemList = document.getElementById('itemList');
+    const generateInvoiceButton = document.getElementById('generateInvoice');
+
+    addItemButton.addEventListener('click', function() {
+        const itemsInput = document.getElementById('items');
+        const itemText = itemsInput.value.trim();
+        if (itemText) {
+            const itemDiv = document.createElement('div');
+            itemDiv.textContent = itemText;
+            itemList.appendChild(itemDiv);
+            itemsInput.value = '';
+        }
+    });
+
+    generateInvoiceButton.addEventListener('click', function() {
+        const customerName = document.getElementById('customerName').value;
+        const items = document.getElementById('items').value;
+
+        // Create a PDF invoice using jsPDF library (you need to include jsPDF library in your project)
+        const doc = new jsPDF();
+        doc.text(`Customer Name: ${customerName}`, 10, 10);
+        doc.text(`Ordered Items:`, 10, 20);
+        doc.text(items, 10, 30);
+        doc.save('invoice.pdf');
+    });
+});
+
+    </script>
+</body>
+</html>
