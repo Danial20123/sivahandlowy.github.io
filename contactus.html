@@ -1,136 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Handlowy</title>
-    <link rel="stylesheet" href="aboutus.css">
-    <link rel="stylesheet" href="contactus.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link rel="stylesheet" href="sp.css">
-    <style>
-      .file-input {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.file-input input[type="file"] {
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.file-input:hover {
-  background-color: #45a049;
-}
-
-.file-input:hover input[type="file"] {
-  cursor: pointer;
-}
-
-.file-input span {
-  margin-left: 10px;
-}
-
-@media (max-width: 480px) {
-  .file-input {
-    padding: 8px 16px;
-  }
-}
-</style>
-    </style>
-</head>
+<html>
 <body>
-  <div class="header">
-    <button class="openbtn" onclick="openNav()">☰</button>  
-</div>
+<head>
+<style>
+h1 {
+  text-align: center;
+  margin: 35px 0 20px 0 !important;
+}
 
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="index.html">Home</a>
-  <a href="aboutus.html">About us</a>
-  <a href="services.html">Services</a>
-  <a href="menu.html">Food & Catering</a>
-			<a href="transport.html">Transport</a>
-			<a href="#construntionandrenivation.html">Construction & Renovation</a>
-  <a href="euar.html">Authorised Representative Eu</a>
-  
-  <a href="products.html">Products</a>
-  <a href="prgrams.html">Programs</a>
-  <a href="events.html">News & Events</a>
-  <a href="certificates.html">certification</a>
-  <a href="career.html">career</a>
-  <a href="exhi.html">Exhibitions</a>
-  <a href="contactus.html">Contact us</a>
-  <link rel="stylesheet" href="nav.css">
-  <script src="scriptbar.js"></script>
-</div>
-
-      <div class="container">
-        <form action="https://formsubmit.co/el/sivahandlowy@gmail.com" method="POST">
-        <div class="contact container">
-          <form>
-              <div class="form">
-                  <div class="form-details">
-                    <h1>Contact Us</h1>
-                      <input type="text" name="name" id="name" placeholder="Name" required>
-                      <input type="email" name="email" id="email" placeholder="Email" required>
-                      <textarea name="message" id="message" cols="52" rows="7" placeholder="Message" required></textarea>
-                      <br><br>
-                      <div class="file-input">
-                        <span id="file-label">Choose File</span>
-                        <input type="file" name="attachment" id="attachment" onchange="handleFileInputChange()">
-                      </div>
-                      <div class="file-name" id="file-name"></div><br><br>
-                      <script>
-                        function handleFileInputChange() {
-                          var fileInput = document.getElementById('attachment');
-                          var fileLabel = document.getElementById('file-label');
-                          var file = fileInput.files[0];
-                          if (file) {
-                            fileLabel.textContent = file.name;
-                          } else {
-                            fileLabel.textContent = 'Choose File';
-                          }
-                        }
-                        </script>
-                      <button>SEND MESSAGE</button>
-                  </div>
-              </div>
-          </form>
-      </div>
-
-        </form>
-    </div>
-    <!--footer starts-->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col">
-                <h4>Contact us</h4>
-                <ul>
-                    <li><a href="#" class="sp">Siva Hnadlowy sp.z.o.o
-                      <br>
-                      <br>Ul.Piotra Skargi 8/217 40-091</a></li>
-                    <li><a href="#"> Ściegiennego 41A 40-114 Katowice, Poland</a></li>
-                    <li><a href="#">NIP:  634 296 11 19</a></li>
-                    <li><a href="#" class="sp">info@sivahandlowy.com</a></li>
-                </ul>
-              </div>
+</style>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> 
+<div class="container">
+  <h1>Contact us</h1>
+  <form target="_blank" action="https://formsubmit.co/sivahandlowy@gmail.com" method="POST">
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col">
+          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
         </div>
+        <div class="col">
+          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+        </div>
+      </div>
     </div>
-  </footer>
-  <!--footer close-->
+    <div class="form-group">
+      <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+  </form>
+</div>
 
 </body>
 </html>
