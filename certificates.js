@@ -32,7 +32,11 @@ function redirectPage() {
                else if (input === "SHS/CE/PK-23004 CE") {
         window.location.href = "certificates/4-sivaahndlowy certificate CE.pdf";
       }
-          
+       
+      else if (input === "SHS/QMS/PK-24002 CE") {
+        window.location.href = "certificates/Certificate 13485";
+      }
+
     else {
       alert("This Certificate Doesnt Exist: " + input);
     }
