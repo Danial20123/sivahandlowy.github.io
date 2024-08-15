@@ -7,6 +7,10 @@ function redirectPage() {
     else if (input === "SHS/QMS/PK-2301 9001") {
       window.location.href = "certificates/nn9001.pdf";
     } 
+        else if (input === "SHS/QMS/PK-24002 CE") {
+      window.location.href = "Reeax CE.pdf";
+    }
+        
     else if (input === "SHS/QMS/PL/0001 13485") {
       window.location.href = "certificates/Document_2023-02-13_122728.pdf";
     } 
@@ -33,7 +37,7 @@ function redirectPage() {
         window.location.href = "certificates/4-sivaahndlowy certificate CE.pdf";
       }
        
-      else if (input === "SHS/QMS/PK-24002 CE") {
+      else if (input === "SHS/QMS/PK-24002 13485") {
         window.location.href = "certificates/Certificate 13485.pdf";
       }
 
