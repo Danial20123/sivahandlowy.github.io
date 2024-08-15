@@ -8,7 +8,7 @@ function redirectPage() {
       window.location.href = "certificates/nn9001.pdf";
     } 
         else if (input === "SHS/QMS/PK-24002 CE") {
-      window.location.href = "Reeax CE.pdf";
+      window.location.href = "certificates/Reeax CE.pdf";
     }
         
     else if (input === "SHS/QMS/PL/0001 13485") {
