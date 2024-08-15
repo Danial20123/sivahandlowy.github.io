@@ -34,7 +34,7 @@ function redirectPage() {
       }
        
       else if (input === "SHS/QMS/PK-24002 CE") {
-        window.location.href = "certificates/Certificate 13485";
+        window.location.href = "certificates/Certificate 13485..pdf";
       }
 
     else {
