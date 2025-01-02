@@ -50,6 +50,10 @@ function redirectPage() {
         window.location.href = "certificates/Certificate 13485.pdf";
       }
 
+else if (input === "SHS/CE/PK-25001 EC") {
+        window.location.href = "certificates/1-sivaahndlowy certificate CE.pdf";
+      }
+
     else {
       alert("This Certificate Doesnt Exist: " + input);
     }
