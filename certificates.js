@@ -10,7 +10,11 @@ function redirectPage() {
         else if (input === "SHS/QMS/PK-24002 CE") {
       window.location.href = "certificates/Reeax CE.pdf";
     }
-          else if (input === "SHS/CE/PK-24001 CE") {
+          else if (input === "SHS/CE/PK-25001 EC") {
+      window.location.href = "certificates/1-sivaahndlowy certificate CE-25.pdf";
+    }
+
+    else if (input === "SHS/CE/PK-24001 CE") {
       window.location.href = "certificates/Deft-Technik CE.pdf";
     }
                     else if (input === "SHS/QMS/PK-24001 13485") {
