@@ -8,18 +8,18 @@ function redirectPage() {
       window.location.href = "certificates/nn9001.pdf";
     } 
 
-     else if (input === "SHS/CE/PK-25003 EC") {
+     else if (input === "SHS/CE/PK-25003 CE") {
       window.location.href = "certificates/3-Espak International CE-25.pdf";
     } 
 
-    else if (input === "SHS/CE/PK-25002 EC") {
+    else if (input === "SHS/CE/PK-25002 CE") {
       window.location.href = "certificates/2-sivaahndlowy certificate CE-25 Fendema.pdf";
     }
         
         else if (input === "SHS/QMS/PK-24002 CE") {
       window.location.href = "certificates/Reeax CE.pdf";
     }
-          else if (input === "SHS/CE/PK-25001 EC") {
+          else if (input === "SHS/CE/PK-25001 CE") {
       window.location.href = "certificates/1-sivaahndlowy certificate CE-25.pdf";
     }
 
@@ -71,4 +71,5 @@ else if (input === "SHS/CE/PK-25001 EC") {
       alert("This Certificate Doesnt Exist: " + input);
     }
   }
+
 
