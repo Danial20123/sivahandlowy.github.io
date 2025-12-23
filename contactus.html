@@ -1,35 +1,209 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-  <style>
-    h1 {
-      text-align: center;
-      margin: 50px;
-    }
-  </style>
-</head>
-<div class="container">
-  <h1>Contact us
-  </h1>
-  <form target="_blank" action="https://formsubmit.co/sivahandlowy@gmail.com" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="col">
-          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-  </form>
-</div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="transport.css">
+    <style>
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: white;
+            padding: clamp(30px, 5vw, 60px);
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
 
+        .contact-info h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .info-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .info-item h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        /* Form Styling */
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="contactus.html" class="active">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="menu.html">Food & Catering</a>
+            <a href="transport.html">Transport</a>
+            <a href="construntionandrenivation.html">Construction</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representative</a>
+            <a href="products.html">Products</a>
+            <a href="certificates.html">Certification</a>
+            <a href="contactus.html">Contact</a>
+        </div>
+    </div>
+
+    <section class="transport-hero" style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.pexels.com/photos/33999/pexels-photo.jpg');">
+        <div class="hero-content">
+            <h1 class="responsive-title">Get In Touch</h1>
+            <p class="responsive-subtitle">Have a question or need a quote? Our team is here to help you.</p>
+        </div>
+    </section>
+
+    <main class="transport-container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Our Offices</h2>
+                <div class="underline" style="margin-left: 0;"></div>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Main Office</h4>
+                        <p>Ściegiennego 41A, 40-114 Katowice, Poland</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <h4>Secondary Office</h4>
+                        <p>Ul. Piotra Skargi 8/217, 40-091 Katowice</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>info.siva.pl@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+48 792 702 887</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form target="_blank" action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="text" name="_subject" placeholder="Subject">
+                    <textarea name="message" rows="6" placeholder="How can we help you?" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Leading the way in European business representation and certification.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Ściegiennego 41A, Katowice, Poland</p>
+                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>Registration</h4>
+                <p>NIP: 634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Siva Handlowy. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+        window.onscroll = function() {
+            const header = document.querySelector('.main-header');
+            if (window.pageYOffset > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+    </script>
 </body>
 </html>

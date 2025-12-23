@@ -1,473 +1,123 @@
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --primary: #1e3a8a;
+    --accent: #3b82f6;
+    --white: #ffffff;
+    --bg: #f8fafc;
+    --text: #334155;
 }
 
-/* Global styles */
 body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Allow horizontal scrolling */
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
 }
 
-.white {
-    color: white;
-}
-
-/* Navbar styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ff8420;
-    color: white;
-    font-size: 15px;
-}
-
-.logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li {
-    margin-right: 20px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #f8f8f8;
-}
-
-/* Menu section styles */
-.menu {
-    padding: 50px;
-    text-align: center;
-}
-
-.menu h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.menu .h1 {
-    font-size: 50px;
-    margin-top: 20px;
-}
-
-.menu-item {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.menu-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.menu-item p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-.price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #ff8420;
-}
-
-/* Banner styles */
-.banner {
+.menu-container {
+    max-width: 1000px;
+    margin: -100px auto 100px;
     position: relative;
-    height: 100vh;
-    background: url('https://e0.pxfuel.com/wallpapers/271/397/desktop-wallpaper-slider3-restaurant-food-pic.jpg') center/cover no-repeat;
-    color: white !important;
-    overflow: hidden; /* Add overflow: hidden to prevent content overflow */
+    padding: 0 20px;
 }
 
-.banner-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    max-width: 80%; /* Set a maximum width for the text container */
-}
+.menu-section-title { text-align: center; color: var(--white); margin-bottom: 40px; }
+.underline { width: 50px; height: 4px; background: var(--accent); margin: 10px auto; border-radius: 5px; }
 
-.banner h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-/* Menu page styles */
-.menu-header {
-    text-align: center;
-    padding: 50px;
-}
-
-.menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.product-card {
-    max-width: 300px;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-}
-
-.product-card h2 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-.product-card p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.price {
-    display: inline-block;
-    background-color: #ff8420;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-/* Menu item styles */
-.product-card {
-    margin-bottom: 40px; /* Add some space between each dish */
-}
-
-.dish-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.price {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.quantity {
-    display: flex;
-    align-items: center;
-}
-
-.quantity label {
-    margin-right: 10px;
-}
-
-.quantity input {
-    width: 40px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Container styles */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.company-name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center; /* Center align company name */
-}
-
-/* Order form styles */
-.order-form {
-    margin-bottom: 30px;
-}
-
-/* Dish styles */
-.dish {
-    display: flex;
-    align-items: center;
+/* Category Style */
+.menu-category {
+    background: var(--white);
+    border-radius: 15px;
     margin-bottom: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
 }
 
-.dish-image,
-.dish-image1 {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+.category-header {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.category-header h3 { margin: 0; color: var(--primary); font-size: 1.2rem; }
+.plus-icon { color: var(--accent); font-weight: bold; font-size: 1.4rem; }
+
+.category-content {
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+}
+
+.food-grid { padding: 0 30px 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f1f5f9;
+    padding: 15px;
     border-radius: 10px;
-    margin-right: 10px;
 }
 
-/* Label and input styles */
-label {
-    font-size: 18px;
-    color: #333;
+.food-info h4 { margin: 0; font-size: 1rem; }
+.price { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
+
+.add-to-cart-btn {
+    background: var(--primary);
+    color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer;
 }
 
-input[type="number"] {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+/* Floating Cart */
+.floating-cart {
+    position: fixed; bottom: 30px; right: 30px; background: var(--accent);
+    color: white; width: 65px; height: 65px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.5rem; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4); z-index: 1000; cursor: pointer;
+}
+#cart-count {
+    position: absolute; top: 5px; right: 5px; background: #ef4444;
+    font-size: 0.7rem; padding: 4px 7px; border-radius: 50%; border: 2px solid white;
 }
 
-/* Heading styles */
-h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #333;
+/* Summary Card & Form */
+.order-card {
+    background: var(--white); padding: 40px; border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-top: 50px;
 }
 
-label,
-input[type="text"],
-input[type="tel"],
-input[type="email"] {
-    display: block;
-    margin-bottom: 10px;
+.cart-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 0; border-bottom: 1px solid #f1f5f9;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+.item-info { flex: 2; }
+.item-name { display: block; font-weight: 600; }
+.item-price-each { font-size: 0.8rem; color: #94a3b8; }
+
+.qty-controls { flex: 1; display: flex; align-items: center; gap: 10px; }
+.qty-controls button {
+    width: 25px; height: 25px; border: 1px solid #cbd5e1; border-radius: 4px; background: white; cursor: pointer;
 }
 
-/* Order button styles */
-#order-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ff9800;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+.row-total { font-weight: 700; min-width: 80px; text-align: right; }
+.remove-icon { color: #ef4444; cursor: pointer; margin-left: 15px; }
+
+.total-section {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px; background: #f1f5f9; border-radius: 10px; margin: 20px 0;
+}
+.total-amount { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.input-box label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 5px; }
+.input-box input, textarea {
+    width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; background: #f8fafc;
 }
 
-#order-button:hover {
-    background-color: #f57c00;
+.submit-btn {
+    width: 100%; background: var(--primary); color: white; border: none;
+    padding: 20px; border-radius: 10px; font-weight: 700; font-size: 1.1rem;
+    cursor: pointer; margin-top: 20px;
 }
 
-/* Total price styles */
-#total-price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-
-.center-content {
-    text-align: center;
-}
-
-/* Hamburger menu styles */
-.hamburger {
-    max-width: 600px; /* Set a maximum width for the hamburger section */
-    margin: 0 auto; /* Center-align the section horizontally */
-    padding: 20px 0; /* Add some padding for better spacing */
-    text-align: center;
-}
-
-/* Mobile menu icon */
-.menu-icon {
-    display: inline-block;
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin-right: 10px;
-    position: relative;
-    cursor: pointer;
-}
-
-.menu-icon::before,
-.menu-icon::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 3px;
-    background-color: white;
-}
-
-.menu-icon::before {
-    top: -10px;
-}
-
-.menu-icon::after {
-    top: 10px;
-}
-
-/* Mobile navigation */
-.mobile-menu {
-    display: none;
-}
-
-/* Adjustments for mobile views */
-@media screen and (max-width: 768px) {
-    .menu-icon {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        background-color: #ff8420;
-        width: 100%;
-        top: 70px;
-        left: 0;
-        transition: left 0.3s ease-in-out;
-        z-index: 1;
-    }
-
-    .navbar.active .nav-links {
-        left: 0;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-}
-
-/* Instructions styles */
-.instructions {
-    background-color: #ffffff;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.instructions h2 {
-    color: #333;
-}
-
-.order-list,
-.payment-list {
-    list-style: decimal;
-    padding-left: 20px;
-}
-
-@media screen and (max-width: 600px) {
-    .instructions {
-        padding: 10px;
-    }
-}
-
-/* Date and Time Picker styles */
-.date-time-section {
-    margin-top: 20px;
-}
-
-.date-time-label {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.date-time-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Style for Date and Time Picker */
-.date-picker {
-    width: 50%;
-    margin-right: 10px;
-}
-
-.time-picker {
-    width: 45%;
-}
-
-.food-order-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff8420; /* Background color */
-    color: white; /* Text color */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.food-order-button:hover {
-    background-color: #f57c00; /* Hover background color */
-    transform: scale(1.05); /* Hover scaling effect */
-}
-
-/* Optional: Add a box-shadow for depth */
-.food-order-button {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Optional: Add a border to the button */
-.food-order-button {
-    border: 2px solid #ff8420; /* Border color */
-}
-
-/* Optional: Change text color on hover */
-.food-order-button:hover {
-    color: #fff; /* Text color on hover */
+@media (max-width: 700px) {
+    .food-grid, .form-grid { grid-template-columns: 1fr; }
 }

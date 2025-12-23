@@ -2,557 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <link rel="stylesheet" href="menu.css">
-    <title>Menu - Your Restaurant</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu & Ordering | Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="nav.css">
-    <script src="scriptbar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
-  <div class="header">
-		<button class="openbtn" onclick="openNav()">☰</button>
-		<p class="siva">Siva Handlowy</p>
-	  </div>
-	
-	  <div id="mySidebar" class="sidebar" >
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-		<a href="index.html">Home</a>
-		<a href="aboutus.html">About us</a>
-        <a href="menu.html">Food & Catering</a>
-        <a href="transport.html">Transport</a>
-        <a href="#construntionandrenivation.html">Construction & Renovation</a>
-		<a href="services.html">Services</a>
-		<a href="euar.html">Authorised Representative EU</a>
-		<a href="products.html">Products</a>
-		<a href="programs.html">Programs</a>
-		<a href="events.html">News & Events</a>
-		<a href="certificates.html">Certification</a>
-		<a href="career.html">Career</a>
-		<a href="exhi.html">Exhibitions</a>
-		<a href="contactus.html">Contact us</a>
-		<a href="membership.html">Membership form</a>
 
-	  </div>
-    <header class="banner">
-        <div class="banner-overlay">
-            <h1 class="white">Dla przyjaciół, rodziny i niezapomnianych przyjęć!</h1>
-            <p>Discover the finest flavors crafted with love.</p>
+    <header class="main-header">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
         </div>
     </header>
 
-    
-
-    <!-- ... Existing code ... -->
-
-    <div class="container">
-      <div class="company-name">Mealz<br>Catering
-      </div>
-      <div class="order-form">
-          <form action="https://formsubmit.co/sivahandlowy@gmail.com" method="POST">
-
-        <!--rollo section-->
-  <section class="hamburger center-content">
-    <h1>Tortilla Kebab </h1>
-    <div class="dish">
-      <img src="images/ROLLOKEBAB.jpg" alt="Firni" class="dish-image">
-    </div>
-
-    <div class="dish">
-      <label for="dish1">Kebab z Kurczakiem Mały - 18zł</label>
-      <input type="number" id="dish1" name="Kebab Kurczakiem Maly" min="0" value="0" data-price="18">
-    </div>
-
-    <div class="dish">
-      <label for="dish2">Kebab z Kurczakiem Duży - 27zł</label>
-      <input type="number" id="dish2" name="Kebab Kurczakiem big" min="0" value="0" data-price="27">
-    </div>
-
-    <div class="dish">
-      <label for="dish5">Kebab z Wołowiną Mały - 20zł</label>
-      <input type="number" id="dish5" name="Kebab Wolowina Maly" min="0" value="0" data-price="20">
-    </div>
-
-    <div class="dish">
-      <label for="dish6"> Kebab z Wolowiną Duży - 29zł</label>
-      <input type="number" id="dish6" name="Kebab Wolowina Big" min="0" value="0" data-price="29">
-    </div>
-
-    <div class="dish">
-      <label for="dish7">Kebab z Omletem Mały 12zł</label>
-      <input type="number" id="dish7" name="Omelletowa maly" min="0" value="0" data-price="12">
-    </div>
-
-    <div class="dish">
-      <label for="dish8">Kebab z Omletem  Duży 17zł</label>
-      <input type="number" id="dish8" name="Omelletowa Big" min="0" value="0" data-price="17">
-    </div>
-
-    <div class="dish">
-      <label for="dish9">Kebab z Wegetariański Maly - 16zł</label>
-      <input type="number" id="dish9" name="Vegetrianski Maly" min="0" value="0" data-price="16">
-    </div>
-
-    <div class="dish">
-      <label for="dish10">Kebab z Wegetariański Duży - 24zł</label>
-      <input type="number" id="dish10" name="vegettrianki Big" min="0" value="0" data-price="24">
-    </div>
-    </section>
-  <!--rollo section ends-->
-
- <!--kapslon section-->
- <section class="hamburger center-content">
-  <h1>Kapsalon</h1>
-  <div class="dish">
-    <img src="images/kapsalon.jpg" alt="Firni" class="dish-image">
-  </div>
-
-  <div class="dish">
-    <label for="dish11">Kapsalon z Kurczakiem Mały - 18zł</label>
-    <input type="number" id="dish11" name="dish11_quantity" min="0" value="0" data-price="18">
-  </div>
-
-  <div class="dish">
-    <label for="dish12">Kapsalon z Kurczakiem Duży - 26zł</label>
-    <input type="number" id="dish12" name="Kapslon z Kurczkiem Maly" min="0" value="0" data-price="26">
-  </div>
-
-  <div class="dish">
-    <label for="dish15">Kapsalon z Wołowiną Mały - 20zł</label>
-    <input type="number" id="dish15" name="Kapslon z Wolowina Maly" min="0" value="0" data-price="20">
-  </div>
-
-  <div class="dish">
-    <label for="dish16">Kapsalon z Wołowiną Duży - 29zł</label>
-    <input type="number" id="dish16" name="dish16_quantity" min="0" value="0" data-price="29">
-  </div>
-
-  <div class="dish">
-    <label for="dish17">Kapsalon z jajecznicą mały - 12zł</label>
-    <input type="number" id="dish17" name="Kapslon z Wolowina Bigy" min="0" value="0" data-price="12">
-  </div>
-
-  <div class="dish">
-    <label for="dish18">Kapsalon z jajecznicą Duży - 17zł</label>
-    <input type="number" id="dish18" name="Kapslon z Omelletowa Big" min="0" value="0" data-price="17">
-  </div>
-
-  <div class="dish">
-    <label for="dish19">Kapslon z Wegetariański Mały - 16zł</label>
-    <input type="number" id="dish19" name="Kapslon z Wegetrianski" min="0" value="0" data-price="16">
-  </div>
-
-  <div class="dish">
-    <label for="dish20">Kapsalon z Wegetariański Duży - 20zł</label>
-    <input type="number" id="dish20" name="Kapslon z Wegetrianki Big" min="0" value="0" data-price="20">
-  </div>
-
-
-  </section>
-<!--kapslon section ends-->
-
- <!--kuchnia asia section-->
- <section class="hamburger center-content">
-  <h1>Kuchnia Azjatycka</h1>
-  <div class="dish">
-    <img src="images/asian.jpg" alt="Firni" class="dish-image">
-  </div>
-
-  <div class="dish">
-    <label for="dish23">Tikka Masala z kurczakiem i ryż - 39zł</label>
-    <input type="number" id="dish23" name="Kurczak Tikka Masala Z Ryzem" min="0" value="0" data-price="39">
-  </div>
-
-  <div class="dish">
-    <label for="dish24">Tikka Masala Z kurczakiem i chlebkami Naan  - 39zł</label>
-    <input type="number" id="dish24" name="Kurczak Tikka Masala Z Naanem" min="0" value="0" data-price="39">
-  </div>
-
-  <div class="dish">
-    <label for="dish25">Tikka Tandoori z kurczakiem i ryżem - 39zł</label>
-    <input type="number" id="dish25" name="Kurczak Tikka Tandoori Z Ryzem" min="0" value="0" data-price="39">
-  </div>
-
-  <div class="dish">
-    <label for="dish26">Kurczak Tikka Tandoori Z Naanem - 39zł</label>
-    <input type="number" id="dish26" name="Kurczak Tikka Tandoori Z Naanem" min="0" value="0" data-price="39">
-  </div>
-
-  <div class="dish">
-    <label for="dish27">Ryba Masala z Ryżem - 47zł</label>
-    <input type="number" id="dish27" name="Ryba Masala z Ryzem" min="0" value="0" data-price="47">
-  </div>
-
-  <div class="dish">
-    <label for="dish28">Ryba Masala z chlebkami Naan- 47zł</label>
-    <input type="number" id="dish28" name="Ryba Masala z Naanem" min="0" value="0" data-price="47">
-  </div>
-
-  <div class="dish">
-    <label for="dish29">Baranina Masala z Ryżem - 47zł</label>
-    <input type="number" id="dish29" name="Baranina Masala z Ryzem" min="0" value="0" data-price="47">
-  </div>
-
-  <div class="dish">
-    <label for="dish30">Baranina Masala z chlebkami Naan - 47zł</label>
-    <input type="number" id="dish30" name="Baranina Masala z Naanem" min="0" value="0" data-price="47">
-  </div>
-
-  <div class="dish">
-    <label for="dish31">Wołowina Masala z Ryżem - 47zł</label>
-    <input type="number" id="dish31" name="Wolowina Masala z Ryzem" min="0" value="0" data-price="47">
-  </div>
-
-  <div class="dish">
-    <label for="dish32">Wołowina Masala z chlebkami Naan - 47zł</label>
-    <input type="number" id="dish32" name="Wolowina Masala z Naanem" min="0" value="0" data-price="47">
-  </div>
-
-  <div class="dish">
-    <label for="dish33">Wymieszaj Warzywa z Ryżem - 29zł</label>
-    <input type="number" id="dish33" name="Mieszany Warzywa Masala z Ryzem" min="0" value="0" data-price="29">
-  </div>
-
-  <div class="dish">
-    <label for="dish34">Wymieszaj Warzywa z chlebkami Naan - 29zł</label>
-    <input type="number" id="dish34" name="Mieszany Warzywa Masala z Naanem" min="0" value="0" data-price="29">
-  </div>
-
-  <div class="dish">
-    <label for="dish35">Masala Jajeczna z Ryżem - 29zł</label>
-    <input type="number" id="dish35" name="Masala Jajeczna z Ryzem" min="0" value="0" data-price="29">
-  </div>
-
-  <div class="dish">
-    <label for="dish36">Masala Jajeczna z chlebkami Naan - 29zł</label>
-    <input type="number" id="dish36" name="Masala Jajeczna z Naanem" min="0" value="0" data-price="29">
-  </div>
-  </section>
-<!--Kuchnia asia section ends-->
-
-<!--sweats section ends-->
-      <!--Burger section-->
-  <section class="hamburger center-content">
-    <h1>Burgers </h1>
-    <div class="dish">
-      <img src="images/pobrane (4).jpg" alt="Firni" class="dish-image">
-    </div>
-
-    <div class="dish">
-      <label for="dish37">Burger z Kurczakiem klasyczny - 18zł</label>
-      <input type="number" id="dish37" name="Burger z Kurczkiem Regular" min="0" value="0" data-price="18">
-    </div>
-
-    <div class="dish">
-      <label for="dish38">Burger z Kurczakiem Podwójny - 25zł</label>
-      <input type="number" id="dish38" name="Burger z Kurczkiem Podwojny" min="0" value="0" data-price="25">
-    </div>
-
-    <div class="dish">
-      <label for="dish41">Burger z Wolowiną klasyczny - 21zł</label>
-      <input type="number" id="dish41" name="Burger z Wolowina Regular" min="0" value="0" data-price="21">
-    </div>
-
-    <div class="dish">
-      <label for="dish42">Burger z Wolowiną Podwójny - 29zł</label>
-      <input type="number" id="dish42" name="Burger z Wolowina Podwoiny" min="0" value="0" data-price="29">
-    </div>
-
-    <div class="dish">
-      <label for="dish47">Burger z Wegetariański klasyczny - 14zł</label>
-      <input type="number" id="dish47" name="Burger z Wegerianski Maly" min="0" value="0" data-price="14">
-    </div>
-
-    <div class="dish">
-      <label for="dish48">Burger z Wegetariański Podwójny - 18zł</label>
-      <input type="number" id="dish48" name="Burger z Wegaterianski Podwoiny" min="0" value="0" data-price="18">
-    </div>
-    </section>
-<!--Burger section ends-->
-
-<!--zapiekanka-->
-<section class="hamburger center-content">
-<h1>Frytki</h1>
-  <div class="dish">
-    <img src="images/fries.jpg" alt="Firni" class="dish-image">
-  </div>
-
-  <div class="dish">
-    <label for="dish49">Frytki Małe - 6zł</label>
-    <input type="number" id="dish49" name="Frytki Maly" min="0" value="0" data-price="6">
-  </div>
-
-  <div class="dish">
-    <label for="dish50">Frytki Duże - 10zł</label>
-    <input type="number" id="dish50" name="Frytki Duze" min="0" value="0" data-price="10">
-  </div>
-
-  <div class="dish">
-    <label for="dish51">Frytki Max - 15zł</label>
-    <input type="number" id="dish51" name="Frytki Max" min="0" value="0" data-price="15">
-  </div>
-</section>
-<!--zapiekanka end-->
-
-<!--sweats section-->
-<section class="hamburger center-content">
-  <h1>Desery</h1>
-  <div class="dish">
-    <img src="images/firni.jpg" alt="Firni" class="dish-image">
-  </div>
-
-  <div class="dish">
-    <label for="dish52">Kheer o Smaku Waniliowym - 7zł       </label>
-    <input type="number" id="dish52" name="Firni o Smaku Vanilowy" min="0" value="0" data-price="7">
-  </div>
-
-  <div class="dish">
-    <label for="dish53">Kheer o Smaku truskawkowym - 7zł</label>
-    <input type="number" id="dish53" name="Firni o Smaku truskawskowy" min="0" value="0" data-price="7">
-  </div>
-</section>
-
-<section class="hamburger center-content">
-  <h1>Napoje</h1>
-  <div class="dish">
-    <img src="images/coke.jpg" alt="Firni" class="dish-image">
-  </div>
-
-  <div class="dish">
-    <label for="dish5">Lassi o Smaku Mango - 6zł</label>
-    <input type="number" id="dish56" name="lassi-o-smaku-mangowy" min="0" value="0" data-price="6">
-  </div>
-
-  <div class="dish">
-    <label for="dish6">Lassi o Smaku Truskawkowym - 6zl</label>
-    <input type="number" id="dish57" name="lassi-o-Smaku-Truskawskowy" min="0" value="0" data-price="6">
-  </div>
-
-  <div class="dish">
-    <label for="dish7">Cappy Sok 250ml - 6zł</label>
-    <input type="number" id="dish58" name="Cappy-Sok-250ml" min="0" value="0" data-price="6">
-  </div>
-
-
-  <div class="dish">
-    <label for="dish8">Coca Cola 500 ml - 7zł</label>
-    <input type="number" id="dish59" name="Coca Cola 500 ml" min="0" value="0" data-price="7">
-  </div>
-
-  <div class="dish">
-    <label for="dish8">Coca Cola 1L - 12zł</label>
-    <input type="number" id="dish60" name="Coca Cola 1L" min="0" value="0" data-price="12">
-  </div> 
-
-  <div class="dish">
-    <label for="dish8">Ayran - 6zł</label>
-    <input type="number" id="dish61" name="Ayran" min="0" value="0" data-price="6">
-  </div>
- 
-  <div class="dish">
-    <label for="dish8">Woda Mineralna - 6zł</label>
-    <input type="number" id="dish62" name="Woda Mineralne" min="0" value="0" data-price="6">
-  </div>
- 
-
-  <div class="dish">
-    <label for="dish8">Woda Gazowana - 6zł</label>
-    <input type="number" id="dish63" name="Woda Gazowany" min="0" value="0" data-price="6">
-  </div>
- 
-</section>
-
-<section class="hamburger center-content">
-  <h1>Dodatki</h1>
-  <div class="dish">
-    <img src="images/extra.jpg" alt="Firni" class="dish-image1">
-  </div>
-
-  <div class="dish">
-    <label for="dish5">Dodatkowe Mięso - 7zł</label>
-    <input type="number" id="dish64" name="Dodatkowy Mieso" min="0" value="0" data-price="7">
-  </div>
-
-  <div class="dish">
-    <label for="dish6">Dodatkowe Frytki - 3zł</label>
-    <input type="number" id="dish65" name="Dodatkowy Frytki" min="0" value="0" data-price="3">
-  </div>
-
-  <div class="dish">
-    <label for="dish7">Dodatkowy Sos - 3zł</label>
-    <input type="number" id="dish66" name="Dodatkowy Sos" min="0" value="0" data-price="3">
-  </div>
-
-
-  <div class="dish">
-    <label for="dish8">Dodatkowy Ser - 3zł</label>
-    <input type="number" id="dish67" name="Dodatkowy Ser" min="0" value="0" data-price="3">
-  </div>
- 
-  <div class="dish">
-    <label for="dish8">Dodatkowe oliwki - 0zł</label>
-    <input type="number" id="dish68" name="Dodatkowy oliwki" min="0" value="0" data-price="">
-  </div>
-
-  <div class="dish">
-    <label for="dish8">Dodatkowe Papryczki jalepeno - 0zł</label>
-    <input type="number" id="dish69" name="Dodatkowy jalepeno" min="0" value="0" data-price="">
-  </div>
-
-  <div class="dish">
-    <label for="dish8">Dodatkowe ser feta - 3zł</label>
-    <input type="number" id="dish70" name="Dodatkowy feta ser" min="0" value="0" data-price="3">
-  </div>
-  </section>
-
-  <div class="instructions">
-
-    <h3>Jak Zamawiać?:</h3>
-    <ol class="order-list">
-        <li>Wpisz w okinko ilość danej potrawy do zamówienia.</li>
-        <li>Minimalne koszt zamowienia to 89 zł.</li>
-        <li>Potrzebujesz pomoc w zamowieniu zadzwon pod numer 792-702-887.</li>
-        <li>Niezwłocznie potwierdzimy Twoje zamówienie e-mailem, wraz z obowiązującą opłatą za dostawę na podstawie Twojego adresu.</li>
-        <li>Minimalna ilość potrzebna nam do stworzenia i przywiezienia twojej kulinarnej przygody to 4 godzin (potrzebujemy tego czasu aby się przygotować i przywieść ci świeże i smaczne posiłki)</li>
-        <li>Możesz skorzystać z naszej dostawy od 9:00 do 22:00 oplata za dostawa nalezy na twoje adress.</li>
-    </ol>
-
-    <h3>Opcje płatności:</h3>
-    <ol class="payment-list">
-        <li>1.W celu potwierdzenia zamówienia należy dokonać wpłaty początkowej w wysokości 50%, pozostałe 50% płatne przy odbiorze.
-          Płatności przy odbiorze przyjmujemy gotówką, kartą, BLIKIEM lub przelewem telefonicznym pod numer 536-077-524.</li>
-        
-        <li>2.Fakturę otrzymasz e-mailem jako potwierdzenie zamówienia.</li>
-    </ol>
-</div>
-
-		  <div class="instructions">
-
-    <h3>How to Order:</h3>
-    <ol class="order-list">
-        <li>Enter the quantity of the selected dish you wish to order.</li>
-        <li>The minimum order cost is 89 PLN.</li>
-        <li>If you need assistance with your order, call us at 792-702-887.</li>
-        <li>We will promptly confirm your order via email along with the applicable delivery fee based on your address.</li>
-        <li>We require a minimum of 4 hours to prepare and deliver your culinary experience (we need this time to prepare and bring you fresh and tasty meals).</li>
-        <li>You can avail our delivery service from 12:00 to 22:00 The delivery fee is payable at your address.</li>
-    </ol>
-
-    <h3>Payment Options:</h3>
-    <ol class="payment-list">
-        <li>To confirm your order, a 50% initial payment is required, with the remaining 50% payable upon delivery. 
-          We accept cash, card, BLIK, or phone transfer payments at 536-077-524 upon delivery.</li>
-        <li>You will receive an invoice via email as confirmation of your order.</li>
-    </ol>
-</div>
-
-  
-        <div id="delivery-address">
-          <h2>Delivery Address</h2>
-          <div>
-            <label for="name">Imię</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div>
-            <label for="city">Miasto</label>
-            <input type="text" id="city" name="city" required>
-          </div>
-          <div>
-            <label for="postcode">Kod Pocztowy</label>
-            <input type="text" id="postcode" name="postcode" required>
-          </div>
-          <div>
-            <label for="flat-number">Numer Budynku/ Numer Mieszkania </label>
-            <input type="text" id="flat-number" name="flat_number">
-          </div>
-          <div>
-            <label for="street-name">Ulica</label>
-            <input type="text" id="street-name" name="street_name" required>
-          </div>
-          <div>
-            <label for="phone">Numer telefonu</label>
-            <input type="tel" id="phone" name="phone" required>
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="date-time-section">
-            <label class="date-time-label" for="delivery-date">Data Dostawy:</label>
-            <input class="date-time-input date-picker" type="date" id="delivery-date" name="delivery-date" required>
-          </div>
-          
-          <div class="date-time-section">
-            <label class="date-time-label" for="delivery-time">Godzina Dostawy:</label>
-            <input class="date-time-input time-picker" type="time" id="delivery-time" name="delivery-time" required>
-          </div>
-        </div><br><br>
-        <div class="total">
-          <label for="total">Komentarz do Zamówienia:</label>
-          <input type="text" id="total" name="total" readonly>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="menu.html">Food & Catering</a>
+            <a href="transport.html">Transport</a>
+            <a href="construntionandrenivation.html">Construction</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representative</a>
+            <a href="products.html">Products</a>
+            <a href="certificates.html">Certification</a>
+            <a href="contactus.html">Contact</a>
         </div>
-        
+        </div>
+
+    <section class="hero-slider">
+        <div class="myslide active">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg" alt="Banner">
+            <div class="hero-text">
+                <h1>Mealz Catering</h1>
+                <p>Professional food services for every occasion.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-cart" onclick="scrollToOrder()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
     </div>
-  
-          <input type="hidden" name="_subject" value="New Order">
-          <input type="hidden" name="_autoresponse" value="Thanks for your order! We will contact you shortly.">
-          <button type="button" onclick="sendOrder()" class="food-order-button">Submit Order</button>
 
-        </form>
-      </div>
-    </div>
-<script src="menu.js">
-  
-</script>    <br><br><br><br><br><br><br>
-    
+    <main class="menu-container">
+        <div class="menu-section-title">
+            <h2>Select Your Items</h2>
+            <div class="underline"></div>
+        </div>
 
-<!-- ... Rest of the code ... -->
+        <div class="menu-category">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <h3>Tortilla Kebab</h3>
+                <span class="plus-icon">+</span>
+            </div>
+            <div class="category-content">
+                <div class="food-grid">
+                    <div class="food-item">
+                        <div class="food-info">
+                            <h4>Kebab z Kurczakiem Mały</h4>
+                            <span class="price">18.00 zł</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Kebab Kurczak Mały', 18)">Add +</button>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-info">
+                            <h4>Kebab z Kurczakiem Duży</h4>
+                            <span class="price">27.00 zł</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Kebab Kurczak Duży', 27)">Add +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<script>
-  function sendOrder() {
-  // Get all the dish inputs
-  const dishInputs = document.querySelectorAll('input[type="number"]');
-  const selectedDishes = [];
+        <div class="order-card" id="checkout-section">
+            <h3><i class="fas fa-receipt"></i> Your Order Summary</h3>
+            <div id="cart-items-list" class="cart-items-list">
+                <p class="empty-msg">Your cart is empty.</p>
+            </div>
+            <div class="total-section">
+                <div class="total-label">Total Amount:</div>
+                <div class="total-amount" id="grand-total">0.00 zł</div>
+            </div>
+            <hr class="form-divider">
+            <form action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST" id="order-form">
+                <input type="hidden" name="_subject" value="New Catering Order - Siva Handlowy">
+                <div class="form-grid">
+                    <div class="input-box"><label>Name</label><input type="text" name="name" required></div>
+                    <div class="input-box"><label>Phone</label><input type="tel" name="phone" required></div>
+                    <div class="input-box"><label>City</label><input type="text" name="city" required></div>
+                    <div class="input-box"><label>Street & No.</label><input type="text" name="address" required></div>
+                </div>
+                <div class="input-box" style="margin-top: 20px;">
+                    <label>Additional Notes</label>
+                    <textarea name="comments" rows="3"></textarea>
+                </div>
+                <input type="hidden" name="ORDER_DETAILS" id="hidden-items-input">
+                <input type="hidden" name="TOTAL_PRICE" id="hidden-total-input">
+                <button type="button" onclick="finalizeOrder()" class="submit-btn">Confirm & Send Order</button>
+            </form>
+        </div>
+    </main>
 
-  // Filter out dishes with quantity 0 or less
-  dishInputs.forEach((input) => {
-    const quantity = parseInt(input.value);
-    if (quantity > 0) {
-      selectedDishes.push({
-        name: input.name,
-        quantity: quantity,
-      });
-    }
-  });
-
-  // If no dishes with quantity greater than 0, don't submit the form
-  if (selectedDishes.length === 0) {
-    alert("Please select at least one dish.");
-    return;
-  }
-
-  // Create a hidden input field with the selected dishes JSON
-  const dishesInput = document.createElement("input");
-  dishesInput.type = "hidden";
-  dishesInput.name = "selected_dishes";
-  dishesInput.value = JSON.stringify(selectedDishes);
-
-  // Append the hidden input to the form
-  const form = document.querySelector('form');
-  form.appendChild(dishesInput);
-
-  // Submit the form
-  form.submit();
-}
-
-  </script>
-  
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Your Restaurant. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Leading the way in European business representation and certification.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Ściegiennego 41A, Katowice, Poland</p>
+                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>Registration</h4>
+                <p>NIP: 634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Siva Handlowy. All rights reserved.
+        </div>
     </footer>
+
+    <script>
+        // NAVIGATION LOGIC
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+
+        window.onscroll = function() {
+            const header = document.querySelector('.main-header');
+            if (window.pageYOffset > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+
+        // CART & MENU LOGIC
+        let cart = [];
+        function toggleCategory(header) {
+            const content = header.nextElementSibling;
+            const isOpen = content.style.maxHeight;
+            content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
+            header.querySelector('.plus-icon').innerText = isOpen ? "+" : "-";
+        }
+
+        function scrollToOrder() { document.getElementById('checkout-section').scrollIntoView({ behavior: 'smooth' }); }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) { existing.qty++; } else { cart.push({ name, price, qty: 1 }); }
+            updateCartUI();
+        }
+
+        function updateQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const list = document.getElementById('cart-items-list');
+            const totalLabel = document.getElementById('grand-total');
+            const cartCount = document.getElementById('cart-count');
+            list.innerHTML = "";
+            let total = 0, count = 0;
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                count += item.qty;
+                list.innerHTML += `<div class="cart-row">
+                    <div class="item-info"><span class="item-name">${item.name}</span></div>
+                    <div class="qty-controls">
+                        <button type="button" onclick="updateQty(${index}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button type="button" onclick="updateQty(${index}, 1)">+</button>
+                    </div>
+                    <div class="row-total">${(item.price * item.qty).toFixed(2)} zł</div>
+                    <i class="fas fa-trash remove-icon" onclick="updateQty(${index}, -999)"></i>
+                </div>`;
+            });
+            if (cart.length === 0) list.innerHTML = '<p class="empty-msg">Your cart is empty.</p>';
+            totalLabel.innerText = total.toFixed(2) + " zł";
+            cartCount.innerText = count;
+            document.getElementById('hidden-total-input').value = total.toFixed(2) + " zł";
+        }
+
+        function finalizeOrder() {
+            if (cart.length === 0) return alert("Add items first!");
+            const summary = cart.map(i => `${i.name} x${i.qty}`).join("\n");
+            document.getElementById('hidden-items-input').value = summary;
+            document.getElementById('order-form').submit();
+        }
+    </script>
 </body>
 </html>

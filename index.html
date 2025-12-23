@@ -1,242 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Handlowy</title>
+    <title>Siva Handlowy | Professional Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="sp.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="cssfile.css">
-    <link rel="stylesheet" href="nav.css">
-    <script src="scriptbar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
-
-<style>
-	.memeberbutton {
-  padding-top: 60px;
-  text-align: center;
-}
-
-.memeberbutton a{
-  background: dodgerblue;
-  padding: 20px 50px;
-  border-radius: 30px;
-  border: 1px solid dodgerblue;
-  font-size: larger;
-  color: white;
-  transition: 0.2s;
-  box-shadow: 10px 10px #333;
-  text-decoration: none;
-}
-
-.members:hover {
-  box-shadow: #333 15px 15px;
-  padding: 25px 55px;
-}
-
-</style>
 <body>
-	<div class="header">
-		<button class="openbtn" onclick="openNav()">☰</button>
-		<p class="siva">Siva Handlowy</p>
-	  </div>
-	
-	  <div id="mySidebar" class="sidebar" >
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-		<a href="index.html">Home</a>
-		<a href="aboutus.html">About us</a>
-			<a href="menu.html">Food & Catering</a>
-			<a href="transport.html">Transport</a>
-			<a href="construntionandrenivation.html">Construction & Renovation</a>
-		<a href="services.html">Services</a>
-		<a href="euar.html">Authorised Representative EU</a>
-		<a href="products.html">Products</a>
-		<a href="programs.html">Programs</a>
-		<a href="events.html">News & Events</a>
-		<a href="certificates.html">Certification</a>
-		<a href="career.html">Career</a>
-		<a href="exhi.html">Exhibitions</a>
-		<a href="contactus.html">Contact us</a>
-		<a href="membership.html">Membership form</a>
 
-	  </div>
-	
-    <div class="slider">
-		<!-- fade css -->
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;"> Authorised Representative</h1>
-			</div>
-			<img class="slide" src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?cs=srgb&dl=pexels-fauxels-3183197.jpg&fm=jpg" style="width: 100%; height: 100%;">
-		</div>
-		
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;"> Eudamed MDR Directive</h1>
-			</div>
-			<img class="slide"src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
-		</div>
-		
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;"> Exhibitions </h1>
-			</div>
-			<img src="https://images.pexels.com/photos/8134018/pexels-photo-8134018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
-		</div>
-		
-		<div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;">Certification</h1>
-			</div>
-			<img class="slide"src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;">
-		</div>
+    <header class="main-header">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
 
-	    <div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;">Get a Quote</h1>
-			</div>
-			<img class="slide" src="https://media.istockphoto.com/id/1200222887/photo/business-team-working-together-in-office-banner.jpg?s=612x612&w=0&k=20&c=0lbU2I-cQU_E4hQqeNJOqtEDnVixsR6udAU6RYqSNzk=" style="width: 100%; height: 100%;">
-		</div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="menu.html">Food & Catering</a>
+            <a href="transport.html">Transport</a>
+            <a href="construntionandrenivation.html">Construction</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representative</a>
+            <a href="products.html">Products</a>
+            <a href="certificates.html">Certification</a>
+            <a href="contactus.html">Contact</a>
+        </div>
+    </div>
 
-	     <div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;">Register and become a member</h1>
-			</div>
-			<img class="slide" src="https://s.france24.com/media/display/58f7dcb2-5f9e-11ee-98ee-005056a90284/w:980/p:16x9/000_33X274Z.webp" style="width: 100%; height: 100%;">
-		</div>
+    <section class="hero-slider">
+        <div class="myslide fade active">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg" alt="Business Meeting">
+            <div class="hero-text">
+                <h1>Siva Handlowy</h1>
+                <p>Your Authorised Representative in the EU</p>
+                <a href="#expertise" class="btn-primary">Explore Services</a>
+            </div>
+        </div>
+        
+        <div class="myslide fade">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" alt="Medical Directive">
+            <div class="hero-text">
+                <h1>Eudamed MDR</h1>
+                <p>Navigating Directives & Compliance for your Business</p>
+                <a href="euar.html" class="btn-primary">Learn More</a>
+            </div>
+        </div>
 
-	    <div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;">Grow Your business in europe</h1>
-			</div>
-			<img class="slide" src="https://www.aspistrategist.org.au/wp-content/uploads/2020/12/GettyImages-615786102-e1607398700739.jpg" style="width: 100%; height: 100%;">
-		</div>
+        <button class="slider-btn prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="slider-btn next" onclick="plusSlides(1)">&#10095;</button>
+    </section>
 
-	    <div class="myslide fade">
-			<div class="txt">
-				<h1>Siva Handlowy</h1>
-            <h1 style=" color: white;">We invite you, Get sponsership for bussiness visit</h1>
-			</div>
-			<img class="slide" src="https://s.france24.com/media/display/58f7dcb2-5f9e-11ee-98ee-005056a90284/w:980/p:16x9/000_33X274Z.webp" style="width: 100%; height: 100%;">
-		</div>
+    <section id="expertise" class="section-container">
+        <div class="section-header">
+            <h2>Our Areas of Expertise</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid-features">
+            <div class="feature-card">
+                <div class="card-img">
+                    <img src="https://cdn.wpml.org/wp-content/uploads/2018/07/accounting-alone-application-938965-1024x590.jpg" alt="Expertise">
+                </div>
+                <div class="card-content">
+                    <h3>Process Quality</h3>
+                    <p>We create security and higher process quality across all industries through certification and management audits.</p>
+                </div>
+            </div>
 
+            <div class="feature-card">
+                <div class="card-img">
+                    <img src="https://www.dqsglobal.com/var/site/storage/images/_aliases/cw_large_1x/1/6/9/7/747961-1-ger-DE/Karriere-home-dqs-shutterstock_1606120399.jpg" alt="Career">
+                </div>
+                <div class="card-content">
+                    <h3>Career Opportunities</h3>
+                    <p>Join a highly motivated team of well-trained employees sustainably improving customer processes.</p>
+                    <a href="career.html" class="text-link">Join our team &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	    
+    <section class="video-section">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/vXZe9w1Pv2k" title="Siva Handlowy Overview" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
 
-
-
-
-		
-		<!-- /fade css -->
-		
-		<!-- onclick js -->
-		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  		<a class="next" onclick="plusSlides(1)">&#10095;</a>
-		
-		<div class="dotsbox" style="text-align:center">
-			<span class="dot" onclick="currentSlide(1)"></span>
-			<span class="dot" onclick="currentSlide(2)"></span>
-			<span class="dot" onclick="currentSlide(3)"></span>
-			<span class="dot" onclick="currentSlide(4)"></span>
-			<span class="dot" onclick="currentSlide(5)"></span>
-		</div>
-		<!-- /onclick js -->
-	</div>
-	<div class="video">
-		<iframe class="videosplayer" width="360" height="215" src="https://www.youtube.com/embed/vXZe9w1Pv2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-	  </div>
-	
-	  <section class="features">
-		<div class="feature-container">
-		  <img src="https://cdn.wpml.org/wp-content/uploads/2018/07/accounting-alone-application-938965-1024x590.jpg" alt="Flexbox Feature">
-		  <h2>Our Areasof Expertise for Your Success</h2>
-		  <p>With our services, we create more security and higher process quality across all industries. Our work ranges from the certification of management systems to audits relating to medical devices.</p>
-		</div>
-		<div class="feature-container">
-		  <img src="https://www.dqsglobal.com/var/site/storage/images/_aliases/cw_large_1x/1/6/9/7/747961-1-ger-DE/Karriere-home-dqs-shutterstock_1606120399.jpg" alt="Flexbox Feature">
-		  <h2 style="margin-top: 40px;">Career</h2>
-		  <p>Our employees are competent, innovative, and reliable, bringing our core competencies to life.</p>
-		  <br>
-		  <p>Would you also like to be part of a highly motivated team of well-trained employees who use all their experience and expertise to sustainably improve processes for customers? If you are ready to set new benchmarks and reach new horizons, we look forward to receiving your application.</p>
-		</div>
-	  </section>
-	
-	
-	  <br><br><br>
-	
-	  <footer class="footer">
-		<div class="container"> 
-		  <div class="row">
-			<div class="footer-col">
-			  <h4>Contact us</h4>
-			  <ul>
-				<li><a href="#" class="sp">Siva Handlowy sp.z.o.o</a></li>
-				<li><a href="#">Ściegiennego 41A 40-114 Katowice, Poland</a></li>
-				<li><a href="#">NIP: 634 296 11 19</a></li>
-				<li><a href="#" class="sp">sivahandlowy@gmail.com</a></li>
-				   <li><a href="#" class="sp">Whatsapp/Phone number: +48 792 702 887></li>
-			  </ul>
-			</div>
-		  </div>
-		</div>
-	  </footer>
-	
-	  <script src="jsfile.js"></script>
-	  <script>
-		const myslide = document.querySelectorAll('.myslide');
-		const dot = document.querySelectorAll('.dot');
-		let counter = 1;
-		slidefun(counter);
-	
-		let timer = setInterval(autoSlide, 8000);
-		function autoSlide() {
-		  counter += 1;
-		  slidefun(counter);
-		}
-		function plusSlides(n) {
-		  counter += n;
-		  slidefun(counter);
-		  resetTimer();
-		}
-		function currentSlide(n) {
-		  counter = n;
-		  slidefun(counter);
-		  resetTimer();
-		}
-		function resetTimer() {
-		  clearInterval(timer);
-		  timer = setInterval(autoSlide, 8000);
-		}
-	
-		function slidefun(n) {
-		  let i;
-		  for(i = 0;i<myslide.length;i++){
-			myslide[i].style.display = "none";
-		  }
-		  for(i = 0;i<dot.length;i++) {
-			dot[i].className = dot[i].className.replace(' active', '');
-		  }
-		  if(n > myslide.length){
-			 counter = 1;
-		  }
-		  if(n < 1){
-			 counter = myslide.length;
-		  }
-		  myslide[counter - 1].style.display = "block";
-		  dot[counter - 1].className += " active";
-		}
-	  </script>
-	</body>
-	</html>
+	<footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Leading the way in European business representation and certification.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Ściegiennego 41A, Katowice, Poland</p>
+                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>Registration</h4>
+                <p>NIP: 634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Siva Handlowy. All rights reserved.
+        </div>
+    </footer>
 
 
+    <script>
+        // Navigation Logic
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+
+        // Slider Logic
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("myslide");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex-1].classList.add("active");
+        }
+        
+        // Auto Slide
+        setInterval(() => plusSlides(1), 8000);
+
+        // Header Scroll Effect
+        window.onscroll = function() {
+            const header = document.querySelector('.main-header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+    </script>
+</body>
+</html>
