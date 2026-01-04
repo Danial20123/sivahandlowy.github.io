@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="transport.css">
     <style>
         .form-page-wrapper {
-            padding: 120px 20px 60px;
+            padding: 100px 15px 60px; /* Reduced side padding for mobile */
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             min-height: 100vh;
             display: flex;
@@ -21,93 +21,103 @@
             background: white;
             max-width: 650px;
             width: 100%;
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: 25px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
-        
-        .form-group input {
-            width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 10px;
-        }
-
-        /* Category Selection */
-        .category-selection {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #e2e8f0;
-        }
-
-        .cat-item {
+        .section-header {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+            color: var(--primary);
+            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.95rem;
+        }
+
+        .form-group { margin-bottom: 20px; width: 100%; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-dark); font-size: 0.9rem;}
+        
+        .form-group input, .form-group select {
+            width: 100%; 
+            padding: 12px; 
+            border: 2px solid #cbd5e1; 
+            border-radius: 10px; 
+            font-family: inherit;
+            box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+        }
+
+        /* Responsive Grid for Personal Info */
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Category Creator UI */
+        .category-input-wrapper { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 15px; 
+        }
+        .category-input-wrapper input { flex: 1; }
+        
+        .add-btn { 
+            background: var(--accent); 
+            color: var(--primary); 
+            border: none; 
+            padding: 0 25px; 
+            border-radius: 10px; 
+            font-weight: 700; 
             cursor: pointer;
-            padding: 5px;
+            white-space: nowrap;
         }
 
-        .cat-item input { width: auto; cursor: pointer; }
-
-        /* Pricing Summary Table */
-        .pricing-summary {
-            background: #1e293b;
-            color: white;
-            padding: 25px;
-            border-radius: 20px;
-            margin-top: 30px;
+        .category-list { background: #f8fafc; border-radius: 12px; padding: 10px; border: 2px solid #e2e8f0; min-height: 50px; }
+        .category-item {
+            display: flex; align-items: center; justify-content: space-between;
+            background: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0;
         }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
+        
+        /* Pricing Summary */
+        .pricing-summary { background: #1e293b; color: white; padding: 25px; border-radius: 20px; margin-top: 30px; }
+        .price-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; }
         .price-row.total {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--accent);
-            opacity: 1;
-        }
-
-        .disclaimer {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-top: 15px;
-            text-align: center;
-            line-height: 1.4;
+            margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.2);
+            font-weight: 700; font-size: 1.4rem; color: var(--accent);
         }
 
         .submit-btn {
-            width: 100%;
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin-top: 25px;
-            transition: 0.3s;
-            text-transform: uppercase;
+            width: 100%; background: var(--accent); color: var(--primary); border: none;
+            padding: 18px; border-radius: 12px; font-weight: 800; margin-top: 25px;
+            cursor: pointer; text-transform: uppercase; transition: 0.3s;
         }
 
-        .submit-btn:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
+        /* MOBILE RESPONSIVE FIXES */
+        @media (max-width: 600px) {
+            .form-card {
+                padding: 30px 20px;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr; /* Stacks Email and Phone */
+                gap: 0;
+            }
+
+            .category-input-wrapper {
+                flex-direction: column; /* Stacks Category input and Add button */
+            }
+
+            .add-btn {
+                padding: 15px;
+                width: 100%;
+            }
+
+            .price-row.total {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -122,87 +132,105 @@
 
     <div class="form-page-wrapper">
         <div class="form-card">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h2 style="color: var(--primary);">Member Application</h2>
-                <p style="color: #64748b;">Invoice will be issued upon submission</p>
-            </div>
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Member Application</h2>
 
             <form id="membershipForm" action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="section-header"><i class="fas fa-user"></i> Personal Details</div>
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="Name" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="Phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" name="Country" required>
+                </div>
+
+                <div class="section-header"><i class="fas fa-briefcase"></i> Business Categories</div>
+                
                 <div class="form-group">
                     <label>Company Name</label>
-                    <input type="text" name="Company_Name" placeholder="Enter registered name" required>
+                    <input type="text" name="Company" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Select Membership Categories (€50 per item)</label>
-                    <div class="category-selection">
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Trade" onchange="updatePrice()"> Trade & Services</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Industry" onchange="updatePrice()"> Industry</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Logistics" onchange="updatePrice()"> Logistics</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Tourism" onchange="updatePrice()"> Gastronomy/Hotel</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Legal" onchange="updatePrice()"> Legal Services</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Health" onchange="updatePrice()"> Health/Medical</label>
+                    <label>Add Categories (€50 each after 1st free)</label>
+                    <div class="category-input-wrapper">
+                        <input type="text" id="catInput" placeholder="e.g. Export Services">
+                        <button type="button" class="add-btn" onclick="addCategory()">Add</button>
                     </div>
+                    <div id="categoryContainer" class="category-list"></div>
                 </div>
 
-                
                 <div class="pricing-summary">
-                    <div class="price-row">
-                        <span>One-time Basic Fee (MFA included)</span>
-                        <span>€100.00</span>
-                    </div>
-                    <div class="price-row">
-                        <span>Categories Selected (<span id="catCount">0</span>)</span>
-                        <span>€<span id="catCost">0.00</span></span>
-                    </div>
-                    <div class="price-row">
-                        <span>Subtotal</span>
-                        <span>€<span id="subtotal">100.00</span></span>
-                    </div>
-                    <div class="price-row">
-                        <span>VAT (23%)</span>
-                        <span>€<span id="vat">23.00</span></span>
-                    </div>
-                    <div class="price-row total">
-                        <span>TOTAL DUE</span>
-                        <span>€<span id="total">123.00</span></span>
-                    </div>
-                    
-                    <p class="disclaimer">
-                        By submitting, you agree that all fees are non-refundable. 
-                        A formal VAT invoice will be sent to your email.
-                    </p>
+                    <div class="price-row"><span>Base Membership</span><span>€100.00</span></div>
+                    <div class="price-row"><span>Extra Categories</span><span id="catDisplayCost">€0.00</span></div>
+                    <div class="price-row"><span>VAT (23%)</span><span>€<span id="vat">23.00</span></span></div>
+                    <div class="price-row total"><span>TOTAL</span><span>€<span id="total">123.00</span></span></div>
                 </div>
 
-                <input type="hidden" name="Final_Total_Amount" id="hiddenTotal">
+                <input type="hidden" name="Total_Price" id="hiddenTotal">
+                <input type="hidden" name="Category_List" id="hiddenCats">
 
-                <button type="submit" class="submit-btn">Submit & Request Invoice</button>
+                <button type="submit" class="submit-btn">Submit Application</button>
             </form>
         </div>
     </div>
 
     <script>
-        function updatePrice() {
-            const checks = document.querySelectorAll('.cat-check:checked');
-            const count = checks.length;
-            
-            const baseFee = 100;
-            const categoryCost = count * 50;
-            const subtotal = baseFee + categoryCost;
-            const vat = subtotal * 0.23;
-            const total = subtotal + vat;
+        let categories = [];
 
-            document.getElementById('catCount').innerText = count;
-            document.getElementById('catCost').innerText = categoryCost.toFixed(2);
-            document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+        function addCategory() {
+            const input = document.getElementById('catInput');
+            const val = input.value.trim();
+            if (val) {
+                categories.push(val);
+                input.value = '';
+                render();
+            }
+        }
+
+        function remove(index) {
+            categories.splice(index, 1);
+            render();
+        }
+
+        function render() {
+            const container = document.getElementById('categoryContainer');
+            container.innerHTML = '';
+            categories.forEach((cat, i) => {
+                container.innerHTML += `
+                    <div class="category-item">
+                        <span>${cat} ${i===0 ? '<span class="free-badge">FREE</span>' : ''}</span>
+                        <i class="fas fa-trash remove-btn" onclick="remove(${i})"></i>
+                    </div>`;
+            });
+            
+            const extra = categories.length > 1 ? (categories.length - 1) * 50 : 0;
+            const sub = 100 + extra;
+            const vat = sub * 0.23;
+            const total = sub + vat;
+
+            document.getElementById('catDisplayCost').innerText = "€" + extra.toFixed(2);
             document.getElementById('vat').innerText = vat.toFixed(2);
             document.getElementById('total').innerText = total.toFixed(2);
-            
             document.getElementById('hiddenTotal').value = "€" + total.toFixed(2);
+            document.getElementById('hiddenCats').value = categories.join(', ');
         }
-        
-        // Initialize
-        updatePrice();
     </script>
 </body>
 </html>
