@@ -3,196 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Siva Handlowy</title>
+    <title>Membership Application - Siva Handlowy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="transport.css">
     <style>
-        .contact-wrapper {
+        .form-page-wrapper {
+            padding: 100px 15px 60px; /* Reduced side padding for mobile */
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-card {
+            background: white;
+            max-width: 650px;
+            width: 100%;
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+            color: var(--primary);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group { margin-bottom: 20px; width: 100%; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-dark); font-size: 0.9rem;}
+        
+        .form-group input, .form-group select {
+            width: 100%; 
+            padding: 12px; 
+            border: 2px solid #cbd5e1; 
+            border-radius: 10px; 
+            font-family: inherit;
+            box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+        }
+
+        /* Responsive Grid for Personal Info */
+        .input-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            background: white;
-            padding: clamp(30px, 5vw, 60px);
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            gap: 20px;
         }
 
-        .contact-info h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 2rem;
+        /* Category Creator UI */
+        .category-input-wrapper { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 15px; 
+        }
+        .category-input-wrapper input { flex: 1; }
+        
+        .add-btn { 
+            background: var(--accent); 
+            color: var(--primary); 
+            border: none; 
+            padding: 0 25px; 
+            border-radius: 10px; 
+            font-weight: 700; 
+            cursor: pointer;
+            white-space: nowrap;
         }
 
-        .info-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
+        .category-list { background: #f8fafc; border-radius: 12px; padding: 10px; border: 2px solid #e2e8f0; min-height: 50px; }
+        .category-item {
+            display: flex; align-items: center; justify-content: space-between;
+            background: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0;
         }
-
-        .info-item i {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-top: 5px;
-        }
-
-        .info-item h4 {
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-
-        /* Form Styling */
-        .contact-form input, 
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-family: inherit;
-            transition: 0.3s;
-        }
-
-        .contact-form input:focus, 
-        .contact-form textarea:focus {
-            border-color: var(--accent);
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        
+        /* Pricing Summary */
+        .pricing-summary { background: #1e293b; color: white; padding: 25px; border-radius: 20px; margin-top: 30px; }
+        .price-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; }
+        .price-row.total {
+            margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.2);
+            font-weight: 700; font-size: 1.4rem; color: var(--accent);
         }
 
         .submit-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
+            width: 100%; background: var(--accent); color: var(--primary); border: none;
+            padding: 18px; border-radius: 12px; font-weight: 800; margin-top: 25px;
+            cursor: pointer; text-transform: uppercase; transition: 0.3s;
         }
 
-        .submit-btn:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
+        /* MOBILE RESPONSIVE FIXES */
+        @media (max-width: 600px) {
+            .form-card {
+                padding: 30px 20px;
+            }
 
-        @media (max-width: 992px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
+            .input-row {
+                grid-template-columns: 1fr; /* Stacks Email and Phone */
+                gap: 0;
+            }
+
+            .category-input-wrapper {
+                flex-direction: column; /* Stacks Category input and Add button */
+            }
+
+            .add-btn {
+                padding: 15px;
+                width: 100%;
+            }
+
+            .price-row.total {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
+    <header class="main-header scrolled">
         <div class="nav-container">
-            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
             <div class="logo">Siva <span class="accent">Handlowy</span></div>
-            <nav class="desktop-nav">
-                <a href="index.html">Home</a>
-                <a href="aboutus.html">About Us</a>
-                <a href="services.html">Services</a>
-                <a href="contactus.html" class="nav-cta">Contact Us</a>
-                <a href="mem.html">Membership form</a>
-            </nav>
+            <nav class="desktop-nav"><a href="index.html">Home</a></nav>
         </div>
     </header>
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="sidebar-links">
-            <a href="index.html">Home</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="services.html">Services</a>
-            <a href="euar.html">EU Representative</a>
-            <a href="certificates.html">Certification</a>
-            <a href="contactus.html">Contact</a>
+    <div class="form-page-wrapper">
+        <div class="form-card">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Member Application</h2>
+
+            <form id="membershipForm" action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="section-header"><i class="fas fa-user"></i> Personal Details</div>
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="Name" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="Phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" name="Country" required>
+                </div>
+
+                <div class="section-header"><i class="fas fa-briefcase"></i> Business Categories</div>
+                
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" name="Company" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Add Categories (€50 each after 1st free)</label>
+                    <div class="category-input-wrapper">
+                        <input type="text" id="catInput" placeholder="e.g. Export Services">
+                        <button type="button" class="add-btn" onclick="addCategory()">Add</button>
+                    </div>
+                    <div id="categoryContainer" class="category-list"></div>
+                </div>
+
+                <div class="pricing-summary">
+                    <div class="price-row"><span>Base Membership</span><span>€100.00</span></div>
+                    <div class="price-row"><span>Extra Categories</span><span id="catDisplayCost">€0.00</span></div>
+                    <div class="price-row"><span>VAT (23%)</span><span>€<span id="vat">23.00</span></span></div>
+                    <div class="price-row total"><span>TOTAL</span><span>€<span id="total">123.00</span></span></div>
+                </div>
+
+                <input type="hidden" name="Total_Price" id="hiddenTotal">
+                <input type="hidden" name="Category_List" id="hiddenCats">
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
         </div>
     </div>
 
-    <section class="transport-hero" style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.pexels.com/photos/33999/pexels-photo.jpg');">
-        <div class="hero-content">
-            <h1 class="responsive-title">Get In Touch</h1>
-            <p class="responsive-subtitle">Have a question or need a quote? Our team is here to help you.</p>
-        </div>
-    </section>
-
-    <main class="transport-container">
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h2>Our Office</h2>
-                <div class="underline" style="margin-left: 0;"></div>
-                
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Main Office</h4>
-                        <p>Ściegiennego 41A, 40-114 Katowice, Poland</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email Us</h4>
-                        <p>info.siva.pl@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h4>Call Us</h4>
-                        <p>+48 512 654 161</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-form">
-                <form target="_blank" action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="text" name="_subject" placeholder="Subject">
-                    <textarea name="message" rows="6" placeholder="How can we help you?" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </main>
-
-    <footer class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-about">
-                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
-                <p>Leading the way in European business representation and certification.</p>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact Info</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Ściegiennego 41A, Katowice, Poland</p>
-                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
-                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
-            </div>
-            <div class="footer-legal">
-                <h4>Registration</h4>
-                <p>NIP: 634 296 11 19</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2025 Siva Handlowy. All rights reserved.
-        </div>
-    </footer>
-
     <script>
-        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
-        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
-        window.onscroll = function() {
-            const header = document.querySelector('.main-header');
-            if (window.pageYOffset > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        };
+        let categories = [];
+
+        function addCategory() {
+            const input = document.getElementById('catInput');
+            const val = input.value.trim();
+            if (val) {
+                categories.push(val);
+                input.value = '';
+                render();
+            }
+        }
+
+        function remove(index) {
+            categories.splice(index, 1);
+            render();
+        }
+
+        function render() {
+            const container = document.getElementById('categoryContainer');
+            container.innerHTML = '';
+            categories.forEach((cat, i) => {
+                container.innerHTML += `
+                    <div class="category-item">
+                        <span>${cat} ${i===0 ? '<span class="free-badge">FREE</span>' : ''}</span>
+                        <i class="fas fa-trash remove-btn" onclick="remove(${i})"></i>
+                    </div>`;
+            });
+            
+            const extra = categories.length > 1 ? (categories.length - 1) * 50 : 0;
+            const sub = 100 + extra;
+            const vat = sub * 0.23;
+            const total = sub + vat;
+
+            document.getElementById('catDisplayCost').innerText = "€" + extra.toFixed(2);
+            document.getElementById('vat').innerText = vat.toFixed(2);
+            document.getElementById('total').innerText = total.toFixed(2);
+            document.getElementById('hiddenTotal').value = "€" + total.toFixed(2);
+            document.getElementById('hiddenCats').value = categories.join(', ');
+        }
     </script>
 </body>
 </html>

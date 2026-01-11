@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Network - Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="transport.css">
+    <style>
+        /* Modern Header Styles from Index */
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: 0.3s;
+            padding: 20px 0;
+            background: rgba(15, 23, 42, 0.9); /* Dark theme matching index */
+        }
+
+        .main-header.scrolled {
+            background: #0f172a;
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Search & Profile Styles */
+        .network-search-container {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .search-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 15px;
+            align-items: end;
+        }
+
+        .search-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .search-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: white;
+            outline: none;
+        }
+
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            height: 50px;
+            transition: 0.3s;
+        }
+
+        #profileDisplay {
+            margin-top: 20px;
+            min-height: 200px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 40px;
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 20px;
+            color: #64748b;
+        }
+
+        .profile-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-side {
+            background: #0f172a; /* Dark blue matching index theme */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .profile-img-circle {
+            width: 130px;
+            height: 130px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--accent);
+            overflow: hidden;
+        }
+
+        .profile-img-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #fff;
+        }
+
+        .profile-content {
+            padding: 40px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: #0f172a;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .info-row i {
+            color: var(--accent);
+            width: 20px;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 850px) {
+            .profile-card { grid-template-columns: 1fr; }
+            .search-controls { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representative</a>
+            <a href="idk.html">Global Representative</a>
+            <a href="certificates.html">Certification</a>
+            <a href="contactus.html">Contact</a>
+            <a href="mem.html">Membership form</a>
+        </div>
+    </div>
+
+    <main class="transport-container" style="margin-top: 150px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h1 style="color: var(--primary); font-size: 2.5rem;">Global Representative Network</h1>
+            <p style="color: #64748b;">Connect with our official associates worldwide for localized business support.</p>
+        </div>
+
+        <div class="network-search-container">
+            <div class="search-controls">
+                <div class="search-group">
+                    <label>Country</label>
+                    <select id="countrySelect" onchange="loadCities()">
+                        <option value="" disabled selected>Select Country</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Germany">Germany</option>
+                        <option value="India">India</option>
+                        <option value="UAE">UAE</option>
+                        <option value="USA">USA</option>
+                    </select>
+                </div>
+                
+                <div class="search-group">
+                    <label>City</label>
+                    <select id="citySelect" disabled>
+                        <option value="">Select city...</option>
+                    </select>
+                </div>
+                
+                <button class="search-btn" onclick="showProfile()">Search Associate</button>
+            </div>
+        </div>
+
+        <div id="profileDisplay">
+            <div class="empty-state">
+                <i class="fas fa-globe-americas fa-4x" style="margin-bottom:20px; opacity:0.3;"></i>
+                <h3>Ready to assist you globally</h3>
+                <p>Select a location from the search bar above to view official representative details.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Navigation Logic from Index.html
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+
+        // Header Scroll Effect from Index.html
+        window.onscroll = function() {
+            const header = document.querySelector('.main-header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        // Network Data
+        const networkData = {
+            "India": {
+                "Ghaziabad": {
+                    name: "Raj Sharma",
+                    role: "Regional Associate - India",
+                    bio: "Expert in trade facilitation and regional operations management. Serving as the primary point of contact for Siva Handlowy in Uttar Pradesh and the surrounding regions.",
+                    email: "raj.sivahandlowy@gmail.com",
+                    phone: "+91 9810178579",
+                    address: "320B, Shipra Suncity, Indirapuram, Ghaziabad, 201014, Uttar Pradesh, India.",
+                    image: "1a17fcfe-2bb9-4d8f-8d6f-9893eceb1383.jpeg" 
+                }
+            },
+            "Poland": ["Katowice", "Warsaw"],
+            "Germany": ["Berlin", "Munich"],
+            "UAE": ["Dubai"],
+            "USA": ["New York"]
+        };
+
+        function loadCities() {
+            const country = document.getElementById('countrySelect').value;
+            const cityDropdown = document.getElementById('citySelect');
+            cityDropdown.innerHTML = '<option value="" disabled selected>Select City</option>';
+            cityDropdown.disabled = false;
+
+            let cities = country === "India" ? Object.keys(networkData["India"]) : networkData[country];
+
+            cities.forEach(city => {
+                let opt = document.createElement('option');
+                opt.value = city;
+                opt.innerText = city;
+                cityDropdown.appendChild(opt);
+            });
+        }
+
+        function showProfile() {
+            const country = document.getElementById('countrySelect').value;
+            const city = document.getElementById('citySelect').value;
+            const display = document.getElementById('profileDisplay');
+
+            if (!country || !city) return;
+
+            let associate = (country === "India" && networkData["India"][city]) ? networkData["India"][city] : null;
+
+            if (associate) {
+                display.innerHTML = `
+                    <div class="profile-card">
+                        <div class="profile-side">
+                            <div class="profile-img-circle">
+                                <img src="${associate.image}" alt="${associate.name}">
+                            </div>
+                            <h2 style="font-size: 1.4rem; margin-bottom: 5px;">${associate.name}</h2>
+                            <p style="font-size:0.85rem; opacity:0.8;">${city}, ${country}</p>
+                        </div>
+                        <div class="profile-content">
+                            <h3 style="color:var(--primary); margin-bottom:10px;">${associate.role}</h3>
+                            <p style="color:#64748b; line-height:1.7; margin-bottom:25px;">${associate.bio}</p>
+                            
+                            <div class="info-row">
+                                <i class="fas fa-envelope"></i>
+                                <span><strong>Email:</strong> ${associate.email}</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-phone"></i>
+                                <span><strong>Phone:</strong> ${associate.phone}</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span><strong>Postal Address:</strong><br>${associate.address}</span>
+                            </div>
+
+                            <a href="mailto:${associate.email}" class="contact-link">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </a>
+                        </div>
+                    </div>
+                `;
+            } else {
+                display.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-user-slash fa-4x" style="margin-bottom:20px; color:#ef4444; opacity:0.8;"></i>
+                        <h2 style="color:#1e293b;">No Associate Available</h2>
+                        <p>We currently do not have a registered representative stationed in ${city}, ${country}.</p>
+                        <a href="contactus.html" class="contact-link" style="background:var(--primary); color:white;">
+                            <i class="fas fa-headset"></i> Contact HQ Poland
+                        </a>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
