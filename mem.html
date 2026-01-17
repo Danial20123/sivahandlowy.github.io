@@ -34,26 +34,53 @@
             box-sizing: border-box;
         }
 
-        .category-selection {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+        /* Dynamic Item Adder Styles */
+        .item-input-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .add-btn {
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .add-btn:hover { background: #1e293b; }
+
+        .items-list {
             background: #f8fafc;
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
             border: 2px solid #e2e8f0;
+            min-height: 50px;
         }
 
-        .cat-item {
-            display: flex;
+        .tag {
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            padding: 5px;
+            background: #e2e8f0;
+            color: #0f172a;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .cat-item input { width: auto; cursor: pointer; }
+        .tag i {
+            margin-left: 10px;
+            cursor: pointer;
+            color: #ef4444;
+        }
+
+        .empty-msg { color: #94a3b8; font-size: 0.9rem; font-style: italic; }
 
         .pricing-summary {
             background: #1e293b;
@@ -81,39 +108,19 @@
             opacity: 1;
         }
 
-        .free-badge {
-            color: #22c55e;
-            font-weight: bold;
-            font-size: 0.85rem;
-        }
+        .free-badge { color: #22c55e; font-weight: bold; font-size: 0.85rem; }
 
         .disclaimer {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-top: 15px;
-            text-align: center;
-            line-height: 1.4;
+            font-size: 0.75rem; color: #94a3b8; margin-top: 15px; text-align: center; line-height: 1.4;
         }
 
         .submit-btn {
-            width: 100%;
-            background: #f59e0b;
-            color: #0f172a;
-            border: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin-top: 25px;
-            transition: 0.3s;
-            text-transform: uppercase;
+            width: 100%; background: #f59e0b; color: #0f172a; border: none; padding: 18px;
+            border-radius: 12px; font-weight: 800; font-size: 1.1rem; cursor: pointer;
+            margin-top: 25px; transition: 0.3s; text-transform: uppercase;
         }
 
-        .submit-btn:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
-        }
+        .submit-btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -129,7 +136,7 @@
         <div class="form-card">
             <div style="text-align: center; margin-bottom: 30px;">
                 <h2 style="color: #0f172a;">Registration Form</h2>
-                <p style="color: #64748b;"></p>
+                <p style="color: #64748b;">Custom Item/Category Selection</p>
             </div>
 
             <form id="membershipForm" action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
@@ -167,28 +174,29 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Select Item/Categories</label>
-                    <div class="category-selection">
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Trade" onchange="updatePrice()"> Trade & Services</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Industry" onchange="updatePrice()"> Industry</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Logistics" onchange="updatePrice()"> Logistics</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Tourism" onchange="updatePrice()"> Gastronomy/Hotel</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Legal" onchange="updatePrice()"> Legal Services</label>
-                        <label class="cat-item"><input type="checkbox" class="cat-check" name="Category[]" value="Health" onchange="updatePrice()"> Health/Medical</label>
+                    <label>Add Item/Categories</label>
+                    <div class="item-input-wrapper">
+                        <input type="text" id="itemInput" placeholder="Type category name here...">
+                        <button type="button" class="add-btn" onclick="addItem()">Add</button>
+                    </div>
+                    <div id="itemsContainer" class="items-list">
+                        <span class="empty-msg">No items added yet. First item is free.</span>
                     </div>
                 </div>
 
+                <input type="hidden" name="Selected_Categories" id="hiddenCategories">
+
                 <div class="pricing-summary">
                     <div class="price-row">
-                        <span>One-time Basic Fee (with one item/category included)</span>
+                        <span>One-time Basic Fee (with one item included)</span>
                         <span>€100.00</span>
                     </div>
                     <div class="price-row">
-                        <span>Additional Categories (<span id="catCountDisplay">0</span>)</span>
+                        <span>Additional Items (<span id="catCountDisplay">0</span>)</span>
                         <span>€<span id="catCost">0.00</span></span>
                     </div>
                     <div class="price-row" id="freeItemRow" style="display: none;">
-                        <span class="free-badge">First Category Discount</span>
+                        <span class="free-badge">First Item Discount</span>
                         <span class="free-badge">100% OFF</span>
                     </div>
                     <div class="price-row">
@@ -211,19 +219,54 @@
                 </div>
 
                 <input type="hidden" name="Final_Total_Amount" id="hiddenTotal">
-
                 <button type="submit" class="submit-btn">Submit & Request Invoice</button>
             </form>
         </div>
     </div>
 
     <script>
-        function updatePrice() {
-            const checks = document.querySelectorAll('.cat-check:checked');
-            const totalSelected = checks.length;
+        let categories = [];
+
+        function addItem() {
+            const input = document.getElementById('itemInput');
+            const value = input.value.trim();
             
-            // Logic: 1st item is free (included in €100 fee)
-            // Extra items cost €50 each
+            if (value === "") return;
+
+            categories.push(value);
+            input.value = "";
+            renderItems();
+            updatePrice();
+        }
+
+        function removeItem(index) {
+            categories.splice(index, 1);
+            renderItems();
+            updatePrice();
+        }
+
+        function renderItems() {
+            const container = document.getElementById('itemsContainer');
+            const hiddenInput = document.getElementById('hiddenCategories');
+            
+            if (categories.length === 0) {
+                container.innerHTML = '<span class="empty-msg">No items added yet. First item is free.</span>';
+                hiddenInput.value = "";
+                return;
+            }
+
+            container.innerHTML = categories.map((cat, index) => `
+                <span class="tag">
+                    ${cat}
+                    <i class="fas fa-times-circle" onclick="removeItem(${index})"></i>
+                </span>
+            `).join('');
+
+            hiddenInput.value = categories.join(', ');
+        }
+
+        function updatePrice() {
+            const totalSelected = categories.length;
             const extraItems = totalSelected > 0 ? totalSelected - 1 : 0;
             
             const baseFee = 100;
@@ -232,21 +275,26 @@
             const vat = subtotal * 0.23;
             const total = subtotal + vat;
 
-            // Update UI
             document.getElementById('catCountDisplay').innerText = extraItems;
             document.getElementById('catCost').innerText = categoryCost.toFixed(2);
             document.getElementById('subtotal').innerText = subtotal.toFixed(2);
             document.getElementById('vat').innerText = vat.toFixed(2);
             document.getElementById('total').innerText = total.toFixed(2);
             
-            // Show/Hide the 100% off text if at least one item is chosen
             const freeRow = document.getElementById('freeItemRow');
             freeRow.style.display = totalSelected > 0 ? 'flex' : 'none';
             
             document.getElementById('hiddenTotal').value = "€" + total.toFixed(2);
         }
-        
-        // Initialize
+
+        // Allow "Enter" key to add items
+        document.getElementById('itemInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addItem();
+            }
+        });
+
         updatePrice();
     </script>
 </body>
