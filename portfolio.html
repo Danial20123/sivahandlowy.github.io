@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="home.css">
     <style>
-        /* --- Manual Circle CSS Integration --- */
+        /* Manual Circle CSS following home.css variables */
         .portfolio-hero {
             position: relative;
             height: 60vh;
@@ -17,7 +17,7 @@
             justify-content: center;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
                         url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg') center/cover;
-            color: white;
+            color: var(--white);
             text-align: center;
         }
 
@@ -49,7 +49,6 @@
         .stat-circle:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .stat-number {
@@ -69,7 +68,7 @@
             padding: 0 10px;
         }
 
-        /* --- Event Section Styles --- */
+        /* Event Styles */
         .event-main-card {
             max-width: 1000px;
             margin: 80px auto;
@@ -80,11 +79,6 @@
             overflow: hidden;
             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
             transition: var(--transition);
-        }
-
-        .event-main-card:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         .event-image-side {
@@ -101,18 +95,7 @@
             justify-content: center;
         }
 
-        .event-tag {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-            width: fit-content;
-        }
-
-        /* --- Modal Styles --- */
+        /* Modal Enhancements */
         .modal {
             display: none;
             position: fixed;
@@ -129,30 +112,42 @@
             max-width: 850px;
             width: 100%;
             border-radius: 15px;
-            padding: 50px;
+            padding: 40px;
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .gallery-item {
-            width: 100%; height: 150px;
-            object-fit: cover;
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px 0;
             border-radius: 10px;
         }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 0;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .detail-item h4 { color: var(--primary); margin-bottom: 5px; }
 
         @media (max-width: 768px) {
             .event-main-card { flex-direction: column; }
             .event-image-side, .event-content-side { width: 100%; }
-            .stats-wrapper { gap: 15px; }
-            .stat-circle { width: 160px; height: 160px; }
+            .detail-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -181,22 +176,19 @@
             <a href="certificates.html">Certifications</a>
             <a href="contactus.html">Contact</a>
             <a href="mem.html">Register to join us</a>
-            <a href="#">Learn with us</a>
             <a href="#">Portfolio</a>
             <a href="#">Our Projects</a>
-            <a href="#">Get funds for your project</a>
-            <a href="#">Your visit to EU</a>
         </div>
     </div>
 
     <section class="portfolio-hero">
         <div class="hero-text">
             <h1>Global Portfolio</h1>
-            <p>Our measurable impact on the international trade landscape.</p>
+            <p>Demonstrating our measurable impact in European trade and compliance. 7 years of experience in modern business solutions.</p>
         </div>
     </section>
 
-    <div class="stats-wrapper" id="trigger">
+    <div class="stats-wrapper" id="statTrigger">
         <div class="stat-circle">
             <span class="stat-number" data-target="72">0</span>
             <span class="stat-label">Global Representatives</span>
@@ -224,31 +216,40 @@
         <div class="event-main-card" onclick="openEvent()">
             <div class="event-image-side"></div>
             <div class="event-content-side">
-                <div class="event-tag">MAY 2026</div>
+                <div style="background: var(--accent); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; width: fit-content; margin-bottom: 15px;">MAY 2026</div>
                 <h3>18th European Economic Congress</h3>
-                <p>Representing global interests at Central Europe's largest economic forum in Katowice.</p>
+                <p>Join Siva Handlowy at the International Congress Centre in Katowice for the most significant economic event in Central Europe.</p>
                 <br>
-                <span class="text-link" style="color: var(--accent); font-weight: 600;">Explore Details &rarr;</span>
+                <span class="text-link" style="color: var(--accent); font-weight: 600;">View Details & Media &rarr;</span>
             </div>
         </div>
     </section>
 
     <div id="eventModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeEvent()">&times;</span>
+            <span class="close-modal" onclick="closeEvent()" style="position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 28px;">&times;</span>
             <h2 style="color: var(--primary);">European Economic Congress 2026</h2>
-            <p style="color: var(--text-light); margin-bottom: 20px;">International Congress Centre (MCK), Katowice</p>
+            <p style="color: var(--text-light);">Katowice, Poland | 11-13 May 2026</p>
             
-            <div class="gallery-grid">
-                <img src="https://images.pexels.com/photos/2346006/pexels-photo-2346006.jpeg" class="gallery-item">
-                <img src="https://images.pexels.com/photos/2182973/pexels-photo-2182973.jpeg" class="gallery-item">
-                <img src="https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg" class="gallery-item">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/S_7y1O1NfNo" title="EEC Official Preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
-            <p>Our attendance at the EEC focuses on fostering new partnerships between EU industrial leaders and global manufacturers. We provide critical insights into MDR compliance and EU-wide market access.</p>
-            
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <h4>About the Congress</h4>
+                    <p>The EEC is the largest business summit in Central Europe, hosting thousands of guests, including CEOs, European Commissioners, and government officials.</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Our Participation</h4>
+                    <p>Siva Handlowy will lead discussions on EU certification (MDR/Eudamed) and securing international trade partnerships between Asian manufacturers and EU markets.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 20px;">Key focus areas for 2026 include green transformation, digital economy evolution, and the strengthening of global supply chains within the European Union framework.</p>
+
             <div style="margin-top: 30px;">
-                <a href="https://www.eecpoland.eu/en/" target="_blank" class="btn-primary">Visit EEC Official Site</a>
+                <a href="https://www.eecpoland.eu/en/" target="_blank" class="btn-primary">Visit Official EEC Site</a>
             </div>
         </div>
     </div>
@@ -257,7 +258,7 @@
         <div class="footer-grid">
             <div class="footer-about">
                 <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
-                <p>Professional business representation and certification.</p>
+                <p>Leading the way in European business representation and certification.</p>
             </div>
             <div class="footer-contact">
                 <h4>Contact Info</h4>
@@ -270,7 +271,7 @@
                 <p>NIP: 634 296 11 19</p>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2025 Siva Handlowy. All rights reserved.</div>
+        <div class="footer-bottom">&copy; 2026 Siva Handlowy. All rights reserved.</div>
     </footer>
 
     <script>
@@ -279,7 +280,7 @@
         function openEvent() { document.getElementById('eventModal').style.display = 'flex'; }
         function closeEvent() { document.getElementById('eventModal').style.display = 'none'; }
 
-        // Animation logic for circles
+        // Animation for circles
         const counters = document.querySelectorAll('.stat-number');
         const observer = new IntersectionObserver((entries) => {
             if(entries[0].isIntersecting) {
@@ -291,17 +292,14 @@
                         if (count < target) {
                             counter.innerText = Math.ceil(count + inc);
                             setTimeout(updateCount, 30);
-                        } else {
-                            counter.innerText = target;
-                        }
+                        } else { counter.innerText = target; }
                     };
                     updateCount();
                 });
                 observer.unobserve(entries[0].target);
             }
         }, { threshold: 0.5 });
-        observer.observe(document.getElementById('trigger'));
+        observer.observe(document.getElementById('statTrigger'));
     </script>
 </body>
-
 </html>
