@@ -35,6 +35,11 @@
             <a href="certificates.html">Certifications</a>
             <a href="contactus.html">Contact</a>
             <a href="mem.html">Register to join us</a>
+            <a href="#">Learn with us</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Our Projects</a>
+            <a href="#">Get funds for your project</a>
+            <a href="#">Your visit to EU</a>
         </div>
     </div>
 
@@ -53,9 +58,59 @@
             <div class="overlay"></div>
             <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" alt="Medical Directive">
             <div class="hero-text">
-                <h1>Eudamed MDR</h1>
-                <p>Navigating Directives & Compliance for your Business</p>
-                <a href="euar.html" class="btn-primary">Learn More</a>
+                <h1>EU Representation</h1>
+                <p>Navigating Directives & Compliance (MDR/Eudamed) for your Business</p>
+                <a href="euar.html" class="btn-primary">Compliance Details</a>
+            </div>
+        </div>
+
+        <div class="myslide fade">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg" alt="Global Network">
+            <div class="hero-text">
+                <h1>Global Network</h1>
+                <p>Localized support through our world-wide representative network</p>
+                <a href="idk.html" class="btn-primary">Find a Rep</a>
+            </div>
+        </div>
+
+        <div class="myslide fade">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/7163989/pexels-photo-7163989.jpeg" alt="Certifications">
+            <div class="hero-text">
+                <h1>Certifications</h1>
+                <p>Achieve international standards with our audit and certification services</p>
+                <a href="certificates.html" class="btn-primary">View Certificates</a>
+            </div>
+        </div>
+
+        <div class="myslide fade">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg" alt="Join Us">
+            <div class="hero-text">
+                <h1>Join Our Network</h1>
+                <p>Register today to become a part of Siva Handlowy's professional ecosystem</p>
+                <a href="mem.html" class="btn-primary">Register Now</a>
+            </div>
+        </div>
+
+        <div class="myslide fade">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/5900222/pexels-photo-5900222.jpeg" alt="Project Funding">
+            <div class="hero-text">
+                <h1>Project Funding</h1>
+                <p>Expert guidance on securing funds for your next big European project</p>
+                <a href="#" class="btn-primary">Get Funded</a>
+            </div>
+        </div>
+
+        <div class="myslide fade">
+            <div class="overlay"></div>
+            <img src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg" alt="EU Visit">
+            <div class="hero-text">
+                <h1>Visit the EU</h1>
+                <p>Complete support for your business and professional visits to Europe</p>
+                <a href="#" class="btn-primary">Plan Your Visit</a>
             </div>
         </div>
 
@@ -92,8 +147,7 @@
         </div>
     </section>
 
-    
-	<footer class="main-footer">
+    <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-about">
                 <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
@@ -115,13 +169,10 @@
         </div>
     </footer>
 
-
     <script>
-        // Navigation Logic
         function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
         function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
 
-        // Slider Logic
         let slideIndex = 1;
         showSlides(slideIndex);
 
@@ -136,10 +187,8 @@
             slides[slideIndex-1].classList.add("active");
         }
         
-        // Auto Slide
         setInterval(() => plusSlides(1), 8000);
 
-        // Header Scroll Effect
         window.onscroll = function() {
             const header = document.querySelector('.main-header');
             if (window.pageYOffset > 50) {
