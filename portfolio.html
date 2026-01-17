@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #f59e0b;
+        }
+
+        .portfolio-hero {
+            padding: 150px 20px 80px;
+            text-align: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Stats Circles Section */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: -50px auto 50px;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .stat-circle {
+            background: white;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-circle:hover { transform: translateY(-10px); }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .event-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+
+        .event-img {
+            width: 40%;
+            background: url('https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg') center/cover;
+            min-height: 250px;
+        }
+
+        .event-info {
+            padding: 40px;
+            width: 60%;
+        }
+
+        .event-tag {
+            background: #fef3c7;
+            color: #d97706;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Modal Overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            border-radius: 20px;
+            overflow-y: auto;
+            position: relative;
+            padding: 40px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin: 20px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .event-card { flex-direction: column; }
+            .event-img, .event-info { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header scrolled">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="mem.html">Join Us</a>
+        </div>
+    </div>
+
+    <section class="portfolio-hero">
+        <h1>Global Achievement Portfolio</h1>
+        <p>Quantifying our impact across the European market and beyond.</p>
+    </section>
+
+    <section class="stats-container">
+        <div class="stat-circle">
+            <h2 class="stat-number" data-target="72">0</h2>
+            <span class="stat-label">Global Representatives</span>
+        </div>
+        <div class="stat-circle">
+            <h2 class="stat-number" data-target="245">0</h2>
+            <span class="stat-label">Satisfied Clients</span>
+        </div>
+        <div class="stat-circle">
+            <h2 class="stat-number" data-target="155">0</h2>
+            <span class="stat-label">Services Provided</span>
+        </div>
+        <div class="stat-circle">
+            <h2 class="stat-number" data-target="49">0</h2>
+            <span class="stat-label">Active Projects</span>
+        </div>
+    </section>
+
+    <section class="events-section">
+        <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+            <h2>Major Events & Summits</h2>
+            <div class="underline" style="margin: 10px auto;"></div>
+        </div>
+
+        <div class="event-card" onclick="openEvent()">
+            <div class="event-img"></div>
+            <div class="event-info">
+                <span class="event-tag">MAY 2026</span>
+                <h3 style="margin: 15px 0; font-size: 1.8rem;">18th European Economic Congress</h3>
+                <p style="color: #64748b; margin-bottom: 20px;">The most significant business event in Central Europe, held in Katowice. Join Siva Handlowy as we discuss the future of European trade.</p>
+                <span style="color: var(--accent); font-weight: 700;">Click for event details &rarr;</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEvent()">&times;</span>
+            <h2 style="color: var(--primary);">18th European Economic Congress (2026)</h2>
+            <p><strong>Location:</strong> International Congress Centre (MCK), Katowice, Poland</p>
+            <p>Siva Handlowy will be participating in the 18th edition of the EEC, focusing on global supply chain resilience, EU-India trade relations, and digital transformation in the logistics sector.</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/S_7y1O1NfNo" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <h4 style="margin-top: 20px;">Key Topics:</h4>
+            <ul>
+                <li>European Green Deal & Industrial Transformation</li>
+                <li>Digital Economy & AI Integration</li>
+                <li>International Trade Partnerships</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Leading the way in European business representation.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Siva Handlowy. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+
+        // Animated Counter Logic
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 100;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Trigger animation when scrolled into view
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) startCounters();
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats-container'));
+
+        // Modal Logic
+        function openEvent() { document.getElementById('eventModal').style.display = 'flex'; }
+        function closeEvent() { document.getElementById('eventModal').style.display = 'none'; }
+        
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('eventModal')) closeEvent();
+        }
+    </script>
+</body>
+</html>
