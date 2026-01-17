@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Funds for Your Project - Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Funding Page Specific Styles */
+        .funds-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)), 
+                        url('https://images.pexels.com/photos/5900222/pexels-photo-5900222.jpeg') center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .process-step {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--accent);
+            text-align: center;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .funding-types {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 20px;
+            border-radius: 30px;
+            margin: 60px 0;
+        }
+
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .type-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .type-item:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .application-form-container {
+            max-width: 800px;
+            margin: 80px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        @media (max-width: 768px) {
+            .application-form-container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header scrolled">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representation</a>
+            <a href="idk.html">Global Representatives</a>
+            <a href="certificates.html">Certifications</a>
+            <a href="funds.html">Get Funds</a>
+            <a href="contactus.html">Contact</a>
+        </div>
+    </div>
+
+    <section class="funds-hero">
+        <div class="hero-text">
+            <h1 style="font-size: clamp(2rem, 5vw, 3.5rem);">Capitalizing Your Vision</h1>
+            <p>Accessing EU Grants, Private Equity, and Strategic Investment for Global Projects.</p>
+        </div>
+    </section>
+
+    <div class="section-container">
+        <div class="section-header">
+            <h2>Our Funding Roadmap</h2>
+            <div class="underline"></div>
+            <p style="max-width: 700px; margin: 20px auto; color: var(--text-light);">We simplify the complex landscape of international financing through a structured four-stage process.</p>
+        </div>
+
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Eligibility Audit</h4>
+                <p>We analyze your project against current EU directives and investor requirements.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Strategy Design</h4>
+                <p>Developing a robust business case and financial forecast for stakeholders.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Application</h4>
+                <p>Handling all technical documentation, legal compliance, and submission protocols.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Acquisition</h4>
+                <p>Finalizing terms and securing the transfer of project capital.</p>
+            </div>
+        </div>
+
+        <div class="funding-types">
+            <div class="section-header">
+                <h2 style="color: white;">Specialized Funding Streams</h2>
+                <div class="underline" style="background: var(--accent);"></div>
+            </div>
+            <div class="type-grid">
+                <div class="type-item">
+                    <i class="fas fa-leaf fa-2x mb-3"></i>
+                    <h4>Green Initiative Grants</h4>
+                    <p>Subsidies for renewable energy, recycling, and sustainable manufacturing projects.</p>
+                </div>
+                <div class="type-item">
+                    <i class="fas fa-microchip fa-2x mb-3"></i>
+                    <h4>Tech & Innovation</h4>
+                    <p>R&D funding for medical technology, AI development, and digital infrastructure.</p>
+                </div>
+                <div class="type-item">
+                    <i class="fas fa-globe fa-2x mb-3"></i>
+                    <h4>Infrastructural Expansion</h4>
+                    <p>Large-scale financing for logistics, factory setups, and international trade routes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="application-form-container">
+            <div class="section-header">
+                <h2>Funding Inquiry</h2>
+                <p>Submit your project summary for a confidential preliminary assessment.</p>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" placeholder="Enter legal entity name" required>
+                </div>
+                <div class="form-group">
+                    <label>Project Category</label>
+                    <select required>
+                        <option value="">Select Category</option>
+                        <option>Green Energy</option>
+                        <option>Medical Tech (MDR)</option>
+                        <option>Industrial Expansion</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Estimated Funding Required (EUR)</label>
+                    <input type="number" placeholder="e.g. 500000">
+                </div>
+                <div class="form-group">
+                    <label>Project Description</label>
+                    <textarea rows="5" placeholder="Briefly describe the project goals and current stage..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Submit Assessment Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Strategic financial consultancy and European market entry.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>Registration</h4>
+                <p>NIP: 634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 Siva Handlowy. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+    </script>
+</body>
+</html>
