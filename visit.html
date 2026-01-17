@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Visit to EU - Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* --- Responsive Hero Section --- */
+        .visit-hero {
+            position: relative;
+            min-height: 80vh; /* Better for mobile content expansion */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), 
+                        url('https://images.pexels.com/photos/1015568/pexels-photo-1015568.jpeg') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px; /* Essential for mobile readability */
+        }
+
+        .hero-text {
+            max-width: 900px;
+            width: 100%;
+            z-index: 5;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: clamp(0.7rem, 2vw, 0.85rem); /* Responsive Badge */
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-text h1 {
+            /* Responsive Font: Min 2rem, Scales with viewport, Max 4rem */
+            font-size: clamp(2.2rem, 8vw, 4.2rem); 
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            /* Responsive Body Text */
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* --- Floating Service Cards (Responsive) --- */
+        .service-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: -80px auto 50px; /* Floating effect */
+            max-width: 1200px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .visit-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        /* --- Responsive Form Layout --- */
+        .form-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: clamp(25px, 5vw, 50px); /* Responsive Padding */
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-group { flex: 1; display: flex; flex-direction: column; }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: #f8fafc;
+        }
+
+        /* --- Step Process Desktop to Mobile --- */
+        .step-row {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 60px auto;
+        }
+
+        .step-item { flex: 1; text-align: center; position: relative; padding: 0 10px; }
+
+        /* Media Query Adjustments */
+        @media (max-width: 768px) {
+            .form-row { flex-direction: column; gap: 20px; }
+            .service-card-grid { margin-top: 40px; } /* Remove overlap on mobile */
+            .visit-hero { min-height: 60vh; padding-top: 140px; }
+            .step-row { flex-direction: column; gap: 40px; }
+            .step-item::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header scrolled">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representation</a>
+            <a href="visit.html">Your Visit to EU</a>
+            <a href="funds.html">Get Project Funding</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+    </div>
+
+    <section class="visit-hero">
+        <div class="hero-text">
+            <br>
+            <br>
+            <br>
+            <h1>Schengen <span style="color: var(--accent);">Business Access</span></h1>
+            <p>Your strategic bridge to Europe. We manage your high-level B2B logistics, legal establishment, and congress participation.</p>
+        </div>
+    </section>
+
+    <div class="section-container">
+        <div class="service-card-grid">
+            <div class="visit-card">
+                <i class="fas fa-handshake"></i>
+                <h4>Strategic B2B</h4>
+                <p>Direct facilitation of meetings with European leaders and distributors.</p>
+            </div>
+            <div class="visit-card">
+                <i class="fas fa-landmark"></i>
+                <h4>Legal Setup</h4>
+                <p>Supporting your business incorporation and physical presence in Poland.</p>
+            </div>
+            <div class="visit-card">
+                <i class="fas fa-id-card"></i>
+                <h4>Visa Support</h4>
+                <p>Official sponsorship letters for international business delegations.</p>
+            </div>
+        </div>
+
+        <div id="request-section" style="padding: 80px 0; background: #f8fafc; border-radius: 30px; margin-top: 50px;">
+            <div class="section-header">
+                <h2>Visit Sponsorship Request</h2>
+                <p>Submit your professional credentials for travel and meeting facilitation.</p>
+            </div>
+            
+            <div class="form-container">
+                <form action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New EU Visit Request - Siva Handlowy">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="true">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name (as in Passport)</label>
+                            <input type="text" name="Visitor Name" required class="form-input" placeholder="e.g. John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label>Company Entity</label>
+                            <input type="text" name="Company" required class="form-input" placeholder="Your Legal Entity">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Business Email</label>
+                            <input type="email" name="email" required class="form-input" placeholder="name@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Passport Number</label>
+                            <input type="text" name="Passport" required class="form-input" placeholder="Required for Invitation">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Primary Reason for Visit</label>
+                            <select name="Reason" required class="form-input">
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="EEC 2026">European Economic Congress 2026</option>
+                                <option value="Entity Setup">Business Establishment / Incorporation</option>
+                                <option value="Market Research">Marketing & Market Research</option>
+                                <option value="B2B Audit">Factory Audit / Partnership Meetings</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 30px;">
+                        <label>Mission Objectives</label>
+                        <textarea name="Objectives" required class="form-input" rows="4" placeholder="Briefly detail your specific business goals..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 18px; font-size: 1.1rem; border-radius: 10px;">
+                        <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> Send Professional Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Professional EU representation and trade facilitation services.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
+                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
+            </div>
+            <div class="footer-legal">
+                <h4>NIP</h4>
+                <p>634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Siva Handlowy. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+    </script>
+</body>
+</html>
