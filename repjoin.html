@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Representative Registration - Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* --- Registration Specific Styles --- */
+        .reg-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: -50px auto 60px;
+            max-width: 1200px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+        }
+
+        .benefit-card i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* --- Form Architecture --- */
+        .reg-container {
+            max-width: 900px;
+            margin: 0 auto 100px;
+            background: var(--white);
+            padding: clamp(30px, 5vw, 60px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+        }
+
+        .form-section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
+            color: var(--primary);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group { flex: 1; display: flex; flex-direction: column; }
+        
+        .form-group label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: #f8fafc;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .submit-area {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #reg-btn {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row { flex-direction: column; }
+            .reg-hero { height: 50vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header scrolled">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representation</a>
+            <a href="idk.html">Global Representatives</a>
+            <a href="certificates.html">Certifications</a>
+            <a href="mem.html">Register to join us</a>
+            <a href="#">Learn with us</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Our Projects</a>
+            <a href="funds.html">Get funds for your project</a>
+            <a href="visit.html">Your visit to EU</a>
+               <a href="contactus.html">Contact us</a>
+        </div>
+    </div>
+
+    <section class="reg-hero">
+        <div class="hero-text">
+            <h1 style="font-size: clamp(2.2rem, 6vw, 4rem);">Global Partnership</h1>
+            <p>Expand your portfolio by becoming an official Representative of Siva Handlowy sp. z o.o.</p>
+        </div>
+    </section>
+
+    <div class="section-container">
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <i class="fas fa-certificate"></i>
+                <h5>Official Status</h5>
+                <p>Receive a certified Representative ID and legal authorization to act on our behalf.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-network-wired"></i>
+                <h5>EU Network</h5>
+                <p>Direct access to European industrial networks, grants, and MDR compliance resources.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h5>Revenue Share</h5>
+                <p>Generous commission structures for facilitating international trade and projects.</p>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Registration Portal</h2>
+            <div class="underline"></div>
+            <p>Submit your credentials for our compliance team to review.</p>
+        </div>
+
+        <div class="reg-container">
+            <form id="regForm" action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
+                
+                <input type="hidden" name="_subject" value="NEW REPRESENTATIVE APPLICATION - Siva Handlowy">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="true">
+
+                <div class="form-section-title">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Personal & Legal Identity</h4>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Legal Name</label>
+                        <input type="text" name="Legal Name" required class="form-input" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Nationality</label>
+                        <input type="text" name="Nationality" required class="form-input" placeholder="e.g. British">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Professional Email</label>
+                        <input type="email" name="email" required class="form-input" placeholder="name@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp / Phone</label>
+                        <input type="tel" name="Phone" required class="form-input" placeholder="+123 456 789">
+                    </div>
+                </div>
+
+                <div class="form-section-title">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>Professional Background</h4>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Current Designation</label>
+                        <input type="text" name="Current Role" required class="form-input" placeholder="e.g. Senior Consultant">
+                    </div>
+                    <div class="form-group">
+                        <label>Operating Region</label>
+                        <input type="text" name="Operating Region" required class="form-input" placeholder="e.g. Middle East / South Asia">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label>Industry Expertise</label>
+                    <select name="Expertise" required class="form-input">
+                        <option value="" disabled selected>Select primary field...</option>
+                        <option value="Medical Devices">Medical Devices & MDR</option>
+                        <option value="Renewable Energy">Renewable Energy & ESG</option>
+                        <option value="Industrial Trade">Industrial Equipment & Trade</option>
+                        <option value="Govt Projects">Government Grants & Projects</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Briefly state why you wish to represent Siva Handlowy</label>
+                    <textarea name="Motivation" required class="form-input" rows="4" placeholder="Describe your existing network and goals..."></textarea>
+                </div>
+
+                <div class="submit-area">
+                    <button type="submit" id="reg-btn" class="btn-primary">
+                        <i class="fas fa-id-badge"></i> <span>Submit Official Application</span>
+                    </button>
+                    <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-light);">
+                        By submitting, you agree to our confidential preliminary vetting process.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Building global bridges for European excellence.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Support</h4>
+                <p>info.siva.pl@gmail.com</p>
+                <p>+48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>NIP</h4>
+                <p>634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Siva Handlowy. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+
+        // Interaction for Form Submission
+        const form = document.getElementById('regForm');
+        const btn = document.getElementById('reg-btn');
+        const span = btn.querySelector('span');
+
+        form.addEventListener('submit', () => {
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+            span.innerText = 'Processing Application...';
+        });
+    </script>
+</body>
+</html>
