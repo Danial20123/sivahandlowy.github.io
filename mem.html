@@ -134,38 +134,42 @@
 
     <div class="form-page-wrapper">
         <div class="form-card">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h2 style="color: #0f172a;">Registration Form</h2>
-                <p style="color: #64748b;">Custom Item/Category Selection</p>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 2rem; margin-bottom: 10px;">Registration Form</h2>
+                <p style="color: var(--text-slate);">Select your service categories and request your formal invoice.</p>
             </div>
 
             <form id="membershipForm" action="https://formsubmit.co/info.siva.pl@gmail.com" method="POST">
                 
+                <input type="hidden" name="_subject" value="New Invoice Request - Siva Handlowy">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="true">
+
                 <div class="form-group">
-                    <label>Company Name</label>
-                    <input type="text" name="Company_Name" placeholder="Enter registered company name" required>
+                    <label>Legal Company Name</label>
+                    <input type="text" name="Company_Name" id="companyName" placeholder="e.g. Acme Logistics Ltd" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Company Address</label>
-                    <input type="text" name="Company_Address" placeholder="Full registered address" required>
+                    <label>Registered Office Address</label>
+                    <input type="text" name="Company_Address" id="companyAddress" placeholder="Street, City, Postcode, Country" required>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
                         <label>Your Name</label>
-                        <input type="text" name="Submitter_Name" placeholder="Full Name" required>
+                        <input type="text" name="Submitter_Name" id="submitterName" placeholder="Full Name" required>
                     </div>
                     <div class="form-group">
                         <label>Designation</label>
-                        <input type="text" name="Designation" placeholder="e.g. Director/Owner" required>
+                        <input type="text" name="Designation" id="designation" placeholder="e.g. CEO / Manager" required>
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="Email" placeholder="company@email.com" required>
+                        <label>Business Email</label>
+                        <input type="email" name="Email" placeholder="name@company.com" required>
                     </div>
                     <div class="form-group">
                         <label>Contact Number</label>
@@ -174,30 +178,27 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Add Item/Categories</label>
+                    <label>Service Categories to Register</label>
                     <div class="item-input-wrapper">
-                        <input type="text" id="itemInput" placeholder="Type category name here...">
+                        <input type="text" id="itemInput" placeholder="Add category (e.g. Warehousing)">
                         <button type="button" class="add-btn" onclick="addItem()">Add</button>
                     </div>
                     <div id="itemsContainer" class="items-list">
-                        <span class="empty-msg">No items added yet. First item is free.</span>
+                        <span class="empty-msg" style="color: #94a3b8; font-style: italic;">No categories added. First one is included in base fee.</span>
                     </div>
                 </div>
 
                 <input type="hidden" name="Selected_Categories" id="hiddenCategories">
+                <input type="hidden" name="Invoice_Total" id="hiddenTotal">
 
                 <div class="pricing-summary">
                     <div class="price-row">
-                        <span>One-time Basic Fee (with one item included)</span>
+                        <span>Base Registration Fee (Inc. 1 Category)</span>
                         <span>€100.00</span>
                     </div>
                     <div class="price-row">
-                        <span>Additional Items (<span id="catCountDisplay">0</span>)</span>
+                        <span>Additional Categories (<span id="catCountDisplay">0</span>)</span>
                         <span>€<span id="catCost">0.00</span></span>
-                    </div>
-                    <div class="price-row" id="freeItemRow" style="display: none;">
-                        <span class="free-badge">First Item Discount</span>
-                        <span class="free-badge">100% OFF</span>
                     </div>
                     <div class="price-row">
                         <span>Subtotal</span>
@@ -211,28 +212,23 @@
                         <span>TOTAL DUE</span>
                         <span>€<span id="total">123.00</span></span>
                     </div>
-                    
-                    <p class="disclaimer">
-                        By submitting, you agree that all fees are non-refundable. 
-                        A formal VAT invoice will be sent to your email.
-                    </p>
                 </div>
 
-                <input type="hidden" name="Final_Total_Amount" id="hiddenTotal">
-                <button type="submit" class="submit-btn">Submit & Request Invoice</button>
+                <button type="submit" class="submit-btn" id="submit-button">
+                    <i class="fas fa-file-invoice" style="margin-right: 10px;"></i> Register & Get Invoice
+                </button>
             </form>
         </div>
     </div>
 
     <script>
         let categories = [];
+        const { jsPDF } = window.jspdf;
 
         function addItem() {
             const input = document.getElementById('itemInput');
             const value = input.value.trim();
-            
-            if (value === "") return;
-
+            if (!value) return;
             categories.push(value);
             input.value = "";
             renderItems();
@@ -248,54 +244,100 @@
         function renderItems() {
             const container = document.getElementById('itemsContainer');
             const hiddenInput = document.getElementById('hiddenCategories');
-            
             if (categories.length === 0) {
-                container.innerHTML = '<span class="empty-msg">No items added yet. First item is free.</span>';
+                container.innerHTML = '<span class="empty-msg" style="color: #94a3b8; font-style: italic;">No categories added. First one is included in base fee.</span>';
                 hiddenInput.value = "";
                 return;
             }
-
             container.innerHTML = categories.map((cat, index) => `
-                <span class="tag">
-                    ${cat}
-                    <i class="fas fa-times-circle" onclick="removeItem(${index})"></i>
-                </span>
+                <span class="tag">${cat}<i class="fas fa-times-circle" onclick="removeItem(${index})"></i></span>
             `).join('');
-
             hiddenInput.value = categories.join(', ');
         }
 
         function updatePrice() {
-            const totalSelected = categories.length;
-            const extraItems = totalSelected > 0 ? totalSelected - 1 : 0;
-            
-            const baseFee = 100;
-            const categoryCost = extraItems * 50;
-            const subtotal = baseFee + categoryCost;
-            const vat = subtotal * 0.23;
-            const total = subtotal + vat;
+            const extra = categories.length > 1 ? categories.length - 1 : 0;
+            const sub = 100 + (extra * 50);
+            const vat = sub * 0.23;
+            const total = sub + vat;
 
-            document.getElementById('catCountDisplay').innerText = extraItems;
-            document.getElementById('catCost').innerText = categoryCost.toFixed(2);
-            document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+            document.getElementById('catCountDisplay').innerText = extra;
+            document.getElementById('catCost').innerText = (extra * 50).toFixed(2);
+            document.getElementById('subtotal').innerText = sub.toFixed(2);
             document.getElementById('vat').innerText = vat.toFixed(2);
             document.getElementById('total').innerText = total.toFixed(2);
-            
-            const freeRow = document.getElementById('freeItemRow');
-            freeRow.style.display = totalSelected > 0 ? 'flex' : 'none';
-            
             document.getElementById('hiddenTotal').value = "€" + total.toFixed(2);
         }
 
-        // Allow "Enter" key to add items
-        document.getElementById('itemInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                addItem();
-            }
+        async function generatePDF() {
+            const doc = new jsPDF();
+            const company = document.getElementById('companyName').value;
+            const addr = document.getElementById('companyAddress').value;
+            const sub = document.getElementById('subtotal').innerText;
+            const vat = document.getElementById('vat').innerText;
+            const tot = document.getElementById('total').innerText;
+
+            // Visual Styling for PDF
+            doc.setFillColor(15, 23, 42);
+            doc.rect(0, 0, 210, 40, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(22);
+            doc.text("SIVA HANDLOWY SP. Z O.O.", 14, 25);
+            
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(10);
+            doc.text("Ściegiennego 41A, 40-114 Katowice, Poland", 14, 50);
+            doc.text("NIP: 634 296 11 19 | info.siva.pl@gmail.com", 14, 55);
+
+            doc.setFontSize(16);
+            doc.text("PROFORMA INVOICE", 140, 50);
+            doc.setFontSize(10);
+            doc.text(`Date: ${new Date().toLocaleDateString()}`, 140, 58);
+
+            doc.setDrawColor(200, 200, 200);
+            doc.line(14, 65, 196, 65);
+
+            doc.setFont(undefined, 'bold');
+            doc.text("BILL TO:", 14, 75);
+            doc.setFont(undefined, 'normal');
+            doc.text(company, 14, 82);
+            doc.text(addr, 14, 88);
+
+            doc.autoTable({
+                startY: 100,
+                head: [['Description', 'Unit Price', 'Qty', 'Amount']],
+                body: [
+                    ['Registration Base Fee (Inc. 1st Cat)', '€100.00', '1', '€100.00'],
+                    [`Additional Categories Selection`, '€50.00', categories.length > 1 ? (categories.length - 1).toString() : '0', `€${(document.getElementById('catCost').innerText)}`]
+                ],
+                headStyles: { fillColor: [15, 23, 42] }
+            });
+
+            const finalY = doc.lastAutoTable.finalY + 10;
+            doc.text(`Subtotal: €${sub}`, 140, finalY);
+            doc.text(`VAT (23%): €${vat}`, 140, finalY + 7);
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text(`TOTAL DUE: €${tot}`, 140, finalY + 16);
+
+            doc.save(`Invoice_${company.replace(/\s+/g, '_')}.pdf`);
+        }
+
+        document.getElementById('membershipForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-button');
+            btn.innerHTML = "Generating PDF...";
+            btn.style.opacity = "0.7";
+
+            await generatePDF();
+            
+            setTimeout(() => {
+                btn.innerHTML = "Submitting Data...";
+                this.submit();
+            }, 1500);
         });
 
-        updatePrice();
+        document.getElementById('itemInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); addItem(); } });
     </script>
 </body>
 </html>
