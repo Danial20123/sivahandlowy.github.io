@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU Residency & Legalisation - Siva Handlowy</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    
+    <style>
+        /* --- Universal Responsive Glass Hero --- */
+        .hero-wrapper {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            overflow: hidden;
+            background-color: #0f172a;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4) contrast(1.1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+            display: inline-block;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* --- Content Layout --- */
+        .pathway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 60px;
+        }
+
+        .pathway-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border-top: 8px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .pathway-card:hover { transform: translateY(-10px); }
+
+        .pathway-icon {
+            width: 70px;
+            height: 70px;
+            background: #f8fafc;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+        }
+
+        .step-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #475569;
+        }
+
+        .step-list li i { color: #10b981; }
+
+        .solution-section {
+            background: #f8fafc;
+            border-radius: 40px;
+            padding: 80px 40px;
+            margin: 60px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* --- Custom Nav Styles --- */
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: 0.3s;
+        }
+        .glass-btn:hover { background: white; color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .hero-wrapper { min-height: 70vh; }
+            .hero-content { border-radius: 25px; }
+            .pathway-grid { margin-top: -50px; padding: 0 10px 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header scrolled">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="contactus.html" class="nav-cta">Free Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="learn.html">Learn</a>
+            <a href="residency.html">Residency</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+    </div>
+
+    <section class="hero-wrapper">
+        <div class="hero-bg">
+            <img src="https://images.pexels.com/photos/6693194/pexels-photo-6693194.jpeg" alt="Legal residency in Europe">
+        </div>
+        <div class="hero-content">
+            <h1>Your Gateway to <span>EU Residency</span></h1>
+            <p>From initial visa applications to permanent settlement, we provide the legal framework to establish your business, studies, or career in Europe.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="contactus.html" class="btn-primary" style="padding: 18px 40px; border: none;">Start Assessment</a>
+                <a href="#solutions" class="glass-btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-container">
+        
+        <div class="pathway-grid" id="pathways">
+            <div class="pathway-card">
+                <div class="pathway-icon"><i class="fas fa-building"></i></div>
+                <h3>Business to Residency</h3>
+                <p>Establishing a Polish Sp. z o.o. as the foundation for your legal stay.</p>
+                <ul class="step-list">
+                    <li><i class="fas fa-check-circle"></i> Digital Incorporation (S24)</li>
+                    <li><i class="fas fa-check-circle"></i> VAT & NIP Registration</li>
+                    <li><i class="fas fa-check-circle"></i> Business Plan Compliance</li>
+                    <li><i class="fas fa-check-circle"></i> TRC (Business Purpose)</li>
+                </ul>
+                <a href="registration.html" class="btn-primary" style="width: 100%; text-align: center; border: none;">Register Business</a>
+            </div>
+
+            <div class="pathway-card">
+                <div class="pathway-icon"><i class="fas fa-user-graduate"></i></div>
+                <h3>Study to Residency</h3>
+                <p>Leveraging European education for long-term career settlement.</p>
+                <ul class="step-list">
+                    <li><i class="fas fa-check-circle"></i> University Admissions</li>
+                    <li><i class="fas fa-check-circle"></i> Student Visa D-Type</li>
+                    <li><i class="fas fa-check-circle"></i> Health Insurance Setup</li>
+                    <li><i class="fas fa-check-circle"></i> Graduate Search Visas</li>
+                </ul>
+                <a href="contactus.html" class="btn-primary" style="width: 100%; text-align: center; border: none; background: var(--primary); color: white;">Apply for Study</a>
+            </div>
+
+            <div class="pathway-card">
+                <div class="pathway-icon"><i class="fas fa-tools"></i></div>
+                <h3>Work to Residency</h3>
+                <p>Legalisation solutions for skilled professionals and employees.</p>
+                <ul class="step-list">
+                    <li><i class="fas fa-check-circle"></i> Work Permit Processing</li>
+                    <li><i class="fas fa-check-circle"></i> EU Blue Card Filing</li>
+                    <li><i class="fas fa-check-circle"></i> Contract Legalisation</li>
+                    <li><i class="fas fa-check-circle"></i> Local Tax Compliance</li>
+                </ul>
+                <a href="contactus.html" class="btn-primary" style="width: 100%; text-align: center; border: none; background: var(--primary); color: white;">Employment Support</a>
+            </div>
+        </div>
+
+        <div class="solution-section" id="solutions">
+            <div class="section-header">
+                <h2>Legalisation Solutions</h2>
+                <div class="underline"></div>
+                <p>Comprehensive assistance for maintaining your legal status in the Schengen Zone.</p>
+            </div>
+
+            
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 50px;">
+                <div class="sol-item">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;"><i class="fas fa-passport" style="color: var(--accent);"></i> Karta Pobytu Filing</h4>
+                    <p>Professional preparation of your Residence Card application for the Urząd Wojewódzki, ensuring all attachments meet strict legal criteria.</p>
+                </div>
+                <div class="sol-item">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;"><i class="fas fa-shield-check" style="color: var(--accent);"></i> Decision Appeals</h4>
+                    <p>Expert legal representation for appealing negative residency decisions or addressing delays in administrative proceedings.</p>
+                </div>
+                <div class="sol-item">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;"><i class="fas fa-language" style="color: var(--accent);"></i> Sworn Translations</h4>
+                    <p>Official certified translations of birth certificates, marriage licenses, and financial records required for EU legalisation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--primary); color: white; border-radius: 30px; padding: clamp(40px, 10vw, 80px); text-align: center; margin: 80px 0;">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to Start Your Journey?</h2>
+            <p style="opacity: 0.8; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Our Katowice-based legal team is ready to analyze your case and provide a roadmap to your European future.</p>
+            <a href="contactus.html" class="btn-primary" style="background: var(--accent); color: var(--primary); border: none; font-size: 1.2rem; padding: 20px 50px;">Book Your Consultation</a>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>The bridge between your ambitions and European reality.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>info.siva.pl@gmail.com</p>
+                <p>+48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>NIP</h4>
+                <p>634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Siva Handlowy. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+    </script>
+</body>
+</html>
