@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Loading & Inspection - Siva Handlowy</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    
+    <style>
+        /* --- Responsive Glass Hero --- */
+        .hero-wrapper {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            background-color: #0f172a;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.35);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 40px;
+            border-radius: 40px;
+        }
+
+        /* --- Inspection Content --- */
+        .inspection-section {
+            padding: 80px 0;
+        }
+
+        .inspection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .inspection-card {
+            background: #fff;
+            border-radius: 25px;
+            padding: 45px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+            transition: 0.3s;
+        }
+
+        .inspection-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #fff8eb;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .check-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .check-list li i {
+            color: #10b981;
+            font-size: 0.8rem;
+        }
+
+        .report-highlight {
+            background: var(--primary);
+            color: white;
+            padding: 60px;
+            border-radius: 35px;
+            margin: 60px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .report-highlight { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .inspection-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header scrolled">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Logistics</a>
+                <a href="contactus.html" class="nav-cta">Book Inspection</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representation AR</a>
+            <a href="idk.html">Global Representatives</a>
+            <a href="certificates.html">ISO Certifications</a>
+            <a href="mem.html">Become our Client</a>
+            <a href="repjoin.html">Become our Representative</a>
+            <a href="residency.html">Residency & Legalisation in EU</a>
+            <a href="learn.html">Learn with us</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="inspection.html">Preshipment insoection and Loading</a>
+            <a href="">Our Projects</a>
+            <a href="funds.html">Get funds for your project</a>
+            <a href="visit.html">Your visit to EU</a>
+               <a href="contactus.html">Contact us</a>
+        </div>
+    </div>
+
+    <section class="hero-wrapper">
+        <div class="hero-bg">
+            <img src="https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg" alt="Logistics inspection and loading">
+        </div>
+        <div class="hero-content">
+            <h1 style="color: white;">Shipment Loading & <span style="color: var(--accent);">Inspections</span></h1>
+            <p style="color: white;">Ensure your cargo meets quality standards and safety protocols before it leaves the port. Total transparency from warehouse to vessel.</p>
+        </div>
+    </section>
+
+    <div class="section-container">
+        
+        <div class="inspection-grid">
+            
+            <div class="inspection-card">
+                <div class="icon-box"><i class="fas fa-clipboard-check"></i></div>
+                <h3>Preshipment Inspection (PSI)</h3>
+                <p>A systematic inspection of units selected at random from all batches of your order, conducted when your production is at least 80% complete.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> Quantity & Quality verification</li>
+                    <li><i class="fas fa-check"></i> Packaging & Labeling compliance</li>
+                    <li><i class="fas fa-check"></i> Functional & Safety testing</li>
+                    <li><i class="fas fa-check"></i> Regulatory documentation check</li>
+                </ul>
+            </div>
+
+            <div class="inspection-card">
+                <div class="icon-box"><i class="fas fa-container-storage"></i></div>
+                <h3>Loading Shipment Supervision</h3>
+                <p>Our inspectors stay on-site during the entire loading process to ensure your goods are handled correctly and secured for transit.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> Container condition inspection</li>
+                    <li><i class="fas fa-check"></i> Loading process monitoring</li>
+                    <li><i class="fas fa-check"></i> Cargo placement & securing</li>
+                    <li><i class="fas fa-check"></i> Seal verification & recording</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="inspection-section">
+            <div class="section-header">
+                <h2>Our Inspection Protocol</h2>
+                <div class="underline"></div>
+            </div>
+            
+        </div>
+
+        <div class="report-highlight">
+            <div style="font-size: 4rem; color: var(--accent);"><i class="fas fa-file-pdf"></i></div>
+            <div>
+                <h3 style="color: white; margin-bottom: 10px;">Comprehensive Digital Reports</h3>
+                <p style="color: #cbd5e1; margin-bottom: 0;">Within 24 hours of inspection, receive a detailed PDF report including high-resolution photography, time-stamped evidence, and a pass/fail certificate for your records.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 60px 0;">
+            <h3>Protect Your Global Supply Chain</h3>
+            <p style="margin-bottom: 30px;">Avoid damaged cargo and non-compliant shipments at the source.</p>
+            <a href="contactus.html" class="btn-primary" style="padding: 20px 50px; border: none;">Request On-Site Inspection</a>
+        </div>
+
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Neutral third-party inspections for international trade.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>info.siva.pl@gmail.com</p>
+                <p>+48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>Registered in Poland</h4>
+                <p>NIP: 634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Siva Handlowy. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+    </script>
+</body>
+</html>
