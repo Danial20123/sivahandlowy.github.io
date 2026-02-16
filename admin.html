@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Siva Handlowy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+:root{
+  --primary:#0f172a;
+  --accent:#f59e0b;
+  --bg:#f1f5f9;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  display:flex;
+}
+
+/* Sidebar */
+.admin-sidebar{
+  width:240px;
+  background:var(--primary);
+  color:#fff;
+  height:100vh;
+  padding:30px 20px;
+  position:fixed;
+}
+
+.admin-main{
+  margin-left:240px;
+  width:100%;
+  padding:40px;
+}
+
+/* Card */
+.user-container{
+  background:#fff;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:15px;
+  text-align:left;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.btn{
+  padding:10px 14px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.btn-notify{
+  background:var(--accent);
+  color:var(--primary);
+}
+
+/* Modal */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-content{
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  width:90%;
+  max-width:400px;
+  animation:fadeIn .2s ease;
+}
+
+@keyframes fadeIn{
+  from{transform:scale(.95);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  margin:10px 0;
+  box-sizing:border-box;
+}
+
+@media(max-width:850px){
+  .admin-sidebar{display:none;}
+  .admin-main{margin:0;padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<aside class="admin-sidebar">
+  <h2>Admin Console</h2>
+</aside>
+
+<main class="admin-main">
+<h2>User Management</h2>
+
+<div class="user-container">
+<table id="userTable">
+<thead>
+<tr>
+<th>User</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<!-- Users populated dynamically -->
+</tbody>
+</table>
+</div>
+
+</main>
+
+<div id="notifyModal" class="modal">
+<div class="modal-content">
+<h3>Edit / Notify User</h3>
+<label>Email</label>
+<input type="email" id="adminEmail">
+<label>Password</label>
+<input type="text" id="adminPass">
+<label>Notification</label>
+<textarea id="notifMessage" placeholder="Enter notification..."></textarea>
+<button class="btn btn-notify" style="width:100%;" onclick="pushNotification()">Save / Notify</button>
+<button class="btn" style="width:100%;margin-top:10px;background:#e2e8f0;" onclick="closeModal()">Cancel</button>
+</div>
+</div>
+
+<script>
+// USERS DATA
+let users = [
+  { id:1, name:"Adam", email:"adam@siva.pl", password:"1234567890", page:"clients/adam.html", history:["MFA Report Generated","Shipment Confirmed"] },
+  { id:2, name:"Client One", email:"ab48271@#@siva.pl", password:"X9v!qL7#pR2", page:"clients/client1.html", history:["Account Created"] },
+  { id:3, name:"Client Two", email:"cd73920!$@siva.pl", password:"T4m#Z8r!Q1x", page:"clients/client2.html", history:["Account Created"] }
+];
+
+// POPULATE TABLE
+const tbody = document.querySelector("#userTable tbody");
+function populateUsers(){
+  tbody.innerHTML = "";
+  users.forEach(user=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${user.name}</td>
+      <td>${user.email}</td>
+      <td>
+        <button class="btn btn-notify" onclick='openModal(${user.id})'>Edit / Notify</button>
+        <a href="${user.page}" target="_blank" style="margin-left:10px;">Open</a>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+populateUsers();
+
+// MODAL FUNCTIONS
+let currentUserId = null;
+
+function openModal(id){
+  currentUserId = id;
+  const user = users.find(u=>u.id===id);
+  document.getElementById("adminEmail").value = user.email;
+  document.getElementById("adminPass").value = user.password;
+  document.getElementById("notifMessage").value = "";
+  document.getElementById("notifyModal").style.display="flex";
+}
+
+function closeModal(){
+  document.getElementById("notifyModal").style.display="none";
+  currentUserId=null;
+}
+
+// SAVE / NOTIFY
+function pushNotification(){
+  if(currentUserId===null) return;
+  const user = users.find(u=>u.id===currentUserId);
+  // Update email/password
+  user.email = document.getElementById("adminEmail").value;
+  user.password = document.getElementById("adminPass").value;
+  // Add notification
+  const notif = document.getElementById("notifMessage").value.trim();
+  if(notif) user.history.push("Notification: "+notif);
+  // Save to localStorage for login and client pages
+  localStorage.setItem("users",JSON.stringify(users));
+  alert("User info updated and notification sent!");
+  populateUsers();
+  closeModal();
+}
+
+// Close modal if click outside
+window.onclick = function(e){
+  if(e.target==document.getElementById("notifyModal")) closeModal();
+}
+</script>
+
+</body>
+</html>

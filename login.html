@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Siva Handlowy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root { --primary:#0f172a; --accent:#f59e0b; }
+body{
+background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+margin:0;
+font-family:'Inter',sans-serif;
+}
+.login-card{
+background:white;
+width:100%; max-width:400px;
+padding:40px;
+border-radius:20px;
+box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);
+text-align:center;
+}
+.logo-login{
+font-size:2rem; font-weight:700; color:var(--primary); margin-bottom:30px;
+}
+.logo-login span { color: var(--accent); }
+.form-group{ text-align:left; margin-bottom:20px; }
+.form-group label{ display:block; font-weight:600; margin-bottom:8px; color:#475569; }
+.form-group input{ width:100%; padding:12px; border:2px solid #e2e8f0; border-radius:10px; box-sizing:border-box; transition:0.3s; }
+.form-group input:focus{ border-color:var(--accent); outline:none; }
+.login-btn{ width:100%; background:var(--primary); color:white; border:none; padding:14px; border-radius:10px; font-weight:700; cursor:pointer; font-size:1rem; transition:0.3s; }
+.login-btn:hover{ background:#1e293b; }
+#demo-btn{ margin-top:15px; background:white; color:var(--primary); border:2px solid var(--primary); padding:12px; border-radius:10px; font-weight:700; cursor:pointer; display:flex; justify-content:center; align-items:center; gap:10px; }
+#demo-btn:hover{ background:#f8fafc; border-color:var(--accent); }
+#error-msg{ color:#ef4444; font-size:0.85rem; margin-top:15px; display:none; text-align:left; }
+</style>
+</head>
+<body>
+
+<div class="login-card">
+<div class="logo-login">Siva <span>Handlowy</span></div>
+
+<form id="loginForm">
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" id="email" placeholder="name@company.com" required>
+</div>
+
+<div class="form-group">
+<label>Password</label>
+<input type="password" id="password" placeholder="••••••••" required>
+</div>
+
+<button type="submit" class="login-btn">Sign In</button>
+<div id="error-msg">Invalid credentials. Please try again.</div>
+</form>
+
+<script>
+// ------------------- INIT USERS -------------------
+if(!localStorage.getItem("users")){
+localStorage.setItem("users",JSON.stringify([
+{
+id:1,
+role:"user",
+name:"Adam",
+email:"adam@siva.pl",
+password:"1234567890",
+page:"clients/adam.html",   // updated path
+history:[
+{action:"MFA Report Generated",date:"2026-02-10"},
+{action:"Shipment Confirmed",date:"2026-02-11"},
+{action:"Certificate Requested",date:"2026-02-12"}
+]
+},
+{
+id:2,
+role:"user",
+name:"Client One",
+email:"ab48271@#@siva.pl",
+password:"X9v!qL7#pR2",
+page:"clients/client1.html",  // updated path
+history:[
+{action:"Account Created",date:"2026-02-15"}
+]
+},
+{
+id:3,
+role:"user",
+name:"Client Two",
+email:"cd73920!$@siva.pl",
+password:"T4m#Z8r!Q1x",
+page:"clients/client2.html",  // updated path
+history:[
+{action:"Account Created",date:"2026-02-15"}
+]
+}
+]));
+}
+
+// ------------------- LOGIN LOGIC -------------------
+document.getElementById("loginForm").addEventListener("submit",function(e){
+e.preventDefault();
+const email=document.getElementById("email").value;
+const pass=document.getElementById("password").value;
+
+const users=JSON.parse(localStorage.getItem("users"));
+const user=users.find(u=>u.email===email && u.password===pass);
+
+if(user){
+localStorage.setItem("sessionUser",JSON.stringify(user));
+window.location.href=user.page;  // redirect to correct folder page
+}else{
+document.getElementById("error-msg").style.display="block";
+}
+});
+
+// ------------------- DEMO BUTTON -------------------
+function loginAsDemo(){
+const users=JSON.parse(localStorage.getItem("users"));
+const demo=users.find(u=>u.role==="user" && u.id===2); // Client One as demo
+localStorage.setItem("sessionUser",JSON.stringify(demo));
+window.location.href=demo.page;
+}
+</script>
+
+</body>
+</html>

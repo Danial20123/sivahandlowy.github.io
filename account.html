@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account | Siva Handlowy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{--primary:#0f172a;--accent:#f59e0b;--bg-light:#f8fafc;}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--bg-light);}
+header{background:white;padding:20px 30px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+h1{margin:0;font-size:1.5rem;color:var(--primary);}
+#logout{background:var(--primary);color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;font-weight:600;}
+.container{max-width:900px;margin:30px auto;padding:0 20px;}
+.card{background:white;padding:25px;border-radius:20px;box-shadow:0 4px 6px rgba(0,0,0,0.1);margin-bottom:20px;}
+.card h2{margin-top:0;}
+.history-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Welcome, <span id="name"></span></h1>
+<button id="logout" onclick="logout()">Logout</button>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Account Details</h2>
+<p><strong>Email:</strong> <span id="email"></span></p>
+</div>
+
+<div class="card">
+<h2>History</h2>
+<div id="history"></div>
+</div>
+
+</div>
+
+<script>
+const session=JSON.parse(localStorage.getItem("sessionUser"));
+if(!session){window.location.href="login.html";}
+document.getElementById("name").innerText=session.name;
+document.getElementById("email").innerText=session.email;
+
+const historyContainer=document.getElementById("history");
+historyContainer.innerHTML="";
+session.history.forEach(item=>{
+const div=document.createElement("div");
+div.className="history-item";
+div.innerHTML=`<span>${item.action}</span><span>${item.date}</span>`;
+historyContainer.appendChild(div);
+});
+
+function logout(){
+localStorage.removeItem("sessionUser");
+window.location.href="login.html";
+}
+</script>
+</body>
+</html>
