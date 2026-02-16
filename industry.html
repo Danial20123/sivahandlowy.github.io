@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries & Products | Siva Handlowy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .industry-container {
+            padding: 120px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .industry-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .industry-header h1 {
+            color: var(--primary);
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Grid */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .industry-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .industry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .ind-icon-box {
+            width: 55px;
+            height: 55px;
+            background: #eff6ff;
+            color: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .industry-item:hover .ind-icon-box {
+            background: var(--accent);
+            color: white;
+        }
+
+        .industry-item span {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .industry-container { padding-top: 100px; }
+            .industry-grid { grid-template-columns: 1fr; }
+            .industry-item { padding: 20px; }
+            .ind-icon-box { width: 45px; height: 45px; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header scrolled">
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="openNav()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">Siva <span class="accent">Handlowy</span></div>
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="euar.html">EU Representation AR</a>
+            <a href="idk.html">Global Representatives</a>
+            <a href="certificates.html">ISO Certifications</a>
+            <a href="mem.html">Become our Client</a>
+            <a href="industry.html">Industry & Products</a>
+            <a href="repjoin.html">Become our Representative</a>
+            <a href="residency.html">Residency & Legalisation in EU</a>
+            <a href="learn.html">Learn with us</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="inspection.html">Preshipment inspection and Loading</a>
+            <a href="">Our Projects</a>
+            <a href="funds.html">Get funds for your project</a>
+            <a href="visit.html">Your visit to EU</a>
+            <a href="contactus.html">Contact us</a>
+        </div>
+    </div>
+
+    <main class="industry-container">
+        <div class="industry-header">
+            <h1>Industries & Products</h1>
+            <div class="underline"></div>
+            <p style="color: var(--text-light);">We provide expert representation and compliance across diverse sectors.</p>
+        </div>
+
+        <div class="industry-grid">
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-landmark"></i></div><span>Banking, Insurance, Financial Services</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-car-side"></i></div><span>Machines, Devices, Motorization</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-tools"></i></div><span>Construction</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-tshirt"></i></div><span>Clothes, Shoes, Confection</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-vial"></i></div><span>Chemistry, Pharmaceutical</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-icons"></i></div><span>Poligraphy, Advertising, PR, Media</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-tree"></i></div><span>Wood and Wood Products</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-apple-alt"></i></div><span>Agriculture, Food Products</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-microscope"></i></div><span>Science, Research and Development Units</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-shipping-fast"></i></div><span>Transport, Logistics</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-user-tie"></i></div><span>Education, Advisory, Consulting</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-plane"></i></div><span>Tourism, Gastronomy, Hotel</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-laptop"></i></div><span>Electronics, IT Industry, Telecommunications</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-running"></i></div><span>Sport and Recreation</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-bolt"></i></div><span>Power Industry</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-gavel"></i></div><span>Legal Services</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-mountain"></i></div><span>Mining, Metallurgy</span></div>
+            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-heartbeat"></i></div><span>Health</span></div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <p>Leading the way in European business representation and certification.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Ściegiennego 41A, Katowice, Poland</p>
+                <p><i class="fas fa-envelope"></i> info.siva.pl@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> +48 512 654 161</p>
+            </div>
+            <div class="footer-legal">
+                <h4>Registration</h4>
+                <p>NIP: 634 296 11 19</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Siva Handlowy. All rights reserved.
+        </div>
+    </footer>
+
+
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+    </script>
+</body>
+</html>

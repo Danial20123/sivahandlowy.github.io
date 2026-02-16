@@ -12,7 +12,11 @@
     margin: 0;
     padding: 0;
 }
-
+/* Responsive */
+@media (max-width: 768px) {
+    .desktop-nav { display: none; }
+}
+/* Removed the extra } that was here */
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     color: var(--text-dark);
