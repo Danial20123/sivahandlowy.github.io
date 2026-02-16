@@ -1,283 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Analysis Report | Siva Handlowy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="home.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    
-    <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #f59e0b;
-            --glass: rgba(255, 255, 255, 0.95);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MFA Product Analysis Report</title>
 
-        body {
-            background-color: #f1f5f9;
-            font-family: 'Inter', sans-serif;
-            padding-top: 100px;
-        }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-        .form-container {
-            max-width: 900px;
-            margin: 0 auto 50px;
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        .report-header {
-            border-bottom: 3px solid var(--accent);
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<style>
+:root{
+  --primary:#1e3a8a;
+  --accent:#2563eb;
+  --bg:#f4f6fb;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --text:#111827;
+  --muted:#6b7280;
+}
 
-        .report-header h1 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin: 0;
-        }
+*{box-sizing:border-box;}
 
-        .section-title {
-            background: #f8fafc;
-            padding: 10px 15px;
-            border-left: 5px solid var(--primary);
-            font-weight: 700;
-            margin: 25px 0 15px;
-            color: var(--primary);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-        .input-group {
-            margin-bottom: 20px;
-        }
+.container{
+  max-width:1200px;
+  margin:40px auto;
+  background:var(--card);
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.05);
+}
 
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #475569;
-            font-size: 0.95rem;
-        }
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:2px solid var(--border);
+  padding-bottom:15px;
+  margin-bottom:30px;
+}
 
-        input[type="text"], 
-        input[type="number"], 
-        textarea, 
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
+.header h1{
+  margin:0;
+  color:var(--primary);
+  font-size:24px;
+}
 
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
-        }
+.section-title{
+  margin-top:30px;
+  margin-bottom:15px;
+  font-weight:600;
+  color:var(--primary);
+  text-transform:uppercase;
+  font-size:14px;
+  letter-spacing:1px;
+}
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
 
-        .btn-container {
-            text-align: right;
-            margin-top: 40px;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 30px;
-        }
+.form-group{
+  display:flex;
+  flex-direction:column;
+}
 
-        .export-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
+label{
+  font-size:13px;
+  font-weight:500;
+  color:var(--muted);
+  margin-bottom:6px;
+}
 
-        .export-btn:hover {
-            background: #1e293b;
-            transform: translateY(-2px);
-        }
+input, textarea, select{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  font-size:14px;
+  transition:0.3s;
+}
 
-        /* PDF Styling Specifics */
-        #pdf-content { padding: 20px; }
+input:focus, textarea:focus, select:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(37,99,235,0.1);
+}
 
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .form-container { padding: 20px; margin: 10px; }
-        }
-    </style>
+textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.button-group{
+  margin-top:30px;
+}
+
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  background:var(--primary);
+  color:#fff;
+}
+
+button:hover{background:#14245e;}
+
+.export-instructions{
+  margin-top:40px;
+  padding:20px;
+  background:#f9fafc;
+  border:1px solid var(--border);
+  border-left:5px solid var(--primary);
+  border-radius:8px;
+  font-size:14px;
+}
+
+.export-instructions strong{
+  color:var(--primary);
+}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr;}
+  .container{padding:25px;}
+}
+</style>
 </head>
+
 <body>
 
-    <div class="form-container" id="report-form">
-        <div id="pdf-wrap">
-            <div class="report-header">
-                <div>
-                    <h1>MFA Analysis Report</h1>
-                    <p style="color: #64748b; margin-top: 5px;">Siva Handlowy Global Trade Facilitation</p>
-                </div>
-                <div style="text-align: right; font-weight: 700; color: var(--accent);">
-                    INTERNAL DOCUMENT
-                </div>
-            </div>
+<div class="container">
 
-            <div class="section-title">A. General Product Information</div>
-            <div class="input-group">
-                <label>Product Description</label>
-                <textarea id="desc" rows="3" placeholder="Enter detailed product description..."></textarea>
-            </div>
+<div class="header">
+  <h1>MFA Product Analysis Form</h1>
+  <div>Date: <span id="date"></span></div>
+</div>
 
-            <div class="grid-2">
-                <div class="input-group">
-                    <label>B. Different Sizes (if any)</label>
-                    <input type="text" id="sizes" placeholder="e.g. S, M, L, XL or Dimensions">
-                </div>
-                <div class="input-group">
-                    <label>C. Different Materials (if any)</label>
-                    <input type="text" id="materials" placeholder="e.g. Steel, Plastic, Cotton">
-                </div>
-            </div>
+<div class="section-title">Product Information</div>
 
-            <div class="grid-2">
-                <div class="input-group">
-                    <label>D. Ex-Works Prices</label>
-                    <input type="text" id="prices" placeholder="Enter pricing details">
-                </div>
-                <div class="input-group">
-                    <label>E. Models / Colors / Special Designs</label>
-                    <input type="text" id="models" placeholder="Number of variations available">
-                </div>
-            </div>
+<div class="grid">
 
-            <div class="section-title">B. Strategic Objectives & Targets</div>
-            <div class="input-group">
-                <label>F. Specific Objectives of the Client</label>
-                <textarea id="objectives" rows="2"></textarea>
-            </div>
+<div class="form-group">
+<label>A. Product Description</label>
+<textarea id="description"></textarea>
+</div>
 
-            <div class="grid-2">
-                <div class="input-group">
-                    <label>G. Target Sales (Quantity-wise)</label>
-                    <input type="text" id="targetQty">
-                </div>
-                <div class="input-group">
-                    <label>H. Target Sales (Value-wise)</label>
-                    <input type="text" id="targetVal">
-                </div>
-            </div>
+<div class="form-group">
+<label>B. Different Sizes (if any)</label>
+<input type="text" id="sizes">
+</div>
 
-            <div class="section-title">C. Technical Capacity & Logistics</div>
-            <div class="input-group">
-                <label>I. Special Features of the Item/Product</label>
-                <textarea id="features" rows="2"></textarea>
-            </div>
+<div class="form-group">
+<label>C. Different Materials (if any)</label>
+<input type="text" id="materials">
+</div>
 
-            <div class="grid-2">
-                <div class="input-group">
-                    <label>J. Delivery Capacity (Monthly/Yearly)</label>
-                    <input type="text" id="capacity">
-                </div>
-                <div class="input-group">
-                    <label>K. Capacity Increasable?</label>
-                    <select id="increasable">
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                        <option value="On Request">Available on specific request</option>
-                    </select>
-                </div>
-            </div>
+<div class="form-group">
+<label>D. Exwork Prices</label>
+<input type="text" id="price">
+</div>
 
-            <div class="grid-2">
-                <div class="input-group">
-                    <label>L. Minimum Order Quantity (MOQ)</label>
-                    <input type="text" id="moq">
-                </div>
-                <div class="input-group">
-                    <label>M. Estimated Time of Delivery (ETD)</label>
-                    <input type="text" id="etd" placeholder="Days/Weeks from confirmed order">
-                </div>
-            </div>
+<div class="form-group">
+<label>E. Number of Models / Colors / Special Designs</label>
+<input type="text" id="models">
+</div>
 
-            <div class="section-title">D. Commercial Terms</div>
-            <div class="input-group">
-                <label>Packing Style and Type</label>
-                <input type="text" id="packing" placeholder="e.g. Export Pallets, Boxed, Bulk">
-            </div>
+<div class="form-group">
+<label>F. Specific Objectives of the Client</label>
+<textarea id="objectives"></textarea>
+</div>
 
-            <div class="grid-2">
-                <div class="input-group">
-                    <label>Preferred Incoterms</label>
-                    <input type="text" id="incoterms" placeholder="e.g. FOB, CIF, EXW">
-                </div>
-                <div class="input-group">
-                    <label>Preferred Terms of Payment</label>
-                    <input type="text" id="payment" placeholder="e.g. L/C, T/T 30/70">
-                </div>
-            </div>
+<div class="form-group">
+<label>G. Target of Sales (Quantity)</label>
+<input type="number" id="salesQty">
+</div>
 
-            <div class="input-group">
-                <label>Further Information (for MFA Report)</label>
-                <textarea id="furtherInfo" rows="3"></textarea>
-            </div>
-        </div>
+<div class="form-group">
+<label>H. Target of Sales (Value)</label>
+<input type="number" id="salesValue">
+</div>
 
-        <div class="btn-container">
-            <button class="export-btn" onclick="generatePDF()">
-                <i class="fas fa-file-pdf"></i> Export as PDF
-            </button>
-        </div>
-    </div>
+<div class="form-group">
+<label>I. Special Features of the Product</label>
+<textarea id="features"></textarea>
+</div>
 
-    <script>
-        function generatePDF() {
-            const element = document.getElementById('pdf-wrap');
-            
-            // Set options for PDF generation
-            const opt = {
-                margin:       [10, 10, 10, 10],
-                filename:     'MFA_Analysis_Report.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+<div class="form-group">
+<label>J. Capacity to Deliver (Monthly)</label>
+<input type="number" id="monthlyCapacity">
+</div>
 
-            // Before exporting, temporarily remove borders from inputs for a cleaner look
-            const inputs = element.querySelectorAll('input, textarea, select');
-            inputs.forEach(el => {
-                el.style.border = 'none';
-                el.style.background = '#fcfcfc';
-            });
+<div class="form-group">
+<label>J. Capacity to Deliver (Yearly)</label>
+<input type="number" id="yearlyCapacity">
+</div>
 
-            // Generate the PDF
-            html2pdf().set(opt).from(element).save().then(() => {
-                // Restore borders after generation
-                inputs.forEach(el => {
-                    el.style.border = '1px solid #cbd5e1';
-                    el.style.background = 'white';
-                });
-            });
-        }
-    </script>
+<div class="form-group">
+<label>K. Capacity Increasable?</label>
+<select id="capacityIncrease">
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>L. Minimum Order Quantity</label>
+<input type="number" id="moq">
+</div>
+
+<div class="form-group">
+<label>M. Estimated Delivery Time (Days)</label>
+<input type="number" id="deliveryTime">
+</div>
+
+<div class="form-group">
+<label>Packing Style and Type</label>
+<input type="text" id="packing">
+</div>
+
+<div class="form-group">
+<label>Preferred Incoterms</label>
+<input type="text" id="incoterms">
+</div>
+
+<div class="form-group">
+<label>Preferred Terms of Payment</label>
+<input type="text" id="payment">
+</div>
+
+<div class="form-group">
+<label>Further Information for MFA Report</label>
+<textarea id="furtherInfo"></textarea>
+</div>
+
+</div>
+
+<div class="export-instructions">
+  <p><strong>Submission Instructions:</strong></p>
+  <p>
+    After generating the PDF report, please manually send the exported document via email to:
+  </p>
+  <p><strong>info.siva.pl@gmail.com</strong></p>
+</div>
+
+<div class="button-group">
+<button onclick="exportPDF()">Generate Professional PDF</button>
+</div>
+
+</div>
+
+<script>
+document.getElementById("date").innerText=new Date().toLocaleDateString();
+
+function exportPDF(){
+
+const {jsPDF}=window.jspdf;
+const doc=new jsPDF("p","mm","a4");
+
+const pageWidth=doc.internal.pageSize.getWidth();
+const pageHeight=doc.internal.pageSize.getHeight();
+const margin=15;
+let y=25;
+const lineHeight=7;
+
+function addTitle(text){
+if(y>pageHeight-20){doc.addPage();y=20;}
+doc.setFont("helvetica","bold");
+doc.setFontSize(14);
+doc.text(text,margin,y);
+y+=8;
+doc.line(margin,y,pageWidth-margin,y);
+y+=10;
+}
+
+function addField(label,value){
+if(!value)value="-";
+
+doc.setFont("helvetica","bold");
+doc.setFontSize(11);
+doc.text(label,margin,y);
+y+=lineHeight;
+
+doc.setFont("helvetica","normal");
+const lines=doc.splitTextToSize(value.toString(),pageWidth-(margin*2));
+
+lines.forEach(line=>{
+if(y>pageHeight-15){doc.addPage();y=20;}
+doc.text(line,margin,y);
+y+=lineHeight;
+});
+y+=4;
+}
+
+doc.setFontSize(18);
+doc.setFont("helvetica","bold");
+doc.text("MFA PRODUCT ANALYSIS REPORT",pageWidth/2,15,{align:"center"});
+
+addTitle("PRODUCT INFORMATION");
+
+addField("A. Product Description",description.value);
+addField("B. Different Sizes",sizes.value);
+addField("C. Different Materials",materials.value);
+addField("D. Exwork Prices",price.value);
+addField("E. Models / Colors / Designs",models.value);
+addField("F. Client Objectives",objectives.value);
+addField("G. Sales Target (Quantity)",salesQty.value);
+addField("H. Sales Target (Value)",salesValue.value);
+addField("I. Special Features",features.value);
+addField("J. Capacity Monthly",monthlyCapacity.value);
+addField("J. Capacity Yearly",yearlyCapacity.value);
+addField("K. Capacity Increasable",capacityIncrease.value);
+addField("L. Minimum Order Quantity",moq.value);
+addField("M. Estimated Delivery Time",deliveryTime.value);
+addField("Packing Style and Type",packing.value);
+addField("Preferred Incoterms",incoterms.value);
+addField("Preferred Payment Terms",payment.value);
+addField("Further Information",furtherInfo.value);
+
+const totalPages=doc.getNumberOfPages();
+for(let i=1;i<=totalPages;i++){
+doc.setPage(i);
+doc.setFontSize(9);
+doc.text(`Page ${i} of ${totalPages}`,pageWidth/2,pageHeight-5,{align:"center"});
+}
+
+doc.save("MFA_Report.pdf");
+}
+</script>
+
 </body>
 </html>
