@@ -12,6 +12,10 @@
             --glass: rgba(255, 255, 255, 0.9);
             --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
             --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1);
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
         }
 
         .industry-container {
@@ -31,7 +35,14 @@
             margin-bottom: 10px;
         }
 
-        /* Responsive Grid */
+        .underline {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
         .industry-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -40,32 +51,55 @@
 
         .industry-item {
             background: var(--white);
-            padding: 30px;
             border-radius: 15px;
             border: 1px solid #e2e8f0;
             display: flex;
-            align-items: center;
-            gap: 20px;
+            flex-direction: column;
+            overflow: hidden;
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
+            height: 100%;
         }
 
         .industry-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
             border-color: var(--accent);
         }
 
+        .industry-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            filter: grayscale(15%);
+            transition: var(--transition);
+            background-color: #f1f5f9;
+        }
+
+        .industry-item:hover .industry-img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .industry-content {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-grow: 1;
+            min-height: 100px; /* Ensures uniform text area */
+        }
+
         .ind-icon-box {
-            width: 55px;
-            height: 55px;
+            width: 48px;
+            height: 48px;
             background: #eff6ff;
             color: var(--accent);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             flex-shrink: 0;
             transition: var(--transition);
         }
@@ -78,18 +112,16 @@
         .industry-item span {
             font-weight: 600;
             color: var(--primary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.3;
+            letter-spacing: 0.4px;
+            line-height: 1.4;
         }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) {
             .industry-container { padding-top: 100px; }
             .industry-grid { grid-template-columns: 1fr; }
-            .industry-item { padding: 20px; }
-            .ind-icon-box { width: 45px; height: 45px; font-size: 1.2rem; }
+            .industry-img { height: 170px; }
         }
     </style>
 </head>
@@ -135,35 +167,160 @@
         <div class="industry-header">
             <h1>Industries & Products</h1>
             <div class="underline"></div>
-            <p style="color: var(--text-light);">We provide expert representation and compliance across diverse sectors.</p>
+            <p style="color: #64748b;">We provide expert representation and compliance across diverse sectors.</p>
         </div>
 
         <div class="industry-grid">
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-landmark"></i></div><span>Banking, Insurance, Financial Services</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-car-side"></i></div><span>Machines, Devices, Motorization</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-tools"></i></div><span>Construction</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-tshirt"></i></div><span>Clothes, Shoes, Confection</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-vial"></i></div><span>Chemistry, Pharmaceutical</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-icons"></i></div><span>Poligraphy, Advertising, PR, Media</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-tree"></i></div><span>Wood and Wood Products</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-apple-alt"></i></div><span>Agriculture, Food Products</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-microscope"></i></div><span>Science, Research and Development Units</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-shipping-fast"></i></div><span>Transport, Logistics</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-user-tie"></i></div><span>Education, Advisory, Consulting</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-plane"></i></div><span>Tourism, Gastronomy, Hotel</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-laptop"></i></div><span>Electronics, IT Industry, Telecommunications</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-running"></i></div><span>Sport and Recreation</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-bolt"></i></div><span>Power Industry</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-gavel"></i></div><span>Legal Services</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-mountain"></i></div><span>Mining, Metallurgy</span></div>
-            <div class="industry-item"><div class="ind-icon-box"><i class="fas fa-heartbeat"></i></div><span>Health</span></div>
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/259165/pexels-photo-259165.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Banking" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-landmark"></i></div>
+                    <span>Banking, Insurance, Financial Services</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Motorization" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-car-side"></i></div>
+                    <span>Machines, Devices, Motorization</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-structure-159306.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Construction" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-tools"></i></div>
+                    <span>Construction</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fashion" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-tshirt"></i></div>
+                    <span>Clothes, Shoes, Confection</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/3184422/pexels-photo-3184422.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pharmaceutical" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-vial"></i></div>
+                    <span>Chemistry, Pharmaceutical</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Media" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-icons"></i></div>
+                    <span>Poligraphy, Advertising, PR, Media</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wood" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-tree"></i></div>
+                    <span>Wood and Wood Products</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/235925/pexels-photo-235925.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Agriculture" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-apple-alt"></i></div>
+                    <span>Agriculture, Food Products</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Science" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-microscope"></i></div>
+                    <span>Science, Research and Development</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Logistics" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-shipping-fast"></i></div>
+                    <span>Transport, Logistics</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Education" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-user-tie"></i></div>
+                    <span>Education, Advisory, Consulting</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tourism" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-plane"></i></div>
+                    <span>Tourism, Gastronomy, Hotel</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IT" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-laptop"></i></div>
+                    <span>Electronics, IT Industry, Telecom</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/2834917/pexels-photo-2834917.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sport" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-running"></i></div>
+                    <span>Sport and Recreation</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Power" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-bolt"></i></div>
+                    <span>Power Industry</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Legal" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-gavel"></i></div>
+                    <span>Legal Services</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/2559484/pexels-photo-2559484.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mining" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-mountain"></i></div>
+                    <span>Mining, Metallurgy</span>
+                </div>
+            </div>
+
+            <div class="industry-item">
+                <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Health" class="industry-img">
+                <div class="industry-content">
+                    <div class="ind-icon-box"><i class="fas fa-heartbeat"></i></div>
+                    <span>Health</span>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-about">
-                <h4>Siva Handlowy <span class="sp">sp. z o.o.</span></h4>
+                <h4>Siva <span class="accent">Handlowy</span> <span class="sp">sp. z o.o.</span></h4>
                 <p>Leading the way in European business representation and certification.</p>
             </div>
             <div class="footer-contact">
@@ -181,7 +338,6 @@
             &copy; 2025 Siva Handlowy. All rights reserved.
         </div>
     </footer>
-
 
     <script>
         function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
