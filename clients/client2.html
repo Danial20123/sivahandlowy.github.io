@@ -3,86 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Two | Siva Handlowy</title>
+<title>Client Dashboard | Siva Handlowy</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <style>
-:root{--primary:#0f172a;--accent:#f59e0b;--bg-light:#f8fafc;}
-body{margin:0;font-family:'Inter',sans-serif;background:var(--bg-light);}
-header{background:white;padding:20px 30px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-h1{margin:0;font-size:1.5rem;color:var(--primary);}
-#logout{background:var(--primary);color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;font-weight:600;}
-.container{max-width:900px;margin:30px auto;padding:0 20px;}
-.card{background:white;padding:25px;border-radius:20px;box-shadow:0 4px 6px rgba(0,0,0,0.1);margin-bottom:20px;}
-.card h2{margin-top:0;}
-.history-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9;}
+:root{
+  --primary:#0f172a;
+  --secondary:#1e293b;
+  --accent:#f59e0b;
+  --bg:#f1f5f9;
+  --white:#ffffff;
+  --success:#16a34a;
+  --warning:#f59e0b;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--secondary);
+}
+
+/* Header */
+header{
+  background:var(--white);
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  position:sticky;
+  top:0;
+}
+
+.logo{
+  font-weight:700;
+  font-size:1.4rem;
+  color:var(--primary);
+}
+
+.user-info{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.user-badge{
+  background:var(--primary);
+  color:white;
+  padding:8px 14px;
+  border-radius:50px;
+  font-size:0.9rem;
+}
+
+#logout{
+  background:transparent;
+  border:2px solid var(--primary);
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+#logout:hover{
+  background:var(--primary);
+  color:white;
+}
+
+/* Layout */
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+/* Cards */
+.card{
+  background:var(--white);
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.05);
+  margin-bottom:25px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card h2{
+  margin-bottom:20px;
+  font-size:1.2rem;
+  color:var(--primary);
+  border-left:4px solid var(--accent);
+  padding-left:10px;
+}
+
+/* History */
+.history-item{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid #e2e8f0;
+  font-size:0.95rem;
+}
+
+.history-item:last-child{
+  border-bottom:none;
+}
+
+/* Notifications */
+.notification{
+  background:#fff7ed;
+  border-left:5px solid var(--warning);
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+
+.notification strong{
+  color:var(--primary);
+}
+
+.notification small{
+  display:block;
+  margin-top:6px;
+  color:#64748b;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:0.85rem;
+  color:#64748b;
+}
 </style>
 </head>
 <body>
 
 <header>
-<h1>Welcome, Client Two</h1>
-<button id="logout" onclick="logout()">Logout</button>
+  <div class="logo">Siva Handlowy</div>
+  <div class="user-info">
+    <div class="user-badge">Client Two</div>
+    <button id="logout" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+  </div>
 </header>
 
-<div class="container">
+<div class="container" id="dashboard">
 
-<div class="card">
-<h2>Account Details</h2>
-<p><strong>Email:</strong> cd73920!$@siva.pl</p>
+  <!-- Notifications will appear here -->
+
+  <div class="card">
+    <h2><i class="fas fa-user-circle"></i> Account Details</h2>
+    <p><strong>Email:</strong> cd73920!$@siva.pl</p>
+    <p><strong>Status:</strong> <span style="color:var(--success);font-weight:600;">Active</span></p>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-clock"></i> Account History</h2>
+    <div class="history-item">
+      <span>Account Created</span>
+      <span>2026-02-15</span>
+    </div>
+  </div>
+
 </div>
 
-<div class="card">
-<h2>History</h2>
-<div class="history-item"><span>Account Created</span><span>2026-02-15</span></div>
-</div>
-
-</div>
+<footer>
+  © 2026 Siva Handlowy. All rights reserved.
+</footer>
 
 <script>
 function logout(){
-window.location.href="login.html";
+  localStorage.removeItem("sessionUser");
+  window.location.href = "../login.html";
 }
-</script>
-<script>
 
-const users = JSON.parse(localStorage.getItem("users"));
+const users = JSON.parse(localStorage.getItem("users")) || [];
 const session = JSON.parse(localStorage.getItem("sessionUser"));
 
 if(!session){
   window.location.href = "../login.html";
 }
 
-// Find updated user data
 const currentUser = users.find(u => u.id === session.id);
+const dashboard = document.getElementById("dashboard");
 
-// Notification Container
-const container = document.createElement("div");
-container.style.marginBottom = "20px";
+if(currentUser && currentUser.notifications && currentUser.notifications.length > 0){
 
-if(currentUser.notifications && currentUser.notifications.length > 0){
-
-  currentUser.notifications.forEach((n,index)=>{
-    const notifBox = document.createElement("div");
-    notifBox.style.background = "#fef3c7";
-    notifBox.style.padding = "12px";
-    notifBox.style.borderRadius = "8px";
-    notifBox.style.marginBottom = "10px";
-    notifBox.innerHTML = `
-      <strong>Notification:</strong><br>
-      ${n.message}<br>
+  currentUser.notifications.forEach(n => {
+    const notif = document.createElement("div");
+    notif.classList.add("notification");
+    notif.innerHTML = `
+      <strong>Notification</strong>
+      <div>${n.message}</div>
       <small>${n.date}</small>
     `;
-    container.appendChild(notifBox);
+    dashboard.prepend(notif);
   });
 
-  // OPTIONAL: clear notifications after showing
   currentUser.notifications = [];
   localStorage.setItem("users", JSON.stringify(users));
 }
-
-document.querySelector(".container").prepend(container);
-
 </script>
 
 </body>
