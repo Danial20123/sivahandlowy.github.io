@@ -14,6 +14,10 @@ function redirectPage() {
 
     else if (input === "SHS/CE/PK-25002 CE") {
       window.location.href = "certificates/2-sivaahndlowy certificate CE-25 Fendema.pdf";
+    } 
+
+    else if (input === "SHS/CE/PK-26001 CE") {
+      window.location.href = "certificates/1-sivaahndlowy certificate CE-26.pdf";
     }
         
         else if (input === "SHS/QMS/PK-24002 CE") {
